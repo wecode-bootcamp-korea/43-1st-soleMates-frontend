@@ -11,8 +11,7 @@
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "sass": "^1.58.3",
-    "styled-components": "^5.3.8",
-    "styled-reset": "^4.4.5",
+    "stylelint-config-standard-scss": "^7.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,6 +45,7 @@
     "stylelint": "^14.16.1",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-recommended-scss": "^9.0.1",
     "stylelint-scss": "^4.4.0"
   }
 }
