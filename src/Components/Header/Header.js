@@ -15,6 +15,14 @@ const Header = () => {
           <a href="#none" className="link_menu">
             신발
           </a>
+          <div className="wrap_submenu">
+            <ul className="list_submenu">
+              <li>구두</li>
+              <li>부츠</li>
+              <li>샌들</li>
+              <li>전체보기</li>
+            </ul>
+          </div>
         </li>
         <li>
           <a href="#none" className="link_menu">
