@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  height: 90px;
+  padding: 0 120px;
+  align-items: center;
+  background-color: #fff;
+
+  .tit_logo {
+    float: left;
+
+    .img_g {
+      height: 45px;
+    }
+  }
+
+  .list_menu {
+    display: flex;
+    padding-left: 30px;
+
+    .link_menu {
+      display: block;
+      position: relative;
+      padding: 15px;
+      font-weight: 500;
+      color: #000;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none;
+    }
+
+    .link_menu::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background-color: #fc0;
+      transition: all 0.3s;
+      content: '';
+    }
+    li:hover .link_menu::after {
+      width: 100%;
+    }
+  }
+
+  .util_menu {
+    margin-left: auto;
+
+    .link_util {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    .ico_shop {
+      width: 40px;
+      height: 40px;
+    }
+    .ico_cart {
+      background-position-x: -100px;
+    }
+    .ico_wish {
+      background-position-x: -150px;
+    }
+    .ico_search {
+      margin: 13px;
+      background-position-x: -200px;
+    }
+  }
+  .form_search {
+    display: inline-block;
+    margin-left: 30px;
+    height: 90px;
+    background-color: #222;
+    vertical-align: middle;
+
+    .inp_search {
+      width: 210px;
+      height: 90px;
+      margin-left: 30px;
+      padding: 5px;
+      border-color: transparent;
+      background-color: transparent;
+      box-sizing: border-box;
+    }
+    .inp_search::placeholder {
+      font-size: 15px;
+      line-height: 20px;
+      color: #f2f2f2;
+    }
+  }
+}

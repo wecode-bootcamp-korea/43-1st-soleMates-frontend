@@ -1,0 +1,20 @@
+.banner{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    height:70px;
+    text-align:center;
+    background-color: #e5e5e5;
+  }
+  .tit_noti{
+    font-size:14px;
+    line-height:20px;
+    color:#222;
+    font-weight:bold;
+  }
+  .desc_noti{
+    padding-top:2px;
+    font-size: 14px;
+    color:#555;
+    line-height:18px
+}
