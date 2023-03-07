@@ -2,31 +2,42 @@ import React, { useState } from 'react';
 import './SignUp.scss';
 
 const SignUp = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pw, setPw] = useState('');
-  const [pwCorrect, setPwCorrect] = useState('');
-  const [changeButtonColor, setChangeButtonColor] = useState('');
+  const [inputValues, setInputValues] = useState({
+    name: '',
+    email: '',
+    pw: '',
+    pwCorrect: '',
+  });
 
-  const saveName = e => {
-    setName(e.target.value);
-  };
+  const { name, email, pw, pwCorrect } = inputValues;
+  console.log(inputValues);
 
-  const saveEmail = e => {
-    setEmail(e.target.value);
-  };
-  const savePw = e => {
-    setPw(e.target.value);
-  };
-  const savePwCorrect = e => {
-    setPwCorrect(e.target.value);
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
   };
 
-  const onsubmit = () => {
-    if (name.length >= 2 && pw === pwCorrect) {
-      alert('회원가입 성공');
+  const conditions = {
+    name: name.length === 0 || name.length >= 2,
+    email:
+      email.length === 0 ||
+      email.match('[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*'),
+    pw: pw.length === 0 || pw.length >= 4,
+    pwCorrect: pw === pwCorrect,
+  };
+
+  console.log(conditions);
+  const onclick = event => {
+    if (
+      name.length >= 2 &&
+      pw.length >= 4 &&
+      pwCorrect === pw &&
+      email.match('[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*')
+    ) {
+      alert('성공');
     } else {
       alert('실패');
+      event.preventDefault();
     }
   };
 
@@ -34,52 +45,62 @@ const SignUp = () => {
     <form className="sign_up">
       <strong className="title">회원가입</strong>
       <div className="input_box">
-        <label className="input_title">이름</label>
+        <label className={`input_${conditions.name ? 'title' : 'warn'}`}>
+          이름
+        </label>
         <input
+          name="name"
           type="text"
           className="input"
-          onChange={saveName}
+          onChange={handleInput}
           value={name}
           placeholder="이름"
         />
       </div>
       <div className="input_box">
-        <label className="input_title">이메일</label>
+        <label className={`input_${conditions.email ? 'title' : 'warn'}`}>
+          이메일
+        </label>
         <input
+          name="email"
           className="input"
           type="email"
-          onChange={saveEmail}
+          onChange={handleInput}
           pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*"
-          minLength={1}
           value={email}
           placeholder="이메일"
         />
       </div>
       <div className="input_box">
-        <label className="input_title">비밀번호</label>
+        <label className={`input_${conditions.pw ? 'title' : 'warn'}`}>
+          비밀번호
+        </label>
         <input
+          name="pw"
           className="input"
           type="password"
           autoComplete="off"
-          onChange={savePw}
-          minLength={4}
+          onChange={handleInput}
           value={pw}
           placeholder="비밀번호"
         />
       </div>
       <div className="input_box">
-        <label className="input_title">비밀번호 확인</label>
+        <label className={`input_${conditions.pwCorrect ? 'title' : 'warn'}`}>
+          비밀번호 확인
+        </label>
         <input
+          name="pwCorrect"
           className="input"
           type="password"
           autoComplete="off"
-          onChange={savePwCorrect}
+          onChange={handleInput}
           value={pwCorrect}
           placeholder="비밀번호 확인"
         />
       </div>
 
-      <button onSubmit={onsubmit} type="submit" className="create_id">
+      <button onClick={onclick} type="submit" className="create_id">
         회원가입
       </button>
     </form>

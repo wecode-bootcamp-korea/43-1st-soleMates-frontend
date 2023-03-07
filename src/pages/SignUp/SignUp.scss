@@ -12,6 +12,12 @@
 
   .input_box {
     height: 80px;
+    .input_title {
+      font-size: 20px;
+    }
+    .input_warn {
+      color: #ff0000;
+    }
     .input {
       margin: 0px 10px 10px 0px;
       height: 50px;
