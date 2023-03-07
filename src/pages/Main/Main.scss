@@ -1,0 +1,122 @@
+.main {
+  padding: 0 120px;
+
+  .bnr_main {
+    display: flex;
+    height: 900px;
+    background-image: url(../../../public/images/Main/@bnr_1440x900.jpeg);
+    flex-direction: column;
+    justify-content: center;
+
+    .tit_bnr {
+      font-weight: bold;
+      font-size: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .txt_bnr {
+      padding-top: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  .list_products {
+    padding-top: 30px;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      width: 25%;
+      vertical-align: top;
+    }
+
+    .link_products {
+      display: block;
+      position: relative;
+    }
+
+    li:hover .link_products::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background-color: rgba(0, 0, 0, 0.04);
+      box-sizing: border-box;
+      content: '';
+    }
+
+    .txt_name {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 14px;
+    }
+  }
+
+  .bnr_public {
+    display: flex;
+    position: relative;
+    padding-top: 50px;
+
+    .bnr_text {
+      position: absolute;
+      top: 50%;
+      left: 80px;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    .bnr_text.type_left80 {
+      left: auto;
+      left: 0;
+      text-align: left;
+    }
+
+    .bnr_text.type_right {
+      left: auto;
+      right: 100px;
+      text-align: right;
+    }
+
+    .tit_bnr {
+      font-weight: bold;
+      font-size: 50px;
+      line-height: 60px;
+    }
+
+    .desc_bnr {
+      margin-bottom: 50px;
+      padding-top: 30px;
+      font-size: 15px;
+      line-height: 25px;
+      color: #888;
+      letter-spacing: -0.025em;
+    }
+
+    .btn_buy {
+      width: 180px;
+      height: 46px;
+      font-weight: bold;
+      color: #fff;
+      font-size: 15px;
+      background-color: #222;
+      transition: all 0.3s;
+    }
+
+    .btn_buy:hover {
+      color: #222;
+      border-radius: 10px;
+      background-color: #ffcc00;
+    }
+
+    .bnr_img {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="70" viewBox="0 0 240 70">
+  <defs>
+    <clipPath id="clip-아트보드_2">
+      <rect width="240" height="70"/>
+    </clipPath>
+  </defs>
+  <g id="아트보드_2" data-name="아트보드 – 2" clip-path="url(#clip-아트보드_2)">
+    <g id="ico_주문배송조회" transform="translate(438.828 -631.447)">
+      <g id="그룹_3535" data-name="그룹 3535" transform="translate(-557.842 253.305)">
+        <rect id="사각형_4834" data-name="사각형 4834" width="40" height="40" transform="translate(169.014 378.142)" fill="none"/>
+        <rect id="사각형_22776" data-name="사각형 22776" width="32" height="32.001" transform="translate(173.015 382.143)" fill="none"/>
+        <g id="그룹_15247" data-name="그룹 15247" transform="translate(175.015 387.109)">
+          <ellipse id="타원_822" data-name="타원 822" cx="2.982" cy="2.982" rx="2.982" ry="2.982" transform="translate(3.579 16.7)" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <ellipse id="타원_822-2" data-name="타원 822" cx="2.982" cy="2.982" rx="2.982" ry="2.982" transform="translate(19.578 16.7)" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="패스_10789" data-name="패스 10789" d="M-709.035-600.8h1.542A1.192,1.192,0,0,0-706.3-602v-16.7a1.193,1.193,0,0,0-1.193-1.193h-14.315A1.193,1.193,0,0,0-723-618.7v8.35" transform="translate(734.929 619.889)" fill="none" stroke="#191919" stroke-linecap="round" stroke-width="2"/>
+          <path id="패스_10790" data-name="패스 10790" d="M-691.361-599.189H-693.8a1.2,1.2,0,0,1-1.2-1.193V-606.9a1.191,1.191,0,0,1,.536-.992l2.762-1.826a1.2,1.2,0,0,0,.449-.55l1.965-4.87a1.2,1.2,0,0,1,1.117-.75h5.1" transform="translate(695 618.275)" fill="none" stroke="#191919" stroke-linecap="round" stroke-width="2"/>
+          <line id="선_288" data-name="선 288" x1="9.663" transform="translate(9.581 19.086)" fill="none" stroke="#191919" stroke-linecap="round" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+    <g id="로그인" transform="translate(-1350 -60)">
+      <g id="ico_마이페이지" transform="translate(1646.156 -571.447)">
+        <rect id="사각형_4463" data-name="사각형 4463" width="40" height="40" transform="translate(-296.156 631.447)" fill="none"/>
+        <rect id="사각형_1402" data-name="사각형 1402" width="32" height="32" transform="translate(-292.156 635.447)" fill="none" opacity="0.3"/>
+      </g>
+      <g id="그룹_18945" data-name="그룹 18945" transform="translate(1875.265 -812.932)">
+        <path id="패스_11345" data-name="패스 11345" d="M-513.265,900.162v1.924a1.928,1.928,0,0,0,2,1.846h16a1.928,1.928,0,0,0,2-1.846V881.778a1.927,1.927,0,0,0-2-1.846h-16a1.928,1.928,0,0,0-2,1.846V883.7" transform="translate(0 1)" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <g id="그룹_18946" data-name="그룹 18946" transform="translate(-1)">
+          <path id="패스_11346" data-name="패스 11346" d="M-505.738,888.018l4.945,4.945-5.132,5.132" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="패스_11347" data-name="패스 11347" d="M12.471,0H-3" transform="translate(-513.265 892.963)" fill="none" stroke="#191919" stroke-linecap="round" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+    <g id="찜" transform="translate(-32)">
+      <g id="그룹_21173" data-name="그룹 21173">
+        <path id="패스_11391" data-name="패스 11391" d="M95.419,2511.552l-10.407-10.066a6.528,6.528,0,0,1,0-9.447,7.074,7.074,0,0,1,9.765,0l.641.622.642-.622a7.073,7.073,0,0,1,9.765,0,6.527,6.527,0,0,1,0,9.447Z" transform="translate(106.51 -2480.584)" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+      <rect id="사각형_24188" data-name="사각형 24188" width="40" height="40" transform="translate(182)" fill="none"/>
+    </g>
+    <g id="장바구니">
+      <g id="그룹_1876" data-name="그룹 1876" transform="translate(104.053 5.688)">
+        <g id="그룹_18551" data-name="그룹 18551" transform="translate(5.946 1.311)">
+          <g id="사각형_22247" data-name="사각형 22247" transform="translate(0 10.924)" fill="none" stroke="#191919" stroke-width="2">
+            <path d="M1,0H19.389a1,1,0,0,1,1,1V9.292a6,6,0,0,1-6,6H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z" stroke="none"/>
+            <path d="M1-1H19.389a2,2,0,0,1,2,2V9.292a7,7,0,0,1-7,7H1a2,2,0,0,1-2-2V1A2,2,0,0,1,1-1Z" fill="none"/>
+          </g>
+          <g id="그룹_15291" data-name="그룹 15291" transform="translate(4.23)">
+            <path id="패스_9684" data-name="패스 9684" d="M396.477,8.6V4.754a5.969,5.969,0,0,1,6-5.754,5.754,5.754,0,0,1,5.754,5.754V6.672" transform="translate(-396.477 1)" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+          </g>
+          <line id="선_305" data-name="선 305" y1="3.672" transform="translate(4.196 9.952)" fill="none" stroke="#191919" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+        </g>
+      </g>
+      <rect id="사각형_24189" data-name="사각형 24189" width="40" height="40" transform="translate(100)" fill="none"/>
+    </g>
+    <g id="그룹_21174" data-name="그룹 21174" transform="translate(30)">
+      <rect id="사각형_24190" data-name="사각형 24190" width="40" height="40" transform="translate(170)" fill="none"/>
+      <g id="ico_search" transform="translate(178 8)">
+        <rect id="사각형_21386" data-name="사각형 21386" width="24" height="24" fill="none"/>
+        <circle id="타원_563" data-name="타원 563" cx="6.079" cy="6.079" r="6.079" transform="translate(5.107 5.107)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/>
+        <line id="선_269" data-name="선 269" x2="4.113" y2="4.113" transform="translate(15.702 15.703)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <path id="패스_11392" data-name="패스 11392" d="M6895.284,563.327a1,1,0,0,1-.707-.293l-5.327-5.327a1,1,0,0,1,1.414-1.414l4.62,4.62,4.62-4.62a1,1,0,0,1,1.414,1.414l-5.327,5.327A1,1,0,0,1,6895.284,563.327Z" transform="translate(-546 6941.611) rotate(-90)" fill="#191919"/>
+  </g>
+</svg>
