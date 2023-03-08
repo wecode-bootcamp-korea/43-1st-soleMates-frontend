@@ -1,5 +1,17 @@
 .group_bnr {
+  overflow: hidden;
   white-space: nowrap;
+
+  .btn_arr {
+    width: 20px;
+    background-color: #000;
+  }
+
+  li {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
 
   .bnr_main {
     display: flex;

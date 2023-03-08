@@ -3,7 +3,6 @@ import './BnrPublic.scss';
 
 const BnrPublic = props => {
   const { title, txt, img, btn, link, className } = props;
-  console.log(props);
   return (
     <div className="bnr_public">
       <div className={`bnr_text ${className}`}>

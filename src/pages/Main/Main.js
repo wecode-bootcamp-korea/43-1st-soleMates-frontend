@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Slide from './Slide/Slide';
+import MainSlide from './MainSlide/MainSlide';
 import MainTitle from './MainTitle/MainTitle';
 import ListProducts from './ListProducts/ListProducts';
 import BnrPublic from './BnrPublic/BnrPublic';
@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div className="main">
       <h2 className="screen_out">닥터마틴 메인</h2>
-      <Slide slides={slides} />
+      <MainSlide slides={slides} />
       <MainTitle
         title={'Shop By STYLE'}
         txt={'신상품 보러 가기'}
@@ -65,7 +65,11 @@ const Main = () => {
   );
 };
 
-const slides = [{ id: 1, img_url: '../images/Main/@bnr_1440x900.jpeg' }];
+const slides = [
+  { id: 1, img_url: '../images/Main/@bnr_1440x900.jpeg' },
+  { id: 2, img_url: '../images/Main/@bnr2_1440x900.png' },
+  { id: 3, img_url: '../images/Main/@bnr3_1440x900.png' },
+];
 
 const NEW_PRODUCT_LIST = [
   {
