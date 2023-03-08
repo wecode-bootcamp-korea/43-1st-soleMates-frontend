@@ -10,7 +10,6 @@ const SignUp = () => {
   });
 
   const { name, email, pw, pwCorrect } = inputValues;
-  console.log(inputValues);
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -26,7 +25,6 @@ const SignUp = () => {
     pwCorrect: pw === pwCorrect,
   };
 
-  console.log(conditions);
   const onclick = event => {
     if (
       name.length >= 2 &&
