@@ -1,10 +1,41 @@
 .group_bnr {
   overflow: hidden;
   white-space: nowrap;
+  position: relative;
 
   .btn_arr {
-    width: 20px;
-    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    opacity: 0.5;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover .btn_arr {
+    overflow: hidden;
+    left: 40px;
+    opacity: 1;
+    border-radius: 5px;
+  }
+
+  .btn_arr.btn_next {
+    left: auto;
+    right: 0;
+  }
+
+  &:hover .btn_next {
+    right: 40px;
+  }
+
+  .btn_arr .ico_shop {
+    width: 64px;
+    height: 96px;
+    background-position: 0px -120px;
+  }
+
+  .btn_arr.btn_next .ico_shop {
+    background-position: -80px -120px;
   }
 
   li {

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="123" viewBox="0 0 240 123">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="269" viewBox="0 0 240 269">
   <defs>
     <clipPath id="clip-아트보드_2">
-      <rect width="240" height="123"/>
+      <rect width="240" height="269"/>
     </clipPath>
   </defs>
   <g id="아트보드_2" data-name="아트보드 – 2" clip-path="url(#clip-아트보드_2)">
@@ -97,9 +97,13 @@
         </g>
       </g>
     </g>
-    <rect id="사각형_24192" data-name="사각형 24192" width="32" height="48" transform="translate(132 118) rotate(180)" fill="#fff" opacity="0.7"/>
-    <rect id="사각형_24193" data-name="사각형 24193" width="32" height="48" transform="translate(50 70)" fill="#fff" opacity="0.7"/>
-    <path id="패스_11392-2" data-name="패스 11392" d="M14207.646,2427.032l-7,7,7,7" transform="translate(14320.146 2527.531) rotate(180)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1"/>
-    <path id="패스_11393" data-name="패스 11393" d="M7,14,0,7,7,0" transform="translate(62.5 86.499)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1"/>
+    <g id="그룹_21177" data-name="그룹 21177" transform="translate(30)">
+      <rect id="사각형_24192" data-name="사각형 24192" width="64" height="96" transform="translate(114 216) rotate(180)" fill="#fff" opacity="0.7"/>
+      <path id="패스_11392-2" data-name="패스 11392" d="M14,0,0,14,14,28" transform="translate(91.5 182.501) rotate(180)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="그룹_21176" data-name="그룹 21176">
+      <rect id="사각형_24193" data-name="사각형 24193" width="64" height="96" transform="translate(0 120)" fill="#fff" opacity="0.7"/>
+      <path id="패스_11393" data-name="패스 11393" d="M14,28,0,14,14,0" transform="translate(23.5 154.499)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="2"/>
+    </g>
   </g>
 </svg>

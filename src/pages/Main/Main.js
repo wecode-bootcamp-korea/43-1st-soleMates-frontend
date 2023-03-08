@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div className="main">
       <h2 className="screen_out">닥터마틴 메인</h2>
-      <MainSlide slides={slides} />
+      <MainSlide />
       <MainTitle
         title={'Shop By STYLE'}
         txt={'신상품 보러 가기'}
@@ -64,12 +64,6 @@ const Main = () => {
     </div>
   );
 };
-
-const slides = [
-  { id: 1, img_url: '../images/Main/@bnr_1440x900.jpeg' },
-  { id: 2, img_url: '../images/Main/@bnr2_1440x900.png' },
-  { id: 3, img_url: '../images/Main/@bnr3_1440x900.png' },
-];
 
 const NEW_PRODUCT_LIST = [
   {
