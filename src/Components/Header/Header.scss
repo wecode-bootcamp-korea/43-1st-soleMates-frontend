@@ -47,6 +47,7 @@
       right: 0;
       width: 100%;
     }
+
     .wrap_submenu {
       display: none;
       position: fixed;
@@ -60,6 +61,7 @@
       background-color: #fff;
       color: #000;
     }
+
     li:hover .wrap_submenu {
       display: block;
     }
@@ -140,25 +142,52 @@
 
   .form_search {
     display: inline-block;
+    position: relative;
+    width: 250px;
     margin-left: 30px;
     height: 90px;
     background-color: #222;
     vertical-align: middle;
+    transition: all 0.3s;
 
     .inp_search {
-      width: 210px;
+      width: 250px;
       height: 90px;
-      margin-left: 30px;
-      padding: 5px;
+      padding: 20px 60px 20px 30px;
       border-color: transparent;
       background-color: transparent;
       box-sizing: border-box;
     }
 
-    .inp_search::placeholder {
+    .inp_search::placeholder,
+    .inp_search::-webkit-placeholder,
+    .inp_search::-ms-placeholder {
       font-size: 15px;
       line-height: 20px;
       color: #f2f2f2;
     }
+
+    .btn_search {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      color: #f2f2f2;
+      transition: all 0.3s;
+    }
+  }
+
+  &.fixed .wrap_submenu {
+    top: 90px;
+  }
+
+  &.fixed .form_search {
+    width: 90px;
+  }
+
+  &.fixed .inp_search {
+    display: none;
+  }
+  &.fixed .btn_search {
+    right: 10px;
   }
 }

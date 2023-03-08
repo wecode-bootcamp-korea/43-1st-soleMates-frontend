@@ -1,9 +1,31 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './Header.scss';
 
 const Header = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const scrollTop = window.pageYOffset;
+      const threshold = 100; // 스크롤 위치를 지정합니다.
+
+      if (scrollTop > threshold) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header${isSticky ? ' fixed' : ''}`}>
       <h1 className="tit_logo">
         <a href="/" className="link_logo">
           <img src="../images/Header/img_logo.png" alt="" className="img_g" />
