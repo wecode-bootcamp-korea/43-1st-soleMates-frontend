@@ -15,13 +15,116 @@ const Header = () => {
           <a href="#none" className="link_menu">
             신발
           </a>
+          <strong className="screen_out">중분류</strong>
           <div className="wrap_submenu">
-            <ul className="list_submenu">
-              <li>구두</li>
-              <li>부츠</li>
-              <li>샌들</li>
-              <li>전체보기</li>
-            </ul>
+            <dl className="list_submenu">
+              <dt>
+                <a href="#none" className="link_submenu">
+                  NEW IN
+                </a>
+              </dt>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  여성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  남성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  부츠
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  슈즈
+                </a>
+              </dd>
+            </dl>
+            <dl className="list_submenu">
+              <dt>
+                <a href="#none" className="link_submenu">
+                  BEST
+                </a>
+              </dt>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  여성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  남성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  부츠
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  슈즈
+                </a>
+              </dd>
+            </dl>
+            <dl className="list_submenu">
+              <dt>
+                <a href="#none" className="link_submenu">
+                  BEST
+                </a>
+              </dt>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  여성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  남성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  부츠
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  슈즈
+                </a>
+              </dd>
+            </dl>
+            <dl className="list_submenu">
+              <dt>
+                <a href="#none" className="link_submenu">
+                  BEST
+                </a>
+              </dt>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  여성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  남성
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  부츠
+                </a>
+              </dd>
+              <dd>
+                <a href="#none" className="link_submenu">
+                  슈즈
+                </a>
+              </dd>
+            </dl>
           </div>
         </li>
         <li>

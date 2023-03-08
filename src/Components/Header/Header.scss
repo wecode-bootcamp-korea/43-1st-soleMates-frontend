@@ -23,19 +23,19 @@
     .link_menu {
       display: block;
       position: relative;
-      padding: 15px;
+      padding: 0 15px;
       font-weight: 500;
       color: #000;
       font-size: 14px;
-      line-height: 20px;
+      line-height: 90px;
       text-decoration: none;
     }
 
     .link_menu::after {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 30px;
+      right: 30px;
+      bottom: 0px;
       width: 0;
       height: 3px;
       background-color: #fc0;
@@ -43,26 +43,73 @@
       content: '';
     }
     li:hover .link_menu::after {
-      width: 100%;
-    }
-
-    .wrap_submenu {
-      display: none;
-      background-color: #fff;
-      color: #000;
-      padding: 5px 0;
-      position: fixed;
       left: 0;
       right: 0;
-      border: 1px solid #e5e5e5;
+      width: 100%;
+    }
+    .wrap_submenu {
+      display: none;
+      position: fixed;
+      top: 160px;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      min-width: 1440px;
+      padding: 30px 0 26px 175px;
+      border: 1px solid #f2f2f2;
+      background-color: #fff;
+      color: #000;
     }
     li:hover .wrap_submenu {
       display: block;
-      opacity: 1;
     }
+
     .list_submenu {
       display: inline-block;
+      padding: 0 20px;
       vertical-align: top;
+    }
+
+    .list_submenu dt {
+      position: relative;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #000;
+      letter-spacing: 0.025em;
+    }
+
+    .list_submenu dt::after {
+      position: absolute;
+      right: -5px;
+      top: 11px;
+      width: 4px;
+      height: 4px;
+      border-top: 2px solid #999;
+      border-right: 2px solid #999;
+      transition: all 0.3s;
+      transform: rotate(45deg);
+      content: '';
+    }
+
+    .wrap_submenu dl:hover dt::after {
+      right: -2px;
+    }
+
+    .list_submenu dd {
+      font-size: 13px;
+      color: #222;
+    }
+
+    .list_submenu .link_submenu {
+      display: block;
+      padding: 4px 10px;
+      line-height: 20px;
+    }
+
+    .list_submenu .link_submenu:hover {
+      font-weight: bold;
+      text-decoration: none;
     }
   }
 
@@ -90,6 +137,7 @@
       background-position-x: -200px;
     }
   }
+
   .form_search {
     display: inline-block;
     margin-left: 30px;
@@ -106,6 +154,7 @@
       background-color: transparent;
       box-sizing: border-box;
     }
+
     .inp_search::placeholder {
       font-size: 15px;
       line-height: 20px;
