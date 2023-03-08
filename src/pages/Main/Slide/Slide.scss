@@ -1,0 +1,24 @@
+.group_bnr {
+  white-space: nowrap;
+
+  .bnr_main {
+    display: flex;
+    height: 900px;
+    flex-direction: column;
+    justify-content: center;
+
+    .tit_bnr {
+      font-weight: bold;
+      font-size: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .txt_bnr {
+      padding-top: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}
