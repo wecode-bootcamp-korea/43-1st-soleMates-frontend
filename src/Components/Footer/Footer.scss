@@ -1,16 +1,19 @@
 .footer {
   margin-top: 100px;
   background-color: #222;
+
   .inner_footer {
     display: flex;
     width: 1440px;
     padding: 50px 0;
     margin: 0 auto;
   }
+
   .list_info {
     width: 705px;
     margin-left: -10px;
   }
+
   .list_info li {
     display: inline-block;
     position: relative;
@@ -20,6 +23,7 @@
     line-height: 25px;
     font-size: 13px;
   }
+
   .list_info li::after {
     position: absolute;
     right: 0;
@@ -29,9 +33,11 @@
     background-color: #888;
     content: '';
   }
+
   .list_info li:last-child::after {
     content: none;
   }
+
   .txt_copy {
     padding-top: 20px;
     line-height: 20px;

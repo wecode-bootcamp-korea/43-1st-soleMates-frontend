@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="wrap_info">
           <strong className="screen_out">닥터마틴 서비스 이용정보</strong>
           <ul className="list_info">
-            {FOOTER_INFO_LIST.map(info => (
-              <li key={info.id}>{info.text}</li>
+            {FOOTER_INFO_LIST.map(({ id, text }) => (
+              <li key={id}>{text}</li>
             ))}
           </ul>
           <p className="txt_copy">
