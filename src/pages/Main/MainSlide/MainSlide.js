@@ -28,7 +28,7 @@ const MainSlide = props => {
   }, [currentSlide]);
 
   return (
-    <div className="group_bnr">
+    <div className="main_slide">
       <strong className="screen_out">메인 배너 슬라이드</strong>
       <ul className="list_slide" ref={slideRef}>
         {slides.map(items => (
