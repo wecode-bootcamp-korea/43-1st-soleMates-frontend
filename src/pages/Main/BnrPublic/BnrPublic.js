@@ -13,7 +13,7 @@ const BnrPublic = props => {
         </a>
       </div>
       <div className="bnr_img">
-        <img src={img} />
+        <img src={img} className="img_g" />
       </div>
     </div>
   );
