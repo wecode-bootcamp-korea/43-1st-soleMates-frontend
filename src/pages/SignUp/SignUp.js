@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 // import Input from './Input';
 import './SignUp.scss';
 
@@ -11,6 +12,10 @@ const SignUp = () => {
   });
 
   const { name, email, pw, pwCorrect } = inputValues;
+
+  const location = useLocation();
+  const CURRENT_DATA =
+    location.pathname === '/login' ? LOGIN_DATA : SIGNUP_DATA;
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -46,56 +51,71 @@ const SignUp = () => {
         .then(data => {
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
+            location.pathname = '/login';
           } else {
             alert('중복된 이메일입니다.');
             event.preventDefault();
           }
         });
+    } else {
+      alert('다시 확인해주세요');
     }
-
-    return null;
   };
+
+  const logIn = event => {
+    if (pw.length >= 4 && checkEmail) {
+      event.preventDefault();
+      fetch('http://10.58.52.150:8000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          email: `${email}`,
+          password: `${pw}`,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.accessToken) {
+            localStorage.setItem('token', data.accessToken);
+          } else {
+            alert('잘못된 이메일입니다.');
+            event.preventDefault();
+          }
+        });
+    } else {
+      alert('다시 확인해주세요');
+    }
+  };
+
+  const submit = location.pathname === '/login' ? logIn : signUp;
 
   return (
     <form className="sign_up">
-      <strong className="title">회원가입</strong>
-
-      {Object.keys(inputValues).map(key => {
-        const value = inputValues[key];
-        const label =
-          key === 'name'
-            ? '이름'
-            : key === 'pw'
-            ? '비밀번호'
-            : key === 'email'
-            ? '이메일'
-            : key === 'pwCorrect'
-            ? '비밀번호 확인'
-            : key;
-        const type = key.includes('pw')
-          ? 'password'
-          : key === 'email'
-          ? 'email'
-          : 'text';
-        const className = `input_${conditions[key] ? 'title' : 'warn'}`;
-
+      <strong className="title">
+        {location.pathname === '/login' ? '로그인' : '회원가입'}
+      </strong>
+      {CURRENT_DATA.map(({ id, title, type, name }) => {
         return (
-          <div className="input_box" key={key}>
-            <label className={className}>{label}</label>
+          <div className="input_box" key={id}>
+            <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
+              {title}
+            </label>
             <input
-              name={key}
+              name={name}
               className="input"
               type={type}
-              autoComplete={key.includes('pw') ? 'off' : undefined}
+              autoComplete={name.includes('pw') ? 'off' : undefined}
               onChange={handleInput}
-              value={value}
-              placeholder={label}
+              value={inputValues[name]}
+              placeholder={title}
             />
           </div>
         );
       })}
 
-      <button onClick={signUp} type="submit" className="create_id">
+      <button onClick={submit} type="submit" className="create_id">
         회원가입
       </button>
     </form>
@@ -103,3 +123,15 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+const SIGNUP_DATA = [
+  { id: 1, title: '이름', type: 'text', name: 'name' },
+  { id: 2, title: '이메일', type: 'email', name: 'email' },
+  { id: 3, title: '비밀번호', type: 'password', name: 'pw' },
+  { id: 4, title: '비밀번호확인', type: 'password', name: 'pwCorrect' },
+];
+
+const LOGIN_DATA = [
+  { id: 1, title: '이메일', type: 'email', name: 'email' },
+  { id: 2, title: '비밀번호', type: 'password', name: 'pw' },
+];
