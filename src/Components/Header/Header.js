@@ -169,8 +169,12 @@ const Header = () => {
         <a href="#none" className="link_util">
           <span className="ico_shop">로그인</span>
         </a>
-        <a href="#none" className="link_util">
+        <a href="#none" className="link_util type_cart">
           <span className="ico_shop ico_cart">장바구니</span>
+          <span className="num_util">
+            <span className="screen_out">담은 상품 수</span>99+
+            <span className="screen_out">개</span>
+          </span>
         </a>
         <a href="#none" className="link_util">
           <span className="ico_shop ico_wish">찜 목록</span>
