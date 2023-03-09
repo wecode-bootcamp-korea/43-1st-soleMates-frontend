@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import './Banner.scss';
 const Banner = () => {
   const TOTAL_SLIDES = TOP_SLIDE.length - 1;
-  console.log(TOTAL_SLIDES);
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 

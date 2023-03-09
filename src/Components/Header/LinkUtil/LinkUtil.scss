@@ -1,0 +1,46 @@
+.util_menu {
+  margin-left: auto;
+
+  .link_util {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+
+  .ico_shop {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ico_cart {
+    background-position-x: -100px;
+  }
+
+  .ico_wish {
+    background-position-x: -150px;
+  }
+
+  .ico_search {
+    margin: 13px;
+    background-position-x: -200px;
+  }
+  .type_cart {
+    position: relative;
+  }
+
+  .num_util {
+    position: absolute;
+    top: 5px;
+    left: 22px;
+    min-width: 20px;
+    padding: 0 5px;
+    border-radius: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 20px;
+    color: #000;
+    background-color: #fc0;
+    box-sizing: border-box;
+  }
+}
