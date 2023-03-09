@@ -4,7 +4,7 @@ import './Header.scss';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
-
+  const [totalCart, setTotalCart] = useState(99);
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.pageYOffset;
@@ -172,7 +172,8 @@ const Header = () => {
         <a href="#none" className="link_util type_cart">
           <span className="ico_shop ico_cart">장바구니</span>
           <span className="num_util">
-            <span className="screen_out">담은 상품 수</span>99+
+            <span className="screen_out">담은 상품 수</span>
+            {`${totalCart >= 99 ? '99+' : totalCart}`}
             <span className="screen_out">개</span>
           </span>
         </a>
