@@ -1,0 +1,135 @@
+.detail {
+  display: flex;
+  justify-content: center;
+
+  .product_img_list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+
+    .product_img {
+      margin: 10px;
+      width: 550px;
+    }
+  }
+
+  .product_detail_option {
+    position: sticky;
+    top: 40px;
+    width: 520px;
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .ico_sharing {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      background-position: 0 -70px;
+    }
+
+    .ico_like {
+      width: 40px;
+      height: 40px;
+      background-position: -150px 0;
+    }
+
+    .product_name {
+      display: block;
+      margin-bottom: 60px;
+      font-size: 30px;
+    }
+    .product_size {
+      padding-top: 50px;
+      border-top: 1px #ddd solid;
+
+      .product_size_button_not_check {
+        width: 168px;
+        height: 36px;
+        margin: 2px;
+        padding-left: 5px;
+        border: 1px #666 solid;
+      }
+
+      .product_size_button_check {
+        width: 168px;
+        height: 36px;
+        margin: 2px;
+        padding-left: 5px;
+        border: 1px #666 solid;
+        background-color: #333;
+        color: #fff;
+      }
+    }
+
+    .select_product_color {
+      width: 60px;
+      height: 60px;
+      border: 3px solid #333;
+      border-radius: 50%;
+      margin: 20px 10px 0 0;
+    }
+
+    .product_count {
+      display: flex;
+      align-items: baseline;
+      width: 520px;
+      height: 45px;
+      border-bottom: 1px #ddd solid;
+      padding-bottom: 30px;
+      margin-bottom: 20px;
+
+      .product_amount {
+        margin: 0 20px;
+        font-size: 25px;
+      }
+
+      .product_minus {
+        width: 45px;
+        height: 45px;
+        font-size: 45px;
+      }
+
+      .product_plus {
+        width: 45px;
+        height: 45px;
+        font-size: 45px;
+      }
+
+      .product_price {
+        font-size: 30px;
+      }
+    }
+
+    .button_list {
+      display: flex;
+      width: 100%;
+      height: 60px;
+
+      .cart {
+        width: 50%;
+        height: 100%;
+        margin: 10px;
+        background-color: #fddb01;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .buy {
+        width: 50%;
+        height: 100%;
+        margin: 10px;
+        background-color: #333;
+        color: #fddb01;
+        font-weight: bold;
+        font-size: 25px;
+      }
+    }
+  }
+  .buy_now {
+    position: sticky;
+    top: 40px;
+  }
+}
