@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from './Input';
+// import Input from './Input';
 import './SignUp.scss';
 
 const SignUp = () => {
@@ -56,60 +56,44 @@ const SignUp = () => {
     return null;
   };
 
-  const condition = {
-    name: `input_${conditions.name ? 'title' : 'warn'}`,
-    email: `input_${conditions.email ? 'title' : 'warn'}`,
-    pw: `input_${conditions.pw ? 'title' : 'warn'}`,
-    pwCorrect: `input_${conditions.pwCorrect ? 'title' : 'warn'}`,
-  };
-
   return (
     <form className="sign_up">
       <strong className="title">회원가입</strong>
 
-      <Input
-        condition={condition.name}
-        setInputValues={setInputValues}
-        handleInput={handleInput}
-        value={name}
-      />
+      {Object.keys(inputValues).map(key => {
+        const value = inputValues[key];
+        const label =
+          key === 'name'
+            ? '이름'
+            : key === 'pw'
+            ? '비밀번호'
+            : key === 'email'
+            ? '이메일'
+            : key === 'pwCorrect'
+            ? '비밀번호 확인'
+            : key;
+        const type = key.includes('pw')
+          ? 'password'
+          : key === 'email'
+          ? 'email'
+          : 'text';
+        const className = `input_${conditions[key] ? 'title' : 'warn'}`;
 
-      <div className="input_box">
-        <label className={condition.email}>이메일</label>
-        <input
-          name="email"
-          className="input"
-          type="email"
-          onChange={handleInput}
-          pattern={checkEmail}
-          value={email}
-          placeholder="이메일"
-        />
-      </div>
-      <div className="input_box">
-        <label className={condition.pw}>비밀번호</label>
-        <input
-          name="pw"
-          className="input"
-          type="password"
-          autoComplete="off"
-          onChange={handleInput}
-          value={pw}
-          placeholder="비밀번호"
-        />
-      </div>
-      <div className="input_box">
-        <label className={condition.pwCorrect}>비밀번호 확인</label>
-        <input
-          name="pwCorrect"
-          className="input"
-          type="password"
-          autoComplete="off"
-          onChange={handleInput}
-          value={pwCorrect}
-          placeholder="비밀번호 확인"
-        />
-      </div>
+        return (
+          <div className="input_box" key={key}>
+            <label className={className}>{label}</label>
+            <input
+              name={key}
+              className="input"
+              type={type}
+              autoComplete={key.includes('pw') ? 'off' : undefined}
+              onChange={handleInput}
+              value={value}
+              placeholder={label}
+            />
+          </div>
+        );
+      })}
 
       <button onClick={signUp} type="submit" className="create_id">
         회원가입
