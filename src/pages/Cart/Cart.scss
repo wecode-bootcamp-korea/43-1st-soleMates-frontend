@@ -2,6 +2,7 @@
   width: 1440px;
   margin: 0 auto;
   padding-top: 100px;
+
   .tit_cart {
     padding-bottom: 10px;
     border-bottom: 1px solid #dedede;
@@ -10,40 +11,117 @@
     color: #222;
     font-weight: 500;
   }
-  .empty_cart {
-    text-align: center;
+
+  .box_cart {
+    padding: 15px 20px;
+    background-color: #f2f2f2;
+    margin: 30px 0;
   }
-  .tit_empty {
+
+  .group_cart {
+    display: flex;
+  }
+
+  .wrap_listcart {
+    width: 788px;
+
+    > .item_choice {
+      margin-left: 20px;
+    }
+
+    .txt_choice {
+      display: inline-block;
+      padding-left: 10px;
+      font-size: 14px;
+      color: #555;
+      vertical-align: top;
+    }
+  }
+
+  .list_cart {
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 25px 15px;
+    border: 1px solid #dedede;
+
+    li {
+      display: flex;
+    }
+
+    .item_choice {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .item_thumb {
+    width: 100px;
+    margin-left: 15px;
+  }
+
+  .item_info {
     display: block;
-    padding-top: 250px;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
+    overflow: hidden;
+    padding: 10px 0 0 15px;
   }
-  .desc_cart {
-    padding-top: 20px;
+
+  .tit_name {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 40px;
+    font-weight: bold;
+    max-width: 300px;
+    font-weight: bold;
     font-size: 15px;
-    line-height: 25px;
+    line-height: 20px;
+    color: #222;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+
+  .txt_opt {
+    display: block;
+    padding-top: 10px;
+    font-size: 14px;
+    line-height: 20px;
     color: #888;
   }
-  .btn_cart {
+
+  .num_count {
     display: block;
-    width: 300px;
-    height: 55px;
-    margin: 50px auto 0;
-    font-weight: 500;
-    color: #fff;
-    line-height: 50px;
-    background-color: #222;
-    border: 3px solid #222;
-    box-sizing: border-box;
-    transition: all 0.5s ease-out;
+    font-size: 14px;
+    line-height: 20px;
+    color: #888;
   }
-  .btn_cart:hover {
-    text-decoration: none;
-    background-color: #fff;
-    border: 3px solid #222;
-    color: #222;
-    border-radius: 30px;
+}
+
+/* 컴포넌트로 뺼 예정 */
+.item_choice {
+  display: block;
+  position: relative;
+
+  .inp_check {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0 none;
+    background: none;
+    -webkit-appearance: none;
+    opacity: 0.01;
+  }
+
+  .ico_check {
+    width: 20px;
+    height: 20px;
+    background-position: -100px -60px;
+  }
+
+  .inp_check:checked + .lab_check .ico_check {
+    background-position: -100px -90px;
   }
 }
