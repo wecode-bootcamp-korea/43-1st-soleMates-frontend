@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Detail.scss';
 
 const Detail = () => {
+  const [data, setData] = useState({ name: '', count: '', size: '' });
   const [count, setCount] = useState(1);
   const price = 260_000;
   const totalPrice = price * count;
@@ -12,18 +13,18 @@ const Detail = () => {
     setCount(count + 1);
   };
 
-  const [changeButtonColor, setChangeButtonColor] = useState('not_check');
+  // const [changeButtonColor, setChangeButtonColor] = useState('');
 
-  // const click = event => {
-  //   console.log(event.target.className);
-  // };
-  const click = () => {
-    if (changeButtonColor === 'not_check') {
-      setChangeButtonColor('check');
-    } else {
-      setChangeButtonColor('not_check');
-    }
+  const click = event => {
+    // changeButtonColor === ''
+    //   ? setChangeButtonColor('check')
+    //   : setChangeButtonColor('');
+    // console.log(event.target.className);
+    setData(prev => ({ ...prev, size: event.target.title }));
+    console.log(event);
   };
+  console.log(SHOSE_SIZE.map(list => list.size));
+  console.log(data);
 
   return (
     <div className="detail">
@@ -51,11 +52,14 @@ const Detail = () => {
 
           <div className="product_size">
             {SHOSE_SIZE.map(list => {
+              const buttonCheckValue =
+                data.size === String(list.size) ? 'check' : '';
               return (
                 <button
                   onClick={click}
                   key={list.id}
-                  className={`product_size_button_${changeButtonColor}`}
+                  title={list.size}
+                  className={`product_size_button ${buttonCheckValue}`}
                 >
                   {list.size}
                 </button>
