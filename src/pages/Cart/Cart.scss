@@ -1,5 +1,5 @@
 .cart {
-  width: 1440px;
+  width: 1280px;
   margin: 0 auto;
   padding-top: 100px;
 
@@ -12,21 +12,18 @@
     font-weight: 500;
   }
 
-  .box_cart {
-    padding: 15px 20px;
-    background-color: #f2f2f2;
-    margin: 30px 0;
-  }
-
   .group_cart {
     display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
   }
 
   .wrap_listcart {
-    width: 788px;
+    position: relative;
+    width: 830px;
 
     > .item_choice {
-      margin-left: 20px;
+      margin-left: 15px;
     }
 
     .txt_choice {
@@ -40,29 +37,53 @@
 
   .list_cart {
     overflow: hidden;
+    min-height: 205px;
     margin-top: 20px;
-    padding: 25px 15px;
+    padding: 0px 40px 10px 25px;
     border: 1px solid #dedede;
 
     li {
       display: flex;
+      position: relative;
+      padding: 40px 0;
+    }
+
+    li + li {
+      border-top: 1px solid #dedede;
     }
 
     .item_choice {
       display: flex;
       align-items: center;
     }
+
+    .btn_delete {
+      position: absolute;
+      border: 1px solid #dedede;
+      font-size: 14px;
+      padding: 5px 15px;
+      color: #222;
+      right: 0;
+      bottom: 10px;
+    }
+
+    .ico_delete {
+      width: 15px;
+      height: 15px;
+      margin: 10px;
+      background-position: -170px -190px;
+    }
   }
 
   .item_thumb {
     width: 100px;
-    margin-left: 15px;
+    margin-left: 25px;
   }
 
   .item_info {
     display: block;
     overflow: hidden;
-    padding: 10px 0 0 15px;
+    padding: 10px 0 0 25px;
   }
 
   .tit_name {
@@ -71,7 +92,7 @@
     overflow: hidden;
     max-height: 40px;
     font-weight: bold;
-    max-width: 300px;
+    max-width: 400px;
     font-weight: bold;
     font-size: 15px;
     line-height: 20px;
@@ -92,36 +113,139 @@
 
   .num_count {
     display: block;
+    padding-top: 5px;
     font-size: 14px;
     line-height: 20px;
     color: #888;
   }
-}
 
-/* 컴포넌트로 뺼 예정 */
-.item_choice {
-  display: block;
-  position: relative;
-
-  .inp_check {
+  .item_order {
     position: absolute;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 0 none;
-    background: none;
-    -webkit-appearance: none;
-    opacity: 0.01;
+    right: 0;
+    top: 30px;
+
+    .item_count {
+      display: block;
+    }
+
+    .emph_price {
+      display: block;
+      padding-bottom: 15px;
+      text-align: right;
+      font-size: 18px;
+      color: #222;
+      line-height: 25px;
+    }
+
+    .ico_shop {
+      width: 36px;
+      height: 36px;
+      background-position: -160px -90px;
+    }
+
+    .ico_plus {
+      background-position-y: -140px;
+    }
+
+    .inp_count {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-top: 1px solid #dedede;
+      border-bottom: 1px solid #dedede;
+      font-size: 14px;
+      color: #222;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .btn_opt {
+      display: block;
+      padding: 7px 5px;
+      font-size: 15px;
+      color: #888;
+      line-height: 25px;
+      margin-left: auto;
+      text-decoration: underline;
+    }
   }
 
-  .ico_check {
-    width: 20px;
-    height: 20px;
-    background-position: -100px -60px;
+  .wrap_order {
+    width: 400px;
+    padding: 0 30px;
+    background-color: #f2f2f2;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
   }
 
-  .inp_check:checked + .lab_check .ico_check {
-    background-position: -100px -90px;
+  .list_order {
+    padding: 10px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+
+    dt {
+      padding: 10px;
+      font-size: 16px;
+      line-height: 25px;
+      color: #888;
+      float: left;
+    }
+
+    dd {
+      overflow: hidden;
+      padding: 10px;
+      font-size: 18px;
+      line-height: 25px;
+      color: #222;
+      text-align: right;
+    }
+
+    .type_total {
+      padding-top: 20px;
+    }
+
+    .emph_price {
+      font-weight: bold;
+      font-size: 20px;
+      color: #222;
+    }
+  }
+
+  .link_order {
+    display: block;
+    margin-top: 20px;
+    background-color: #222;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .link_info {
+    display: block;
+    margin: 20px 0;
+    padding: 8px;
+    font-size: 14px;
+    color: #555;
+    line-height: 15px;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .tit_order {
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+  }
+
+  .btn_alldelete {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 14px;
+    color: #222;
+    border: 1px solid #dedede;
+    padding: 5px 10px;
   }
 }
