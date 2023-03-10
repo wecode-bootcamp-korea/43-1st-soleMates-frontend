@@ -71,8 +71,8 @@ const SignUp = () => {
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
-          email: `${email}`,
-          password: `${pw}`,
+          email: email,
+          password: pw,
         }),
       })
         .then(response => response.json())
