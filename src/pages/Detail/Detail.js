@@ -9,25 +9,45 @@ const Detail = () => {
     color: '',
   });
   const [count, setCount] = useState(1);
+  const [like, setLike] = useState('off');
+  const [check, setCheck] = useState('');
   const price = 260_000;
   const totalPrice = price * count;
   const handleCount = () => {
     count > 1 ? setCount(count - 1) : setCount(1);
   };
   const onclick = () => {
-    count < 99 ? setCount(count + 1) : setCount(99);
+    count < 10 ? setCount(count + 1) : setCount(10);
   };
 
   const click = event => {
     setData(prev => ({ ...prev, size: event.target.title }));
-    console.log(event);
+    const newSize = event.target.title;
+    if (check === newSize) {
+      setCheck('');
+    } else {
+      setCheck(newSize);
+    }
+    // if (event.target.className.includes('check')) {
+    //   setCheck('');
+    // } else {
+    //   setCheck('check');
+    // }
   };
 
   const handleColor = event => {
     setData(prev => ({ ...prev, color: event.target.title }));
-    console.log(event);
   };
-  console.log(data);
+
+  const empty = () => {
+    if (like === 'off') {
+      setLike('on');
+    } else {
+      setLike('off');
+    }
+  };
+  const howManyLike = 563;
+  const likeAmount = `${like === 'on' ? howManyLike + 1 : howManyLike}`;
 
   return (
     <>
@@ -49,21 +69,28 @@ const Detail = () => {
           <div className="product_detail_option">
             <div className="icon">
               <span className="ico_shop ico_sharing">공유하기</span>
-              <span className="ico_shop ico_like">좋아요</span>
-              <strong className="how_many_like">547</strong>
+              <button
+                onClick={empty}
+                className={`ico_shop ico_like ${like === 'off' ? 'off' : 'on'}`}
+              >
+                좋아요
+              </button>
+              <strong className="how_many_like">{likeAmount}</strong>
             </div>
             <strong className="product_name">1460스무스</strong>
 
             <div className="product_size">
               {SHOSE_SIZE.map(list => {
                 const buttonCheckValue =
-                  data.size === String(list.size) ? 'check' : '';
+                  check === String(list.size) || check === list.size
+                    ? 'check'
+                    : '';
                 return (
                   <button
                     onClick={click}
                     key={list.id}
                     title={list.size}
-                    className={`product_size_button ${buttonCheckValue}`}
+                    className={`product_size_button ${buttonCheckValue} `}
                   >
                     {list.size}
                   </button>
@@ -117,14 +144,24 @@ const Detail = () => {
         </div>
 
         <div className="detail_navigate">
-          <a className="link_navigate" href="#product_img_1">
+          <button
+            className="link_navigate"
+            onClick={() => {
+              window.scrollTo({ top: 0, screenLeft: 0, behavior: 'smooth' });
+            }}
+          >
             Buy Now
-            <strong className="link_navigate_ko">구매하기</strong>
-          </a>
-          <a className="link_navigate" href="#review">
+            <label className="link_navigate_ko">구매하기</label>
+          </button>
+          <button
+            className="link_navigate"
+            onClick={() => {
+              window.scrollTo({ top: 2800, screenLeft: 0, behavior: 'smooth' });
+            }}
+          >
             Review
             <strong className="link_navigate_ko">상품 후기</strong>
-          </a>
+          </button>
         </div>
       </div>
       <div id="review">
@@ -159,7 +196,6 @@ const SHOSE_SIZE = [
   { id: 7, size: 280 },
   { id: 8, size: 290 },
   { id: 9, size: 300 },
-  { id: 10, size: 310 },
 ];
 
 const IMG_LIST = [
