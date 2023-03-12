@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.scss';
 import ListMenu from './ListMenu/ListMenu';
 import LinkUtil from './LinkUtil/LinkUtil';
+import './Header.scss';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);

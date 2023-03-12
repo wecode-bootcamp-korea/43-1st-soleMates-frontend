@@ -3,8 +3,8 @@
 
   .link_util {
     display: inline-block;
-    vertical-align: middle;
     margin: 0 10px;
+    vertical-align: middle;
   }
 
   .ico_shop {
@@ -24,6 +24,7 @@
     margin: 13px;
     background-position-x: -200px;
   }
+
   .type_cart {
     position: relative;
   }
@@ -34,13 +35,13 @@
     left: 22px;
     min-width: 20px;
     padding: 0 5px;
+    color: #000;
+    background-color: #fc0;
     border-radius: 100%;
     text-align: center;
     font-weight: bold;
     font-size: 10px;
     line-height: 20px;
-    color: #000;
-    background-color: #fc0;
     box-sizing: border-box;
   }
 }
