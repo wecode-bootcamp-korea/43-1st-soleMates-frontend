@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import ListMenu from './ListMenu/ListMenu';
 import LinkUtil from './LinkUtil/LinkUtil';
@@ -28,13 +29,13 @@ const Header = () => {
   return (
     <header className={`header${isSticky ? ' fixed' : ''}`}>
       <h1 className="tit_logo">
-        <a href="/" className="link_logo">
+        <Link to="/" className="link_logo">
           <img
             src="../images/Header/img_logo.png"
             alt="닥터마틴"
             className="img_g"
           />
-        </a>
+        </Link>
       </h1>
       <h2 className="screen_out">닥터마틴 메인 메뉴</h2>
       <ListMenu />
