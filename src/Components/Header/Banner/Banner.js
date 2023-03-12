@@ -5,11 +5,11 @@ const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
-  const NextSlide = () => {
+  const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
     } else {
-      setCurrentSlide(currentSlide + 1);
+      setCurrentSlide(currentSlide => currentSlide + 1);
     }
   };
   // Prev 버튼 클릭 시
@@ -29,11 +29,11 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="area_bnr" ref={slideRef}>
-        {TOP_SLIDE.map(item => (
-          <div className="wrap_bnr" key={item.id}>
+        {TOP_SLIDE.map(({ id, title, desc }) => (
+          <div className="wrap_bnr" key={id}>
             <div className="group_bnr">
-              <strong className="tit_noti">{item.title}</strong>
-              <p className="desc_noti">{item.desc}</p>
+              <strong className="tit_noti">{title}</strong>
+              <p className="desc_noti">{desc}</p>
             </div>
           </div>
         ))}
@@ -41,7 +41,7 @@ const Banner = () => {
       <button type="button" className="btn_arr" onClick={PrevSlide}>
         <span className="ico_shop">이전</span>
       </button>
-      <button type="button" className="btn_arr btn_next" onClick={NextSlide}>
+      <button type="button" className="btn_arr btn_next" onClick={nextSlide}>
         <span className="ico_shop">다음</span>
       </button>
     </div>

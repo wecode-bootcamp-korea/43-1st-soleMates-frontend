@@ -5,7 +5,7 @@ const LinkUtil = props => {
   const { icoClass, icoName, typeCart } = props;
   const [totalCart, setTotalCart] = useState(99);
   return (
-    <a href="#none" className={`link_util ${typeCart && 'type_cart'}`}>
+    <a href="#none" className={`link_util ${typeCart}`}>
       <span className={`ico_shop ${icoClass}`}>{icoName}</span>
       {typeCart && (
         <span className="num_util">
@@ -17,5 +17,10 @@ const LinkUtil = props => {
     </a>
   );
 };
-
+LinkUtil.defaultProps = {
+  icoClass: '',
+  icoName: '',
+  typeCart: '',
+  totalCart: 0,
+};
 export default LinkUtil;

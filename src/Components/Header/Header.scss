@@ -1,13 +1,13 @@
 .header {
-  overflow: hidden;
-  display: flex;
-  z-index: 10;
   position: sticky;
   top: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   height: 90px;
   padding: 0 120px;
-  align-items: center;
   background-color: #fff;
+  z-index: 10;
 
   .tit_logo {
     float: left;
@@ -18,11 +18,11 @@
   }
 
   .form_search {
-    display: inline-block;
     position: relative;
+    display: inline-block;
     width: 250px;
-    margin-left: 30px;
     height: 90px;
+    margin-left: 30px;
     background-color: #222;
     vertical-align: middle;
     transition: all 0.3s;
@@ -31,8 +31,8 @@
       width: 250px;
       height: 90px;
       padding: 20px 60px 20px 30px;
-      border-color: transparent;
       background-color: transparent;
+      border-color: transparent;
       box-sizing: border-box;
     }
 

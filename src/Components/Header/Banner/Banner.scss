@@ -1,7 +1,15 @@
 .banner {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   white-space: nowrap;
+
+  @mixin notification {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+  }
 
   .wrap_bnr {
     display: inline-block;
@@ -11,37 +19,26 @@
 
   .group_bnr {
     display: flex;
-    height: 70px;
-    background-color: #e5e5e5;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 70px;
+    background-color: #e5e5e5;
   }
 
   .tit_noti {
-    overflow: hidden;
+    @include notification;
     max-width: 300px;
-    font-size: 14px;
+    font-weight: bold;
     line-height: 20px;
     color: #222;
-    font-weight: bold;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-break: break-all;
-    text-overflow: ellipsis;
   }
 
   .desc_noti {
-    overflow: hidden;
+    @include notification;
     max-width: 500px;
-    padding-top: 2px;
-    font-size: 14px;
-    color: #555;
     line-height: 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-break: break-all;
-    text-overflow: ellipsis;
+    color: #555;
   }
 
   .btn_arr {

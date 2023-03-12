@@ -29,15 +29,23 @@ const Header = () => {
     <header className={`header${isSticky ? ' fixed' : ''}`}>
       <h1 className="tit_logo">
         <a href="/" className="link_logo">
-          <img src="../images/Header/img_logo.png" alt="" className="img_g" />
+          <img
+            src="../images/Header/img_logo.png"
+            alt="닥터마틴"
+            className="img_g"
+          />
         </a>
       </h1>
       <h2 className="screen_out">닥터마틴 메인 메뉴</h2>
       <ListMenu />
       <div className="util_menu">
-        <LinkUtil icoClass={''} icoName={'로그인'} typeCart={''} />
-        <LinkUtil icoClass={'ico_cart'} icoName={'장바구니'} typeCart={true} />
-        <LinkUtil icoClass={'ico_wish'} icoName={'찜목록'} typeCart={''} />
+        <LinkUtil icoName={'로그인'} />
+        <LinkUtil
+          icoClass={'ico_cart'}
+          icoName={'장바구니'}
+          typeCart={'type_cart'}
+        />
+        <LinkUtil icoClass={'ico_wish'} icoName={'찜목록'} />
         <form method="post" action="#none" className="form_search">
           <fieldset>
             <legend className="screen_out">검색</legend>
