@@ -1,66 +1,58 @@
 [
   {
     "id": 1,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 1
   },
   {
     "id": 2,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노모노모노모노모노모노모노",
+    "price": 999999,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 2
   },
   {
     "id": 3,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육일이삼사오육",
+    "price": 23342342324,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 1
   },
   {
     "id": 4,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 3
   },
   {
     "id": 5,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 3
   },
   {
     "id": 6,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 2
   },
   {
     "id": 7,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 1
   },
   {
     "id": 8,
-    "title": "1461 모노",
-    "price": " 210,000",
-    "discount": " 189,000",
-    "discountRate": " 10%",
-    "image": "/images/ProductList/productlist.png"
+    "name": "1461 모노",
+    "price": 210000,
+    "image": "/images/Product/@thumb_266x334.png",
+    "quantity": 1
   }
 ]
