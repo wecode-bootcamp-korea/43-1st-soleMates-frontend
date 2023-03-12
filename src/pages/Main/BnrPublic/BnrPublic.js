@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BnrPublic.scss';
 
 const BnrPublic = props => {
@@ -8,12 +9,12 @@ const BnrPublic = props => {
       <div className={`bnr_text ${className}`}>
         <strong className="tit_bnr">{title}</strong>
         <p className="desc_bnr">{txt}</p>
-        <a href={link} type="button" className="btn_buy">
+        <Link to={link} type="button" className="btn_buy">
           {btn}
-        </a>
+        </Link>
       </div>
       <div className="bnr_img">
-        <img src={img} className="img_g" />
+        <img src={img} className="img_g" alt={title} />
       </div>
     </div>
   );

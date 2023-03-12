@@ -1,6 +1,6 @@
 .bnr_public {
-  display: flex;
   position: relative;
+  display: flex;
   width: 1440px;
   margin: 0 auto;
   padding-top: 50px;
@@ -25,18 +25,18 @@
   }
 
   .tit_bnr {
-    font-weight: bold;
     font-size: 50px;
     line-height: 60px;
+    font-weight: bold;
   }
 
   .desc_bnr {
     width: 450px;
     margin-bottom: 50px;
     padding-top: 30px;
+    color: #888;
     font-size: 15px;
     line-height: 25px;
-    color: #888;
     letter-spacing: -0.025em;
   }
 
@@ -45,18 +45,18 @@
     width: 180px;
     height: 46px;
     margin: 0 auto;
-    font-weight: bold;
     color: #fff;
+    background-color: #222;
+    font-weight: bold;
     font-size: 15px;
     line-height: 46px;
-    background-color: #222;
     transition: all 0.3s;
   }
 
   .btn_buy:hover {
     color: #222;
-    border-radius: 10px;
     background-color: #ffcc00;
+    border-radius: 10px;
     text-decoration: none;
   }
   .bnr_text.type_left80 .btn_buy {

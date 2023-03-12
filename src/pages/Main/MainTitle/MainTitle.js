@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MainTitle.scss';
 
 const MainTitle = props => {
@@ -6,9 +7,9 @@ const MainTitle = props => {
   return (
     <div className="main_title">
       <strong className="tit_g">{title}</strong>
-      <a href={url} className="link_more">
+      <Link to={url} className="link_more">
         {txt} <span className="ico_shop ico_arr" />
-      </a>
+      </Link>
     </div>
   );
 };

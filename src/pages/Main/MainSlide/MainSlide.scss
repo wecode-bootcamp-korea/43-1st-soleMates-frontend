@@ -1,7 +1,7 @@
 .main_slide {
+  position: relative;
   overflow: hidden;
   white-space: nowrap;
-  position: relative;
 
   .btn_arr {
     position: absolute;
@@ -13,10 +13,10 @@
   }
 
   &:hover .btn_arr {
-    overflow: hidden;
     left: 40px;
     opacity: 1;
     border-radius: 5px;
+    overflow: hidden;
   }
 
   .btn_arr.btn_next {
@@ -51,16 +51,16 @@
     justify-content: center;
 
     .tit_bnr {
+      color: #fff;
       font-weight: bold;
       font-size: 40px;
-      color: #fff;
       text-align: center;
     }
 
     .txt_bnr {
       padding-top: 10px;
-      font-size: 16px;
       color: #fff;
+      font-size: 16px;
       text-align: center;
     }
   }

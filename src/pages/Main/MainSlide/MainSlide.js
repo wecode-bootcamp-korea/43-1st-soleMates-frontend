@@ -10,15 +10,15 @@ const MainSlide = props => {
     if (currentSlide >= totalSlide) {
       setCurrentSlide(0);
     } else {
-      setCurrentSlide(currentSlide + 1);
+      setCurrentSlide(currentSlide => currentSlide + 1);
     }
   };
 
-  const PrevSlide = () => {
+  const prevSlide = () => {
     if (currentSlide === 0) {
       setCurrentSlide(totalSlide);
     } else {
-      setCurrentSlide(currentSlide - 1);
+      setCurrentSlide(currentSlide => currentSlide - 1);
     }
   };
 
@@ -31,13 +31,13 @@ const MainSlide = props => {
     <div className="main_slide">
       <strong className="screen_out">메인 배너 슬라이드</strong>
       <ul className="list_slide" ref={slideRef}>
-        {slides.map(items => (
-          <li key={items.id}>
+        {slides.map(({ id, img_url }) => (
+          <li key={id}>
             <div
-              key={items.id}
+              key={id}
               className="bnr_main"
               style={{
-                backgroundImage: `url(${items.img_url})`,
+                backgroundImage: `url(${img_url})`,
               }}
             >
               <strong className="tit_bnr">VARSITY STYLE</strong>
@@ -50,7 +50,7 @@ const MainSlide = props => {
           </li>
         ))}
       </ul>
-      <button type="button" className="btn_arr btn_prev" onClick={PrevSlide}>
+      <button type="button" className="btn_arr btn_prev" onClick={prevSlide}>
         <span className="ico_shop">이전</span>
       </button>
       <button type="button" className="btn_arr btn_next" onClick={nextButton}>
