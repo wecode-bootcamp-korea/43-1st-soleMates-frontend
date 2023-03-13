@@ -15,18 +15,10 @@ const ItemCount = ({
 }) => {
   const [count, setCount] = useState(quantity);
 
-  const handlePrice = e => {
-    const { name } = e.target;
-
-    if (name === 'plus') {
-      // setCount(count + 1);
-      // setTotalPrice(prev => prev + price);
-    }
-  };
-
   if (count < 1) {
     setCount(1);
   }
+
   function handleChange(e) {
     count(e.target.value);
   }
@@ -39,9 +31,19 @@ const ItemCount = ({
   const commaTotal = total.toLocaleString();
 
   useEffect(() => {
-    setTotalPrice(total);
-    console.log(totalPrice);
+    setTotalPrice(prev => (prev += total));
   }, []);
+
+  const handlePrice = e => {
+    const className = e.target.className;
+    if (className.indexOf('ico_plus') !== -1) {
+      setCount(count + 1);
+      setTotalPrice(prev => (prev += total));
+    } else if (className.indexOf('minus') !== -1 && count > 1) {
+      setCount(count - 1);
+      setTotalPrice(prev => (prev -= total));
+    }
+  };
 
   return (
     <li key={id}>
@@ -73,13 +75,7 @@ const ItemCount = ({
           {commaTotal}원
         </em>
         <span className="item_count">
-          <button
-            type="button"
-            className="btn_minus"
-            onClick={() => {
-              setCount(count - 1);
-            }}
-          >
+          <button type="button" className="btn_minus" onClick={handlePrice}>
             <span className="ico_shop ico_minus">옵션 빼기</span>
           </button>
           <label className="screen_out" htmlFor="count">
@@ -92,13 +88,7 @@ const ItemCount = ({
             value={count}
             onChange={handleChange}
           />
-          <button
-            type="button"
-            className="btn_plus"
-            onClick={() => {
-              setCount(count + 1);
-            }}
-          >
+          <button type="button" className="btn_plus" onClick={handlePrice}>
             <span className="ico_shop ico_plus">옵션 더하기</span>
           </button>
         </span>
