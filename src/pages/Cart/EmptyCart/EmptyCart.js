@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './EmptyCart.scss';
 
 const EmptyCart = () => {
@@ -9,9 +10,9 @@ const EmptyCart = () => {
         척 70 무브 첫테일러, 원스타, 런스타 등<br />
         지금 컴버스의 다양한 상품을 찾아보세요.
       </p>
-      <a href="#none" className="btn_cart">
+      <Link to="#none" className="btn_cart">
         쇼핑계속하기
-      </a>
+      </Link>
     </div>
   );
 };

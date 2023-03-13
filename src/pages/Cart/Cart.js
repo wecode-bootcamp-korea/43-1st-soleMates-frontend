@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ListCart from './ListCart/ListCart';
+import { Link } from 'react-router-dom';
 import Item from './Item/Item';
-import ItemChoice from '../../Components/ItemChoice/ItemChoice';
 import './Cart.scss';
 
 const Cart = () => {
@@ -64,12 +63,12 @@ const Cart = () => {
               <em className="emph_price">dd원</em>
             </dd>
           </dl>
-          <a href="#none" className="link_order">
+          <Link to="#none" className="link_order">
             전체상품 주문하기
-          </a>
-          <a href="#none" className="link_info">
+          </Link>
+          <Link to="#none" className="link_info">
             프로모션/쿠폰은 주문페이지에서 확인됩니다.
-          </a>
+          </Link>
         </div>
       </div>
     </div>
