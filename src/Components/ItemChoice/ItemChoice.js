@@ -2,7 +2,15 @@ import React from 'react';
 import './ItemChoice.scss';
 
 const ItemChoice = props => {
-  const { checkbox, checkId, isCheckedAll, handleCheckAll } = props;
+  const { checkbox, checkId, checkedItems, setCheckedItems } = props;
+
+  const handleChange = event => {
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.name]: event.target.checked,
+    }); // 체크박스 상태를 변경
+  };
+
   return (
     <span className="item_choice">
       {/*
@@ -14,9 +22,10 @@ const ItemChoice = props => {
       <input
         type="checkbox"
         id={checkId}
+        name={checkId}
         className="inp_check"
-        checked={isCheckedAll}
-        onChange={handleCheckAll}
+        checked={`${checkedItems.checkId}`}
+        onChange={handleChange}
       />
       <label htmlFor={checkId} className="lab_check">
         <span className="ico_shop ico_check"></span>

@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ListCart from './ListCart/ListCart';
-import ListOrder from './ListOrder/ListOrder';
+import ItemChoice from '../../Components/ItemChoice/ItemChoice';
 import Item from './Item/Item';
 import './Cart.scss';
 
 const Cart = () => {
   const [productList, setProductList] = useState([]);
-  // const [count, setCount] = useState(1); // 수량
   const [price, setPrice] = useState(75000); // 상품가격
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const handleAllChecked = event => {
+    const { checked } = event.target;
+    Object.keys(checkedItems).forEach(key => {
+      checkedItems[key] = checked; // 모든 체크박스 상태를 변경
+    });
+    setCheckedItems({ ...checkedItems }); // 체크박스 상태를 업데이트
+  };
 
   useEffect(() => {
     fetch('/data/productList.json', {
@@ -29,7 +37,12 @@ const Cart = () => {
         <div className="wrap_listcart">
           <strong className="screen_out">장바구니에 담긴 상품 목록</strong>
           <span className="item_choice">
-            <input type="checkbox" id="checkBox" className="inp_check" />
+            <input
+              type="checkbox"
+              id="checkBox"
+              className="inp_check"
+              onChange={handleAllChecked}
+            />
             <label htmlFor="checkBox" className="lab_check">
               <span className="ico_shop ico_check"></span>
             </label>
@@ -43,10 +56,15 @@ const Cart = () => {
                   id={id}
                   image={image}
                   name={name}
+                  checkBoxName={id}
                   count={count}
                   price={price}
                   quantity={quantity}
                   total={quantity * price}
+                  totalPrice={count}
+                  handleChange={() => {}}
+                  productList={productList}
+                  setProductList={setProductList}
                 />
               );
             })}
@@ -55,7 +73,16 @@ const Cart = () => {
         </div>
         <div className="wrap_order">
           <strong className="tit_order">주문금액</strong>
-          <ListOrder />
+          <dl className="list_order">
+            <dt>상품금액</dt>
+            <dd>{totalPrice}원</dd>
+            <dt>배송비</dt>
+            <dd>0원</dd>
+            <dt className="type_total">총결제금액</dt>
+            <dd className="type_total">
+              <em className="emph_price">{totalPrice}원</em>
+            </dd>
+          </dl>
           <Link to="#none" className="link_order">
             전체상품 주문하기
           </Link>

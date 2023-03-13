@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './Item.scss';
 
-const ItemCount = ({ id, image, name, price, handleChange, quantity }) => {
+const ItemCount = ({
+  id,
+  image,
+  name,
+  price,
+  handleChange,
+  quantity,
+  productList,
+  setProductList,
+}) => {
   const [count, setCount] = useState(quantity);
 
   if (count < 1) {
     setCount(1);
   }
-
-  console.log(price * count);
   function handleChange(e) {
     count(e.target.value);
   }
 
+  function handleRemoveItem() {
+    setProductList(productList.filter(item => item.id !== id));
+  }
+
   const total = price * count; // 총 가격
   const commaTotal = total.toLocaleString();
-  console.log(commaTotal);
 
   return (
     <li key={id}>
@@ -77,7 +87,11 @@ const ItemCount = ({ id, image, name, price, handleChange, quantity }) => {
           </button>
         </span>
       </span>
-      <button className="btn_delete" type="button">
+      <button
+        className="btn_delete"
+        type="button"
+        onClick={() => handleRemoveItem(id)}
+      >
         삭제
       </button>
     </li>
