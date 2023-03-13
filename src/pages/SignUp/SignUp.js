@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-// import Input from './Input';
 import './SignUp.scss';
 
-const SignUp = () => {
+const Account = () => {
   const [inputValues, setInputValues] = useState({
     name: '',
     email: '',
@@ -14,14 +13,13 @@ const SignUp = () => {
   const { name, email, pw, pwCorrect } = inputValues;
 
   const location = useLocation();
-  const CURRENT_DATA =
+  const CURRENT_ACCOUNT_DATA =
     location.pathname === '/login' ? LOGIN_DATA : SIGNUP_DATA;
 
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
-  console.log(inputValues.name);
 
   const checkEmail = email.match('[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-z]{2,3}$');
   const pwCheck = pw.match(
@@ -67,40 +65,35 @@ const SignUp = () => {
   };
 
   const logIn = event => {
-    if (pwCheck && checkEmail) {
-      event.preventDefault();
-      fetch('http://10.58.52.150:8000/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify({
-          email,
-          password: pw,
-        }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.accessToken) {
-            localStorage.setItem('token', data.accessToken);
-          } else {
-            alert('잘못된 이메일입니다.');
-            event.preventDefault();
-          }
-        });
-    } else {
-      alert('다시 확인해주세요');
-    }
+    fetch('http://10.58.52.150:8000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email,
+        password: pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.accessToken) {
+          localStorage.setItem('token', data.accessToken);
+        } else {
+          alert('다시 시도해주세요.');
+          event.preventDefault();
+        }
+      });
   };
 
   const submit = location.pathname === '/login' ? logIn : signUp;
 
   return (
-    <form className="sign_up">
+    <form className="account">
       <strong className="title">
         {location.pathname === '/login' ? '로그인' : '회원가입'}
       </strong>
-      {CURRENT_DATA.map(({ id, title, type, name, placeholder }) => {
+      {CURRENT_ACCOUNT_DATA.map(({ id, title, type, name, placeholder }) => {
         return (
           <div className="input_box" key={id}>
             <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
@@ -119,14 +112,14 @@ const SignUp = () => {
         );
       })}
 
-      <button onClick={submit} type="submit" className="create_id">
+      <button onClick={submit} type="submit" className="account_button">
         {location.pathname === '/login' ? '로그인' : '회원가입'}
       </button>
     </form>
   );
 };
 
-export default SignUp;
+export default Account;
 
 const SIGNUP_DATA = [
   { id: 1, title: '이름', type: 'text', name: 'name', placeholder: '이름' },
