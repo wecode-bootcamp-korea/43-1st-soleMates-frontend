@@ -7,7 +7,6 @@ import './Cart.scss';
 
 const Cart = () => {
   const [productList, setProductList] = useState([]);
-  const [price, setPrice] = useState(75000); // 상품가격
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -53,10 +52,11 @@ const Cart = () => {
                       price={price}
                       quantity={quantity}
                       total={quantity * price}
-                      totalPrice={count}
+                      totalPrice={totalPrice}
                       handleChange={() => {}}
                       productList={productList}
                       setProductList={setProductList}
+                      setTotalPrice={setTotalPrice}
                     />
                   );
                 }
@@ -68,12 +68,12 @@ const Cart = () => {
             <strong className="tit_order">주문금액</strong>
             <dl className="list_order">
               <dt>상품금액</dt>
-              <dd>{totalPrice}원</dd>
+              <dd>{totalPrice.toLocaleString()}원</dd>
               <dt>배송비</dt>
               <dd>0원</dd>
               <dt className="type_total">총결제금액</dt>
               <dd className="type_total">
-                <em className="emph_price">{totalPrice}원</em>
+                <em className="emph_price">{totalPrice.toLocaleString()}원</em>
               </dd>
             </dl>
             <Link to="#none" className="link_order">

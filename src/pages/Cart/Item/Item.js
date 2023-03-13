@@ -10,8 +10,19 @@ const ItemCount = ({
   quantity,
   productList,
   setProductList,
+  totalPrice,
+  setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
+
+  const handlePrice = e => {
+    const { name } = e.target;
+
+    if (name === 'plus') {
+      // setCount(count + 1);
+      // setTotalPrice(prev => prev + price);
+    }
+  };
 
   if (count < 1) {
     setCount(1);
@@ -26,6 +37,11 @@ const ItemCount = ({
 
   const total = price * count; // 총 가격
   const commaTotal = total.toLocaleString();
+
+  useEffect(() => {
+    setTotalPrice(total);
+    console.log(totalPrice);
+  }, []);
 
   return (
     <li key={id}>
