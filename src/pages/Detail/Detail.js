@@ -1,28 +1,40 @@
 import React, { useState } from 'react';
+import ModalToCart from './ModalToCart';
 import './Detail.scss';
 
 const Detail = () => {
   const [data, setData] = useState({
     name: '',
-    quantity: '',
+    quantity: '1',
     size: '',
     color: '',
   });
   const [count, setCount] = useState(1);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
-  const price = 260_000;
+  const [cartModal, setCartModal] = useState(false);
+  const openModal = () => {
+    setCartModal(true);
+  };
+  const closeCartModal = () => {
+    setCartModal(false);
+  };
+
+  const price = 260000;
   const totalPrice = price * count;
   const handleCount = () => {
     count > 1 ? setCount(count - 1) : setCount(1);
+    setData(prev => ({ ...prev, quantity: `${count > 1 ? count - 1 : 1}` }));
   };
   const onclick = () => {
     count < 10 ? setCount(count + 1) : setCount(10);
+    setData(prev => ({ ...prev, quantity: `${count < 10 ? count + 1 : 10}` }));
   };
 
   const click = event => {
     setData(prev => ({ ...prev, size: event.target.title }));
     const newSize = event.target.title;
+
     if (check === newSize) {
       setCheck('');
     } else {
@@ -39,7 +51,7 @@ const Detail = () => {
     setData(prev => ({ ...prev, color: event.target.title }));
   };
 
-  const empty = () => {
+  const empty_heart = () => {
     if (like === 'off') {
       setLike('on');
     } else {
@@ -70,7 +82,7 @@ const Detail = () => {
             <div className="icon">
               <span className="ico_shop ico_sharing">공유하기</span>
               <button
-                onClick={empty}
+                onClick={empty_heart}
                 className={`ico_shop ico_like ${like === 'off' ? 'off' : 'on'}`}
               >
                 좋아요
@@ -136,9 +148,21 @@ const Detail = () => {
                   .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
               </span>
             </div>
-            <div className="button_list">
-              <button className="cart">장바구니</button>
-              <button className="buy">구매하기</button>
+            <div className="shopping_button">
+              <div className="cart_button">
+                <button onClick={openModal} className="cart">
+                  장바구니
+                </button>
+                {cartModal && (
+                  <ModalToCart
+                    setCartModal={setCartModal}
+                    close={closeCartModal}
+                  />
+                )}
+              </div>
+              <div className="buy_button">
+                <button className="buy">구매하기</button>
+              </div>
             </div>
           </div>
         </div>
