@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ListCart from './ListCart/ListCart';
+import ListOrder from './ListOrder/ListOrder';
 import Item from './Item/Item';
 import './Cart.scss';
 
@@ -35,17 +36,17 @@ const Cart = () => {
             <span className="txt_choice">전체선택</span>
           </span>
           <ul className="list_cart">
-            {productList.map(product => {
+            {productList.map(({ id, image, name, count, price, quantity }) => {
               return (
                 <Item
-                  key={product.id}
-                  id={product.id}
-                  image={product.image}
-                  name={product.name}
-                  count={product.count}
-                  price={product.price}
-                  quantity={product.quantity}
-                  total={product.quantity * product.price}
+                  key={id}
+                  id={id}
+                  image={image}
+                  name={name}
+                  count={count}
+                  price={price}
+                  quantity={quantity}
+                  total={quantity * price}
                 />
               );
             })}
@@ -54,16 +55,7 @@ const Cart = () => {
         </div>
         <div className="wrap_order">
           <strong className="tit_order">주문금액</strong>
-          <dl className="list_order">
-            <dt>상품금액</dt>
-            <dd>dd원</dd>
-            <dt>배송비</dt>
-            <dd>0원</dd>
-            <dt className="type_total">총결제금액</dt>
-            <dd className="type_total">
-              <em className="emph_price">dd원</em>
-            </dd>
-          </dl>
+          <ListOrder />
           <Link to="#none" className="link_order">
             전체상품 주문하기
           </Link>
