@@ -22,19 +22,20 @@ const SignUp = () => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  const checkEmail = email.match(
-    '[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*'
+  const checkEmail = email.match('[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-z]{2,3}$');
+  const pwCheck = pw.match(
+    '^.*(?=^.{8,15}$)(?=.*d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$'
   );
 
   const conditions = {
     name: name.length === 0 || name.length >= 2,
     email: email.length === 0 || checkEmail,
-    pw: pw.length === 0 || pw.length >= 4,
+    pw: pw.length === 0 || pwCheck,
     pwCorrect: pw === pwCorrect,
   };
 
   const signUp = event => {
-    if (name.length >= 2 && pw.length >= 4 && pwCorrect === pw && checkEmail) {
+    if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
       event.preventDefault();
       fetch('http://10.58.52.150:8000/auth/signup', {
         method: 'POST',
@@ -96,7 +97,7 @@ const SignUp = () => {
       <strong className="title">
         {location.pathname === '/login' ? '로그인' : '회원가입'}
       </strong>
-      {CURRENT_DATA.map(({ id, title, type, name }) => {
+      {CURRENT_DATA.map(({ id, title, type, name, placeholder }) => {
         return (
           <div className="input_box" key={id}>
             <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
@@ -109,7 +110,7 @@ const SignUp = () => {
               autoComplete={name.includes('pw') ? 'off' : undefined}
               onChange={handleInput}
               value={inputValues[name]}
-              placeholder={title}
+              placeholder={placeholder}
             />
           </div>
         );
@@ -125,10 +126,28 @@ const SignUp = () => {
 export default SignUp;
 
 const SIGNUP_DATA = [
-  { id: 1, title: '이름', type: 'text', name: 'name' },
-  { id: 2, title: '이메일', type: 'email', name: 'email' },
-  { id: 3, title: '비밀번호', type: 'password', name: 'pw' },
-  { id: 4, title: '비밀번호확인', type: 'password', name: 'pwCorrect' },
+  { id: 1, title: '이름', type: 'text', name: 'name', placeholder: '이름' },
+  {
+    id: 2,
+    title: '이메일',
+    type: 'email',
+    name: 'email',
+    placeholder: '이메일',
+  },
+  {
+    id: 3,
+    title: '비밀번호',
+    type: 'password',
+    name: 'pw',
+    placeholder: '특수문자 / 문자 / 숫자 포함 형태의 8~15자리',
+  },
+  {
+    id: 4,
+    title: '비밀번호 확인',
+    type: 'password',
+    name: 'pwCorrect',
+    placeholder: '비밀번호 확인',
+  },
 ];
 
 const LOGIN_DATA = [
