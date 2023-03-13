@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // import Input from './Input';
 import './SignUp.scss';
 
@@ -21,6 +21,7 @@ const SignUp = () => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
+  console.log(inputValues.name);
 
   const checkEmail = email.match('[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-z]{2,3}$');
   const pwCheck = pw.match(
@@ -33,6 +34,7 @@ const SignUp = () => {
     pw: pw.length === 0 || pwCheck,
     pwCorrect: pw === pwCorrect,
   };
+  const navigate = useNavigate();
 
   const signUp = event => {
     if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
@@ -43,28 +45,29 @@ const SignUp = () => {
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
-          name: `${name}`,
-          email: `${email}`,
-          password: `${pw}`,
+          name,
+          email,
+          password: pw,
         }),
       })
         .then(response => response.json())
         .then(data => {
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
-            location.pathname = '/login';
           } else {
             alert('중복된 이메일입니다.');
-            event.preventDefault();
           }
         });
     } else {
       alert('다시 확인해주세요');
+
+      // navigate('/login');
     }
+    navigate('/login');
   };
 
   const logIn = event => {
-    if (pw.length >= 4 && checkEmail) {
+    if (pwCheck && checkEmail) {
       event.preventDefault();
       fetch('http://10.58.52.150:8000/auth/login', {
         method: 'POST',
@@ -72,7 +75,7 @@ const SignUp = () => {
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
-          email: email,
+          email,
           password: pw,
         }),
       })
@@ -117,7 +120,7 @@ const SignUp = () => {
       })}
 
       <button onClick={submit} type="submit" className="create_id">
-        회원가입
+        {location.pathname === '/login' ? '로그인' : '회원가입'}
       </button>
     </form>
   );
