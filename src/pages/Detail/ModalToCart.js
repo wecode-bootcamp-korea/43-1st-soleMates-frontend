@@ -9,10 +9,12 @@ const ModalToCart = props => {
   // };
 
   return (
-    <div className="modal_to_cart">
-      <button className="close_button" onClick={close}>
-        ╳
-      </button>
+    <div onClick={close} className="modal_to_cart">
+      <div className="modal_box">
+        <button className="close_button" onClick={close}>
+          ╳
+        </button>
+      </div>
     </div>
   );
 };

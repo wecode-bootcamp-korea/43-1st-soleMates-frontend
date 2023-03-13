@@ -2,14 +2,22 @@ import React, { useState } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
 
+const price = 260000;
+
 const Detail = () => {
   const [data, setData] = useState({
     name: '',
-    quantity: '1',
+    quantity: 1,
     size: '',
     color: '',
+    price,
   });
-  const [count, setCount] = useState(1);
+
+  const { price: currentPrice, ...productInfo } = data;
+  const totalPrice = data.price * data.quantity;
+  // console.log({ ...productInfo, totalPrice: totalPrice });
+  const fetchData = { ...productInfo, totalPrice: totalPrice };
+  console.log(fetchData);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
@@ -20,15 +28,13 @@ const Detail = () => {
     setCartModal(false);
   };
 
-  const price = 260000;
-  const totalPrice = price * count;
-  const handleCount = () => {
-    count > 1 ? setCount(count - 1) : setCount(1);
-    setData(prev => ({ ...prev, quantity: `${count > 1 ? count - 1 : 1}` }));
+  const onClickDecreaseBtn = () => {
+    if (data.quantity <= 1) return;
+    setData({ ...data, quantity: data.quantity - 1 });
   };
-  const onclick = () => {
-    count < 10 ? setCount(count + 1) : setCount(10);
-    setData(prev => ({ ...prev, quantity: `${count < 10 ? count + 1 : 10}` }));
+  const onClickIncreaseBtn = () => {
+    if (data.quantity >= 10) return;
+    setData({ ...data, quantity: data.quantity + 1 });
   };
 
   const click = event => {
@@ -40,11 +46,6 @@ const Detail = () => {
     } else {
       setCheck(newSize);
     }
-    // if (event.target.className.includes('check')) {
-    //   setCheck('');
-    // } else {
-    //   setCheck('check');
-    // }
   };
 
   const handleColor = event => {
@@ -60,7 +61,6 @@ const Detail = () => {
   };
   const howManyLike = 563;
   const likeAmount = `${like === 'on' ? howManyLike + 1 : howManyLike}`;
-
   return (
     <>
       <div className="detail">
@@ -128,16 +128,11 @@ const Detail = () => {
             <div className="product_count">
               <div className="product_count">
                 <strong className="product_amount">수량</strong>
-                <strong className="product_amount">{count}</strong>
-                <button
-                  className="product_minus"
-                  onClick={() => {
-                    handleCount();
-                  }}
-                >
+                <strong className="product_amount">{data.quantity}</strong>
+                <button className="product_minus" onClick={onClickDecreaseBtn}>
                   −
                 </button>
-                <button className="product_plus" onClick={onclick}>
+                <button className="product_plus" onClick={onClickIncreaseBtn}>
                   +
                 </button>
               </div>
@@ -153,20 +148,16 @@ const Detail = () => {
                 <button onClick={openModal} className="cart">
                   장바구니
                 </button>
-                {cartModal && (
-                  <ModalToCart
-                    setCartModal={setCartModal}
-                    close={closeCartModal}
-                  />
-                )}
               </div>
               <div className="buy_button">
                 <button className="buy">구매하기</button>
               </div>
             </div>
           </div>
+          {cartModal && (
+            <ModalToCart setCartModal={setCartModal} close={closeCartModal} />
+          )}
         </div>
-
         <div className="detail_navigate">
           <button
             className="link_navigate"
@@ -184,7 +175,7 @@ const Detail = () => {
             }}
           >
             Review
-            <strong className="link_navigate_ko">상품 후기</strong>
+            <label className="link_navigate_ko">상품 후기</label>
           </button>
         </div>
       </div>
