@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ItemChoice from '../../../Components/ItemChoice/ItemChoice';
 import './Item.scss';
 
 const ItemCount = ({
@@ -10,7 +11,6 @@ const ItemCount = ({
   quantity,
   productList,
   setProductList,
-  totalPrice,
   setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
@@ -47,12 +47,7 @@ const ItemCount = ({
 
   return (
     <li key={id}>
-      <span className="item_choice">
-        <input type="checkbox" id={`checkBox${id}`} className="inp_check" />
-        <label htmlFor={`checkBox${id}`} className="lab_check">
-          <span className="ico_shop ico_check"></span>
-        </label>
-      </span>
+      <ItemChoice checkId={`checkBox${id}`} />
       <span className="item_thumb">
         <img src={image} className="img_g" alt="" />
       </span>
@@ -62,7 +57,8 @@ const ItemCount = ({
           {name}
         </strong>
         <span className="txt_opt">
-          [옵션 : 에그렛 /<span className="screen_out">사이즈 : </span> 220]
+          &#91;옵션 : 에그렛 /<span className="screen_out">사이즈 : </span>
+          220&#93;
         </span>
         <span className="num_count">
           <span className="screen_out">담긴 </span>수량 {count}
