@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ListCart from './ListCart/ListCart';
 import Item from './Item/Item';
 import './Cart.scss';
 
