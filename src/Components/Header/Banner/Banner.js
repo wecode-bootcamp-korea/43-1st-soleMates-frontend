@@ -17,7 +17,7 @@ const Banner = () => {
     if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
-      setCurrentSlide(currentSlide - 1);
+      setCurrentSlide(currentSlide => currentSlide - 1);
     }
   };
 

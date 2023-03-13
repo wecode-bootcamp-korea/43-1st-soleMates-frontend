@@ -12,10 +12,8 @@ const Header = () => {
       const scrollTop = window.pageYOffset;
       const threshold = 100; // 스크롤 위치를 지정합니다.
 
-      if (scrollTop > threshold) {
+      if (setIsSticky(scrollTop > threshold)) {
         setIsSticky(true);
-      } else {
-        setIsSticky(false);
       }
     }
 
@@ -40,13 +38,9 @@ const Header = () => {
       <h2 className="screen_out">닥터마틴 메인 메뉴</h2>
       <ListMenu />
       <div className="util_menu">
-        <LinkUtil icoName={'로그인'} />
-        <LinkUtil
-          icoClass={'ico_cart'}
-          icoName={'장바구니'}
-          typeCart={'type_cart'}
-        />
-        <LinkUtil icoClass={'ico_wish'} icoName={'찜목록'} />
+        <LinkUtil icoName="로그인" />
+        <LinkUtil icoClass="ico_cart" icoName="장바구니" typeCart="type_cart" />
+        <LinkUtil icoClass="ico_wish" icoName="찜목록" />
         <form method="post" action="#none" className="form_search">
           <fieldset>
             <legend className="screen_out">검색</legend>
