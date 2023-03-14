@@ -18,7 +18,7 @@ const Detail = () => {
   const totalPrice = detailData.price * detailData.quantity;
 
   const fetchData = { ...productInfo, totalPrice: totalPrice };
-  console.log(fetchData.color);
+  console.log(fetchData);
   // console.log(check);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
