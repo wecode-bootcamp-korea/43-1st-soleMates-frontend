@@ -52,20 +52,17 @@ const Account = () => {
         .then(data => {
           if (data.accessToken) {
             localStorage.setItem('token', data.accessToken);
-          } else {
-            alert('중복된 이메일입니다.');
+            alert('회원가입 성공');
+            navigate('/login');
           }
         });
     } else {
       alert('다시 확인해주세요');
-
-      // navigate('/login');
     }
-    navigate('/login');
   };
 
   const logIn = event => {
-    fetch('http://10.58.52.150:8000/auth/login', {
+    fetch('http://10.58.52.150:8000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -77,11 +74,10 @@ const Account = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.accessToken) {
-          localStorage.setItem('token', data.accessToken);
+        if (data.token) {
+          localStorage.setItem('token', data.token);
         } else {
           alert('다시 시도해주세요.');
-          event.preventDefault();
         }
       });
   };
