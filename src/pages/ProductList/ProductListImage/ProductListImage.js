@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WrapInfo from '../WrapInfo/WrapInfo';
+import SizeButton from '../SizeButton/SizeButton';
+import { BTN_COLOR } from './BTN_COLOR';
 import './ProductListImage.scss';
 
 const ProductListImage = ({
@@ -13,6 +15,30 @@ const ProductListImage = ({
   const [color, setColor] = useState('');
   const [modal, setModal] = useState(false);
   const [isHover, setIsHover] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(0);
+
+  // 장바구니에 추가
+  const addCart = () => {
+    console.log(selectedSize);
+    // 보낼 데이터 추가 -> size : selectedSize
+    fetch('http://', {
+      // method: 'POST',
+      // headers:{token,contentsType}
+      // body:{
+      //   id:id,
+      //   size:selectedSize
+      // }
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          // navigate('/cart');
+        } else {
+          alert('다시 시도해주세요!');
+        }
+      });
+  };
+
   return (
     <div
       className="product_list_image"
@@ -52,7 +78,8 @@ const ProductListImage = ({
             </button>
           )}
         </div>
-        {modal === true ? (
+
+        {modal && (
           <div className="modal_background">
             <div className="modal_box">
               <div className="modal_box_option">
@@ -86,7 +113,7 @@ const ProductListImage = ({
                         가격
                         <p className="modal_box_product_price_wrapper">
                           <span className="modal_box_product_price_wrapper_in">
-                            {price}
+                            {price.toLocaleString()}
                           </span>
                         </p>
                       </div>
@@ -101,13 +128,53 @@ const ProductListImage = ({
                           <p className="modal_box_product_guide_review_bar_icon_line" />
                         </span>
                       </div>
+                      <div className="modal_box_product_guide_text_containter">
+                        <span className="modal_box_product_guide_text_containter_small">
+                          작아요
+                        </span>
+                        <span className="modal_box_product_guide_text_containter_regular">
+                          적당해요
+                        </span>
+                        <span className="modal_box_product_guide_text_containter_big">
+                          커요
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="modal_box_product_body_containter">
+                    <div className="modal_box_product_body_head">
+                      <p className="modal_box_product_body_title">
+                        사이즈(mm)선택
+                      </p>
+                    </div>
+                    <div className="modal_box_product_body_option">
+                      {BTN_COLOR.map(({ title, className }) => (
+                        <SizeButton
+                          key={id}
+                          title={title}
+                          className={className}
+                          selectedSize={selectedSize}
+                          setSelectedSize={setSelectedSize}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="modal_box_product_base_foot">
+                    <div className="modal_box_product_base_foot_layer">
+                      <button
+                        className="modal_box_product_foot_button"
+                        onClick={addCart}
+                      >
+                        장바구니 담기
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ) : null}
+        )}
+
         <WrapInfo
           title={title}
           price={price}

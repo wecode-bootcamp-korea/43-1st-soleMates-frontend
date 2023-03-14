@@ -15,9 +15,11 @@ body {
   line-height: 0;
   text-indent: -9999px;
 } /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+
 .show {
   display: block;
 }
+
 .hide {
   display: none;
 }
@@ -26,7 +28,13 @@ body {
   display: block;
   width: 100%;
 }
+// <<<<<<< .merge_file_QZSb23
 .svg {
+}
+// =======
+
+svg {
+  // >>>>>>> .merge_file_6SOUi5
   display: block;
 }
 
