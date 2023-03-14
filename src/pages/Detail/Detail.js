@@ -6,7 +6,7 @@ const price = 260000;
 
 const Detail = () => {
   const [data, setData] = useState({
-    name: '',
+    name: '1460스무스',
     quantity: 1,
     size: '',
     color: '',
@@ -17,17 +17,20 @@ const Detail = () => {
   const totalPrice = data.price * data.quantity;
   // console.log({ ...productInfo, totalPrice: totalPrice });
   const fetchData = { ...productInfo, totalPrice: totalPrice };
-  console.log(fetchData);
+  // console.log(check);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const openModal = () => {
-    setCartModal(true);
+    if (check.includes(0) && !(data.color === '')) {
+      setCartModal(true);
+    } else {
+      alert('사이즈,색상을 선택해주세요');
+    }
   };
   const closeCartModal = () => {
     setCartModal(false);
   };
-
   const onClickDecreaseBtn = () => {
     if (data.quantity <= 1) return;
     setData({ ...data, quantity: data.quantity - 1 });
@@ -37,7 +40,7 @@ const Detail = () => {
     setData({ ...data, quantity: data.quantity + 1 });
   };
 
-  const click = event => {
+  const onClickChooseSize = event => {
     setData(prev => ({ ...prev, size: event.target.title }));
     const newSize = event.target.title;
 
@@ -61,19 +64,15 @@ const Detail = () => {
   };
   const howManyLike = 563;
   const likeAmount = `${like === 'on' ? howManyLike + 1 : howManyLike}`;
+
   return (
     <>
       <div className="detail">
         <div className="product_img_list">
           <p id="product_img_1" />
-          {IMG_LIST.map(list => {
+          {IMG_LIST.map(({ id, src }) => {
             return (
-              <img
-                key={list.id}
-                className="product_img"
-                src={list.src}
-                alt="soleMates"
-              />
+              <img key={id} className="product_img" src={src} alt="soleMates" />
             );
           })}
         </div>
@@ -92,34 +91,32 @@ const Detail = () => {
             <strong className="product_name">1460스무스</strong>
 
             <div className="product_size">
-              {SHOSE_SIZE.map(list => {
+              {SHOES_SIZE.map(({ size, id }) => {
                 const buttonCheckValue =
-                  check === String(list.size) || check === list.size
-                    ? 'check'
-                    : '';
+                  check === String(size) || check === size ? 'check' : '';
                 return (
                   <button
-                    onClick={click}
-                    key={list.id}
-                    title={list.size}
+                    onClick={onClickChooseSize}
+                    key={id}
+                    title={size}
                     className={`product_size_button ${buttonCheckValue} `}
                   >
-                    {list.size}
+                    {size}
                   </button>
                 );
               })}
             </div>
             <button>
-              {IMG_LIST.map(list => {
+              {IMG_LIST.map(({ color, id, src }) => {
                 const selectProductColor =
-                  data.color === String(list.color) ? 'color' : '';
+                  data.color === String(color) ? 'color' : '';
                 return (
                   <img
-                    key={list.id}
+                    key={id}
                     onClick={handleColor}
-                    title={list.color}
+                    title={color}
                     className={`select_product ${selectProductColor} `}
-                    src={list.src}
+                    src={src}
                     alt="soleMates"
                   />
                 );
@@ -129,10 +126,16 @@ const Detail = () => {
               <div className="product_count">
                 <strong className="product_amount">수량</strong>
                 <strong className="product_amount">{data.quantity}</strong>
-                <button className="product_minus" onClick={onClickDecreaseBtn}>
+                <button
+                  className="product_quantity"
+                  onClick={onClickDecreaseBtn}
+                >
                   −
                 </button>
-                <button className="product_plus" onClick={onClickIncreaseBtn}>
+                <button
+                  className="product_quantity"
+                  onClick={onClickIncreaseBtn}
+                >
                   +
                 </button>
               </div>
@@ -154,8 +157,13 @@ const Detail = () => {
               </div>
             </div>
           </div>
+
           {cartModal && (
-            <ModalToCart setCartModal={setCartModal} close={closeCartModal} />
+            <ModalToCart
+              imgData={IMG_LIST}
+              productData={fetchData}
+              close={closeCartModal}
+            />
           )}
         </div>
         <div className="detail_navigate">
@@ -182,7 +190,7 @@ const Detail = () => {
       <div id="review">
         <div className="review">상품 후기</div>
         <div className="photo_review">포토리뷰</div>
-        <ul className="photo_flex">
+        <ul className="photo_grid">
           {IMG_LIST.map(list => {
             return (
               <button className="modal_photo_review" key={list.id}>
@@ -195,13 +203,25 @@ const Detail = () => {
             );
           })}
         </ul>
+        <ul className="user_review">
+          {REVIEW_LIST.map(list => {
+            return (
+              <li className="user_review_list" key={list.id}>
+                <div>
+                  <div className="">{list.review}</div>
+                  <span className="user_name">{list.userName}</span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
 };
 export default Detail;
 
-const SHOSE_SIZE = [
+const SHOES_SIZE = [
   { id: 1, size: 220 },
   { id: 2, size: 230 },
   { id: 3, size: 240 },
@@ -217,21 +237,29 @@ const IMG_LIST = [
   {
     id: 1,
     src: 'images/ProductDetail/productlist.png',
-    color: ' black',
+    color: 'Black',
   },
   {
     id: 2,
-    src: 'images/ProductDetail/product1.jpg',
-    color: 'red',
+    src: 'images/ProductDetail/red.png',
+    color: 'Red',
   },
   {
     id: 3,
-    src: 'images/ProductDetail/productlist.png',
-    color: 'yellow',
+    src: 'images/ProductDetail/yellowboots.jpg',
+    color: 'Yellow',
   },
   {
     id: 4,
     src: 'images/ProductDetail/product1.jpg',
-    color: 'navy',
+    color: 'Navy',
   },
+];
+
+const REVIEW_LIST = [
+  { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
+  { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
+  { id: 3, userName: '최*식', review: '', grade: 5 },
+  { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
+  { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
 ];
