@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './SignUp.scss';
+import './Account.scss';
 
 const Account = () => {
   const [inputValues, setInputValues] = useState({
