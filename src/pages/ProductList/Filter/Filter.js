@@ -1,16 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import FilterSizeButton from '../FilterSizeButton/FilterSizeButton';
 
 const Filter = () => {
-  const [btnColor, setBtnColor] = useState('');
-
-  const handleClick = () => {
-    if (btnColor === '') {
-      setBtnColor('yellow');
-    } else {
-      setBtnColor('');
-    }
-  };
-
   return (
     <div className="filter">
       <div className="filter_box">
@@ -25,17 +16,7 @@ const Filter = () => {
             <div className="filter_size_button">
               <ul className="filter_size_button_product">
                 {SIZE_BUTTON.map(({ id, size }) => (
-                  <li className="filter_size_button_product_record">
-                    <button
-                      key={id}
-                      className="filter_size_button_product_record_option"
-                      type="button"
-                      onClick={handleClick}
-                      style={{ backgroundColor: btnColor }}
-                    >
-                      {size}
-                    </button>
-                  </li>
+                  <FilterSizeButton key={id} size={size} />
                 ))}
               </ul>
             </div>
