@@ -1,0 +1,111 @@
+.group_cart {
+  display: flex;
+  padding-top: 50px;
+  justify-content: space-between;
+
+  .tit_order {
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+  }
+
+  .wrap_listcart {
+    position: relative;
+    width: 830px;
+
+    > .item_choice {
+      margin-left: 15px;
+    }
+
+    .txt_choice {
+      display: inline-block;
+      color: #555;
+      padding-left: 10px;
+      font-size: 14px;
+      vertical-align: top;
+    }
+  }
+
+  .wrap_order {
+    width: 400px;
+    padding: 0 30px;
+    background-color: #f2f2f2;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+
+    .list_order {
+      padding: 10px;
+      border: 1px solid #dedede;
+      background-color: #fff;
+
+      dt {
+        padding: 10px;
+        color: #888;
+        font-size: 16px;
+        line-height: 25px;
+        float: left;
+      }
+
+      dd {
+        overflow: hidden;
+        padding: 10px;
+        color: #222;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: right;
+      }
+
+      .type_total {
+        padding-top: 20px;
+      }
+
+      .emph_price {
+        color: #222;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .link_order {
+      display: block;
+      margin-top: 20px;
+      color: #fff;
+      background-color: #222;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .link_info {
+      display: block;
+      margin: 20px 0;
+      padding: 8px;
+      color: #555;
+      font-size: 14px;
+      line-height: 15px;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .btn_alldelete {
+      position: absolute;
+      top: -10px;
+      right: 0;
+      padding: 5px 10px;
+      color: #222;
+      border: 1px solid #dedede;
+      font-size: 14px;
+    }
+  }
+
+  .btn_alldelete {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 5px 10px;
+    color: #222;
+    border: 1px solid #dedede;
+    font-size: 14px;
+  }
+}
