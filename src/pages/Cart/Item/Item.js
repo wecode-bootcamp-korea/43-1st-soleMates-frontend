@@ -12,6 +12,7 @@ const ItemCount = ({
   productList,
   setProductList,
   setTotalPrice,
+  totalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
 
@@ -21,10 +22,6 @@ const ItemCount = ({
 
   function handleChange(e) {
     count(e.target.value);
-  }
-
-  function handleRemoveItem() {
-    setProductList(productList.filter(item => item.id !== id));
   }
 
   const total = price * count; // 총 가격
@@ -44,6 +41,11 @@ const ItemCount = ({
       setTotalPrice(prev => (prev -= price));
     }
   };
+
+  function handleRemoveItem(e) {
+    setTotalPrice(prev => (prev -= total));
+    setProductList(productList.filter(item => item.id !== id));
+  }
 
   return (
     <li key={id}>
@@ -89,11 +91,7 @@ const ItemCount = ({
           </button>
         </span>
       </span>
-      <button
-        className="btn_delete"
-        type="button"
-        onClick={() => handleRemoveItem(id)}
-      >
+      <button className="btn_delete" type="button" onClick={handleRemoveItem}>
         삭제
       </button>
     </li>
