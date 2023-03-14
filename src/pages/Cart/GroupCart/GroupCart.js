@@ -21,13 +21,9 @@ const GroupCart = props => {
                 id={id}
                 image={image}
                 name={name}
-                checkBoxName={id}
-                count={count}
                 price={price}
-                quantity={quantity}
-                total={quantity * price}
-                totalPrice={totalPrice}
                 handleChange={() => {}}
+                quantity={quantity}
                 productList={productList}
                 setProductList={setProductList}
                 setTotalPrice={setTotalPrice}
