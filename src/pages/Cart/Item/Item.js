@@ -12,7 +12,6 @@ const ItemCount = ({
   productList,
   setProductList,
   setTotalPrice,
-  totalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
 
