@@ -37,7 +37,7 @@ const Account = () => {
   const signUp = event => {
     if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
       event.preventDefault();
-      fetch('http://10.58.52.150:8000/auth/signup', {
+      fetch('http://10.58.52.228:8002/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -62,7 +62,9 @@ const Account = () => {
   };
 
   const logIn = event => {
-    fetch('http://10.58.52.150:8000/users/signin', {
+    console.log('test');
+    event.preventDefault();
+    fetch('http://10.58.52.182:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
