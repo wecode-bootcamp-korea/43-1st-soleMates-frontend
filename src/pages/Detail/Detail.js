@@ -5,24 +5,26 @@ import './Detail.scss';
 const price = 260000;
 
 const Detail = () => {
-  const [data, setData] = useState({
-    name: '1460스무스',
+  const [detailData, setDetailData] = useState({
+    name: '',
+    productId: '',
     quantity: 1,
     size: '',
     color: '',
     price,
   });
 
-  const { price: currentPrice, ...productInfo } = data;
-  const totalPrice = data.price * data.quantity;
-  // console.log({ ...productInfo, totalPrice: totalPrice });
+  const { price: currentPrice, ...productInfo } = detailData;
+  const totalPrice = detailData.price * detailData.quantity;
+
   const fetchData = { ...productInfo, totalPrice: totalPrice };
+  console.log(fetchData.color);
   // console.log(check);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const openModal = () => {
-    if (check.includes(0) && !(data.color === '')) {
+    if (check.includes(0) && !(detailData.color === '')) {
       setCartModal(true);
     } else {
       alert('사이즈,색상을 선택해주세요');
@@ -32,16 +34,16 @@ const Detail = () => {
     setCartModal(false);
   };
   const onClickDecreaseBtn = () => {
-    if (data.quantity <= 1) return;
-    setData({ ...data, quantity: data.quantity - 1 });
+    if (detailData.quantity <= 1) return;
+    setDetailData({ ...detailData, quantity: detailData.quantity - 1 });
   };
   const onClickIncreaseBtn = () => {
-    if (data.quantity >= 10) return;
-    setData({ ...data, quantity: data.quantity + 1 });
+    if (detailData.quantity >= 10) return;
+    setDetailData({ ...detailData, quantity: detailData.quantity + 1 });
   };
 
   const onClickChooseSize = event => {
-    setData(prev => ({ ...prev, size: event.target.title }));
+    setDetailData(prev => ({ ...prev, size: event.target.title }));
     const newSize = event.target.title;
 
     if (check === newSize) {
@@ -52,7 +54,7 @@ const Detail = () => {
   };
 
   const handleColor = event => {
-    setData(prev => ({ ...prev, color: event.target.title }));
+    setDetailData(prev => ({ ...prev, color: event.target.title }));
   };
 
   const empty_heart = () => {
@@ -109,7 +111,7 @@ const Detail = () => {
             <button>
               {IMG_LIST.map(({ color, id, src }) => {
                 const selectProductColor =
-                  data.color === String(color) ? 'color' : '';
+                  detailData.color === String(color) ? 'color' : '';
                 return (
                   <img
                     key={id}
@@ -125,7 +127,9 @@ const Detail = () => {
             <div className="product_count">
               <div className="product_count">
                 <strong className="product_amount">수량</strong>
-                <strong className="product_amount">{data.quantity}</strong>
+                <strong className="product_amount">
+                  {detailData.quantity}
+                </strong>
                 <button
                   className="product_quantity"
                   onClick={onClickDecreaseBtn}

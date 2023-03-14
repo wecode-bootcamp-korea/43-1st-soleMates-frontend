@@ -17,10 +17,10 @@ const ModalToCart = props => {
         </button>
         <div className="order_title">주문한 상품</div>
         <div className="order_info">
-          {imgData.map(list => {
+          {imgData.map(({ color, src }) => {
             const matchColor =
-              productData.color === String(list.color) ? list.src : 'none';
-            console.log(list.src);
+              productData.color === String(color) ? src : 'none';
+            console.log(src);
             return (
               <span>
                 <img
@@ -62,3 +62,5 @@ const ModalToCart = props => {
 };
 
 export default ModalToCart;
+
+// productId,quantity,price
