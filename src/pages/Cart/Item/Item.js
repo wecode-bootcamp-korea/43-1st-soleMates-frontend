@@ -11,6 +11,8 @@ const ItemCount = ({
   quantity,
   productList,
   setProductList,
+  checkList,
+  setCheckList,
   setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
@@ -46,9 +48,21 @@ const ItemCount = ({
     setProductList(productList.filter(item => item.id !== id));
   }
 
+  const isChecked = checkList[id - 1];
+
+  const handleCheckBox = () => {
+    const newArr = [...checkList];
+    newArr[id - 1] = !newArr[id - 1];
+    setCheckList(newArr);
+  };
+
   return (
     <li key={id}>
-      <ItemChoice checkId={`checkBox${id}`} />
+      <ItemChoice
+        checkId={`checkBox${id}`}
+        isChecked={isChecked}
+        handleCheckBox={handleCheckBox}
+      />
       <span className="item_thumb">
         <img src={image} className="img_g" alt="" />
       </span>

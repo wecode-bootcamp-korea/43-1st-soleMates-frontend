@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemChoice from '../../../Components/ItemChoice/ItemChoice';
 import Item from '../Item/Item';
@@ -7,12 +7,31 @@ import './GroupCart.scss';
 const GroupCart = props => {
   const { productList, setProductList } = props;
   const [totalPrice, setTotalPrice] = useState(0);
+  const [checkList, setCheckList] = useState([]);
+
+  const isAllChecked = checkList.every(value => value === true);
+
+  useEffect(() => {
+    const newArr = new Array(productList.length).fill(true);
+    setCheckList(newArr);
+  }, []);
+
+  const handleAllCheck = () => {
+    const newArr = [...checkList];
+    newArr.fill(!isAllChecked);
+    setCheckList(newArr);
+  };
 
   return (
     <div className="group_cart">
       <div className="wrap_listcart">
         <strong className="screen_out">장바구니에 담긴 상품 목록</strong>
-        <ItemChoice checkId="checkBoxAll" checkbox="전체선택" />
+        <ItemChoice
+          checkId="checkBoxAll"
+          checkbox="전체선택"
+          isChecked={isAllChecked}
+          handleCheckBox={handleAllCheck}
+        />
         <ul className="list_cart">
           {productList.map(({ id, image, name, count, price, quantity }) => {
             return (
@@ -26,6 +45,8 @@ const GroupCart = props => {
                 quantity={quantity}
                 productList={productList}
                 setProductList={setProductList}
+                checkList={checkList}
+                setCheckList={setCheckList}
                 setTotalPrice={setTotalPrice}
               />
             );
