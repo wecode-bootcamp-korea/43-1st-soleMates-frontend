@@ -38,10 +38,10 @@ const ItemCount = ({
     const className = e.target.className;
     if (className.indexOf('ico_plus') !== -1) {
       setCount(count + 1);
-      setTotalPrice(prev => (prev += total));
+      setTotalPrice(prev => (prev += price));
     } else if (className.indexOf('minus') !== -1 && count > 1) {
       setCount(count - 1);
-      setTotalPrice(prev => (prev -= total));
+      setTotalPrice(prev => (prev -= price));
     }
   };
 
