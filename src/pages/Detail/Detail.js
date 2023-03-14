@@ -18,11 +18,14 @@ const Detail = () => {
   const totalPrice = detailData.price * detailData.quantity;
 
   const fetchData = { ...productInfo, totalPrice: totalPrice };
-  console.log(fetchData);
+  // console.log(fetchData);
   // console.log(check);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
+  const [review, setReview] = useState('');
+  console.log([review]);
+
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
       setCartModal(true);
@@ -66,6 +69,23 @@ const Detail = () => {
   };
   const howManyLike = 563;
   const likeAmount = `${like === 'on' ? howManyLike + 1 : howManyLike}`;
+
+  const reviewValue = e => {
+    setReview(e.target.value);
+  };
+  const arrReview = [review];
+  // const
+  const createReview = arrReview.map(review => (
+    <li className="user_review_list" key="1">
+      {review}
+    </li>
+  ));
+
+  const post = event => {
+    setReview([...arrReview, review]);
+    setReview('');
+    event.preventdefault(post);
+  };
 
   return (
     <>
@@ -208,7 +228,7 @@ const Detail = () => {
           })}
         </ul>
         <ul className="user_review">
-          {REVIEW_LIST.map(list => {
+          {/* {REVIEW_LIST.map(list => {
             return (
               <li className="user_review_list" key={list.id}>
                 <div>
@@ -217,7 +237,20 @@ const Detail = () => {
                 </div>
               </li>
             );
-          })}
+          })} */}
+          {createReview}
+          <form className="create_review">
+            <input
+              className="add_review"
+              type="text"
+              value={review}
+              onChange={reviewValue}
+              placeholder="리뷰달기"
+            />
+            <button className="review_button" onClick={post}>
+              게시
+            </button>
+          </form>
         </ul>
       </div>
     </>
@@ -260,10 +293,10 @@ const IMG_LIST = [
   },
 ];
 
-const REVIEW_LIST = [
-  { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
-  { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
-  { id: 3, userName: '최*식', review: '', grade: 5 },
-  { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
-  { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
-];
+// const REVIEW_LIST = [
+//   { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
+//   { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
+//   { id: 3, userName: '최*식', review: '', grade: 5 },
+//   { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
+//   { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
+// ];
