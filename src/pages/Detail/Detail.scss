@@ -1,0 +1,259 @@
+.detail {
+  @mixin box_model {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+  }
+  @mixin font_state {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+
+  .product_img_list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+
+    .product_img {
+      margin: 10px;
+      width: 550px;
+    }
+  }
+
+  .product_detail_option {
+    position: sticky;
+    top: 40px;
+    width: 520px;
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .ico_sharing {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+      background-position: 0 -70px;
+    }
+
+    .ico_like {
+      width: 40px;
+      height: 40px;
+      background-position: -150px 0;
+    }
+
+    .ico_like.on {
+      width: 40px;
+      height: 40px;
+      background-position: -150px -40px;
+    }
+
+    .how_many_like {
+      font-size: 24px;
+    }
+
+    .product_name {
+      display: block;
+      margin-bottom: 60px;
+      font-size: 30px;
+    }
+    .product_size {
+      padding-top: 50px;
+      border-top: 1px #ddd solid;
+
+      .product_size_button {
+        width: 168px;
+        height: 36px;
+        margin: 2px;
+        padding-left: 5px;
+        font-size: 18px;
+        border: 1px #666 solid;
+
+        &.check {
+          background-color: #333;
+          color: #fff;
+        }
+      }
+    }
+
+    .select_product {
+      width: 60px;
+      height: 60px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      margin: 20px 10px 0 0;
+      border: 3px solid transparent;
+
+      &.color {
+        border-color: #333;
+      }
+    }
+
+    .product_count {
+      display: flex;
+      align-items: baseline;
+      width: 520px;
+      height: 45px;
+      padding-bottom: 30px;
+      margin-bottom: 20px;
+      border-bottom: 1px #ddd solid;
+
+      .product_amount {
+        margin: 0 20px;
+        font-size: 25px;
+      }
+
+      .product_quantity {
+        width: 45px;
+        height: 45px;
+        font-size: 45px;
+      }
+
+      .product_price {
+        font-size: 30px;
+      }
+    }
+
+    .shopping_button {
+      display: flex;
+      width: 100%;
+      height: 60px;
+
+      .cart_button {
+        width: 50%;
+        margin: 0 10px;
+        .cart {
+          @include box_model;
+          background-color: #fff;
+          border: 1px #333 solid;
+          @include font_state;
+        }
+      }
+      .buy_button {
+        width: 50%;
+        margin: 0 10px;
+
+        .buy {
+          @include box_model;
+          background-color: #333;
+          color: #fff;
+          @include font_state;
+        }
+      }
+    }
+  }
+
+  .detail_navigate {
+    position: fixed;
+    height: 200px;
+    right: 5%;
+    top: 30%;
+
+    .link_navigate {
+      display: block;
+      margin-bottom: 30px;
+      font-weight: bold;
+
+      .link_navigate_ko {
+        display: block;
+      }
+    }
+  }
+}
+
+#review {
+  width: 70%;
+  margin: auto;
+
+  .review {
+    width: 100%;
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .photo_review {
+    width: 80%;
+    margin: 100px 0 50px 0;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .photo_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid #ddd;
+
+    .photo_review_list {
+      width: 200px;
+      height: 200px;
+    }
+
+    .modal_photo_review {
+      margin: auto;
+      padding-bottom: 20px;
+    }
+  }
+
+  .user_review {
+    margin-top: 30px;
+
+    .user_review_list {
+      width: 100%;
+      height: 100px;
+      background-color: #fafafa;
+      border: 1px solid #333;
+      margin: 5px 0;
+
+      .review_info {
+        margin: 10px;
+      }
+      [class*='ico_star'] {
+        width: 54px;
+        height: 10px;
+      }
+
+      .ico_star0 {
+        background-position: -120px -240px;
+      }
+
+      .ico_star1 {
+        background-position: -120px -220px;
+      }
+
+      .ico_star2 {
+        background-position: -60px -240px;
+      }
+
+      .ico_star3 {
+        background-position: -60px -220px;
+      }
+
+      .ico_star4 {
+        background-position: 0px -240px;
+      }
+
+      .ico_star5 {
+        background-position: 0 -220px;
+      }
+    }
+  }
+  .create_review {
+    display: flex;
+
+    .add_review {
+      padding-right: 10px;
+    }
+
+    .review_button {
+      width: 5%;
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}
