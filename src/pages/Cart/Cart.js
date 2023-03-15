@@ -6,7 +6,6 @@ import './Cart.scss';
 
 const Cart = () => {
   const [productList, setProductList] = useState([]);
-  console.log(productList);
 
   useEffect(() => {
     fetch('/data/cartProduct.json', {

@@ -34,21 +34,14 @@ const GroupCart = props => {
         />
         <ul className="list_cart">
           {productList.map(
-            ({
-              cartId,
-              productImage,
-              productName,
-              count,
-              productPrice,
-              quantity,
-            }) => {
+            ({ cartId, productImage, productName, productPrice, quantity }) => {
               return (
                 <Item
                   key={cartId}
                   cartId={cartId}
                   productImage={productImage}
                   productName={productName}
-                  productPrice={productPrice}
+                  productPrice={parseInt(productPrice)}
                   handleChange={() => {}}
                   quantity={quantity}
                   productList={productList}
