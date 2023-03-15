@@ -1,0 +1,74 @@
+.bnr_public {
+  position: relative;
+  display: flex;
+  width: 1440px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .bnr_text {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    text-align: center;
+    transform: translateY(-50%);
+  }
+
+  .bnr_text.type_left80 {
+    left: 0;
+    text-align: left;
+  }
+
+  .bnr_text.type_right {
+    left: auto;
+    right: 100px;
+    text-align: right;
+  }
+
+  .tit_bnr {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: bold;
+  }
+
+  .desc_bnr {
+    width: 450px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    color: #888;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: -0.025em;
+  }
+
+  .btn_buy {
+    display: block;
+    width: 180px;
+    height: 46px;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #222;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 46px;
+    transition: all 0.3s;
+  }
+
+  .btn_buy:hover {
+    color: #222;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  .bnr_text.type_left80 .btn_buy {
+    margin: inherit;
+    text-align: center;
+  }
+  .bnr_text.type_right .btn_buy {
+    float: right;
+    text-align: center;
+  }
+
+  .bnr_img {
+    margin-left: auto;
+  }
+}
