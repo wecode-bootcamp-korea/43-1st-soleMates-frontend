@@ -37,7 +37,7 @@ const Account = () => {
   const signUp = event => {
     if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
       event.preventDefault();
-      fetch('http://10.58.52.228:8002/users/signup', {
+      fetch('http://10.58.52.182:3000/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -50,8 +50,8 @@ const Account = () => {
       })
         .then(response => response.json())
         .then(data => {
-          if (data.accessToken) {
-            localStorage.setItem('token', data.accessToken);
+          if (data.message === 'SUCCESS_SIGNUP') {
+            localStorage.setItem('token', data.token);
             alert('회원가입 성공');
             navigate('/login');
           }
@@ -78,6 +78,7 @@ const Account = () => {
       .then(data => {
         if (data.token) {
           localStorage.setItem('token', data.token);
+          navigate('/');
         } else {
           alert('다시 시도해주세요.');
         }
