@@ -39,8 +39,8 @@ const Main = () => {
         title="GET MOVING"
         txt="굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
         img="../images/Main/@bnr3_1440x900.jpg"
-        btn="/detail/4"
-        link="#none"
+        btn="구매하기"
+        link="/detail/4"
       />
       <MainTitle title="Trending Styles" txt="베스트셀러 보기" url="#none" />
       <ListProducts product={BEST_PRODUCT_LIST} />
