@@ -13,8 +13,7 @@ const Account = () => {
   const { name, email, pw, pwCorrect } = inputValues;
 
   const location = useLocation();
-  const CURRENT_ACCOUNT_DATA =
-    location.pathname === '/login' ? LOGIN_DATA : SIGNUP_DATA;
+  const currentPage = location.pathname === '/login' ? LOGIN_DATA : SIGNUP_DATA;
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -91,7 +90,7 @@ const Account = () => {
       <strong className="title">
         {location.pathname === '/login' ? '로그인' : '회원가입'}
       </strong>
-      {CURRENT_ACCOUNT_DATA.map(({ id, title, type, name, placeholder }) => {
+      {currentPage.map(({ id, title, type, name, placeholder }) => {
         return (
           <div className="input_box" key={id}>
             <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
