@@ -48,16 +48,17 @@ const ItemCount = ({
     setProductList(productList.filter(item => item.cartId !== cartId));
   }
 
-  const isChecked = checkList[cartId - 1];
+  const isChecked = checkList[productList.length - 1];
 
   const handleCheckBox = () => {
     const newArr = [...checkList];
-    newArr[cartId - 1] = !newArr[cartId - 1];
+    newArr[0] = !newArr[0];
     setCheckList(newArr);
+    console.log(newArr);
   };
 
   return (
-    <li key={cartId} value={cartId}>
+    <li key={cartId}>
       <ItemChoice
         checkId={`checkBox${cartId}`}
         isChecked={isChecked}
