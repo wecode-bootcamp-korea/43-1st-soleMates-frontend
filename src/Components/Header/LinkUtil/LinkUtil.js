@@ -13,7 +13,7 @@ const LinkUtil = props => {
     if (icoName === '로그인') {
       // 로그인 로직
       if (saveUserAccount === null) {
-        navigate('/signup');
+        navigate('/login');
       } else {
         if (window.confirm('정말 로그아웃 하시겠습니까?')) {
           localStorage.removeItem('token');
@@ -26,7 +26,7 @@ const LinkUtil = props => {
       // 장바구니 로직
       if (saveUserAccount === null) {
         alert('회원만 사용이 가능합니다.');
-        navigate('/signup');
+        navigate('/login');
       } else {
         navigate('/cart');
       }
