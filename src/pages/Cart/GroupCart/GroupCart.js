@@ -22,8 +22,6 @@ const GroupCart = props => {
     setCheckList(newArr);
   };
 
-  console.log(checkList);
-
   return (
     <div className="group_cart">
       <div className="wrap_listcart">

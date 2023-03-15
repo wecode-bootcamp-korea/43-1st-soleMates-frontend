@@ -50,20 +50,9 @@ const ItemCount = ({
 
   const isChecked = checkList[productList.length - 1];
 
-  const handleCheckBox = () => {
-    const newArr = [...checkList];
-    newArr[0] = !newArr[0];
-    setCheckList(newArr);
-    console.log(newArr);
-  };
-
   return (
     <li key={cartId}>
-      <ItemChoice
-        checkId={`checkBox${cartId}`}
-        isChecked={isChecked}
-        handleCheckBox={handleCheckBox}
-      />
+      <ItemChoice checkId={`checkBox${cartId}`} isChecked={isChecked} />
       <span className="item_thumb">
         <img src={productImage} className="img_g" alt="" />
       </span>
