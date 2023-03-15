@@ -15,17 +15,27 @@
     display: block;
   }
 
-  li:hover .link_products::after {
+  .link_products::after {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease-out;
     content: '';
+  }
+
+  li:hover .link_products::after {
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background-color: rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+  }
+
+  .link_products .img_g {
+    height: 450px;
+    object-fit: cover;
   }
 
   .txt_name {

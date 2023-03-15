@@ -17,14 +17,14 @@ const Main = () => {
         txt="굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로 기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
         img="../images/Main/@bnr_720x900.gif"
         btn="구매하기"
-        link="#none"
+        link="/detail/1"
       />
       <BnrPublic
         title="GET MOVING"
         txt=" 굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
         img="../images/Main/@bnr_1440x900.jpg"
         btn="구매하기"
-        link="#none"
+        link="/detail/2"
         className="type_left80"
       />
       <BnrPublic
@@ -32,14 +32,14 @@ const Main = () => {
         txt=" 굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
         img="../images/Main/@bnr2_1440x900.jpg"
         btn="구매하기"
-        link="#none"
+        link="/detail/3"
         className="type_right"
       />
       <BnrPublic
         title="GET MOVING"
         txt="굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
         img="../images/Main/@bnr3_1440x900.jpg"
-        btn="구매하기"
+        btn="/detail/4"
         link="#none"
       />
       <MainTitle title="Trending Styles" txt="베스트셀러 보기" url="#none" />
@@ -51,54 +51,54 @@ const Main = () => {
 const NEW_PRODUCT_LIST = [
   {
     id: 1,
-    url: '#none',
+    url: '/detail/1',
     name: 'HIGH TOPS',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_500x750.jpg',
   },
   {
     id: 2,
-    url: '#none',
+    url: '/detail/2',
     name: '가나다라마바사',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_506x524.png',
   },
   {
     id: 3,
-    url: '#none',
+    url: '/detail/3',
     name: 'ABCDEFG',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_620x371.jpg',
   },
   {
     id: 4,
-    url: '#none',
+    url: '/detail/4',
     name: 'HIGH TOPS',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb2_500x750.jpg',
   },
 ];
 
 const BEST_PRODUCT_LIST = [
   {
     id: 1,
-    url: '#none',
+    url: '/detail/1',
     name: '베스트 HIGH TOPS',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_500x750.jpg',
   },
   {
     id: 2,
-    url: '#none',
+    url: '/detail/2',
     name: '가나다라마바사',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_506x524.png',
   },
   {
     id: 3,
-    url: '#none',
+    url: '/detail/3',
     name: 'ABCDEFG',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb_620x371.jpg',
   },
   {
     id: 4,
-    url: '#none',
+    url: '/detail/4',
     name: 'HIGH TOPS',
-    img: '../images/Main/@thumb_279x349.jpg',
+    img: '../images/Main/@thumb2_500x750.jpg',
   },
 ];
 
