@@ -7,6 +7,7 @@ import './Header.scss';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
+
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.pageYOffset;
