@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './Components/Nav/Nav';
+import Banner from './Components/Header/Banner/Banner';
+import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Main from './pages/Main/Main';
-import SignUp from './pages/SignUp/SignUp';
+import Account from './pages/Account/Account';
 import ProductList from './pages/ProductList/ProductList';
 import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
@@ -11,11 +12,12 @@ import Cart from './pages/Cart/Cart';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      <Banner />
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/login" element={<SignUp />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Account />} />
+        <Route path="/signup" element={<Account />} />
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />

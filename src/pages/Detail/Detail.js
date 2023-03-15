@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
+import { useNavigate } from 'react-router-dom';
 
 const price = 260000;
 
@@ -75,8 +76,14 @@ const Detail = () => {
 
   const post = event => {
     event.preventDefault();
-    setArrReview(reviewList => [...reviewList, review]);
-    setReview('');
+    const token = localStorage.getItem('token');
+    if (token) {
+      setArrReview(reviewList => [...reviewList, review]);
+      setReview('');
+    } else if (token === null) {
+      alert('로그인후 이용해주세요');
+      navigator('/login');
+    }
   };
 
   return (

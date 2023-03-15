@@ -4,10 +4,6 @@ import './ModalToCart.scss';
 const ModalToCart = props => {
   const { imgData, close, productData } = props;
 
-  // const closeModal = () => {
-  //   setCartModal(false);
-  // };
-
   return (
     <>
       <div onClick={close} className="modal_to_cart" />
@@ -20,7 +16,6 @@ const ModalToCart = props => {
           {imgData.map(({ id, color, src }) => {
             const matchColor =
               productData.color === String(color) ? src : 'none';
-            console.log(src);
             return (
               <span key={id}>
                 <img
@@ -31,7 +26,7 @@ const ModalToCart = props => {
               </span>
             );
           })}
-          {/* <img className="order_product_img" src={imgData} alt="soleMates" /> */}
+
           <div className="order_info_detail">
             <div className="order_info_name">{productData.name}</div>
             <div className="order_info_quantity">
@@ -62,5 +57,3 @@ const ModalToCart = props => {
 };
 
 export default ModalToCart;
-
-// productId,quantity,price
