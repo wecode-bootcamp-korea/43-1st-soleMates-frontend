@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
 
@@ -24,7 +24,8 @@ const Detail = () => {
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const [review, setReview] = useState('');
-  console.log([review]);
+  const [arrReview, setArrReview] = useState([]);
+  // console.log([review]);
 
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
@@ -73,18 +74,14 @@ const Detail = () => {
   const reviewValue = e => {
     setReview(e.target.value);
   };
-  const arrReview = [review];
-  // const
-  const createReview = arrReview.map(review => (
-    <li className="user_review_list" key="1">
-      {review}
-    </li>
-  ));
 
+  // const
+
+  // console.log(createReview);
   const post = event => {
-    setReview([...arrReview, review]);
-    setReview('');
-    event.preventdefault(post);
+    event.preventdefault();
+    setArrReview(tlqkf => [...tlqkf, review]);
+    setArrReview('');
   };
 
   return (
@@ -238,20 +235,22 @@ const Detail = () => {
               </li>
             );
           })} */}
-          {createReview}
-          <form className="create_review">
-            <input
-              className="add_review"
-              type="text"
-              value={review}
-              onChange={reviewValue}
-              placeholder="리뷰달기"
-            />
-            <button className="review_button" onClick={post}>
-              게시
-            </button>
-          </form>
+          {arrReview.map((review, index) => (
+            <li className="user_review_list" key={index}>
+              {review}
+            </li>
+          ))}
         </ul>
+        <form onSubmit={post} className="create_review">
+          <input
+            className="add_review"
+            type="text"
+            value={review}
+            onChange={reviewValue}
+            placeholder="리뷰달기"
+          />
+          <button className="review_button">게시</button>
+        </form>
       </div>
     </>
   );
