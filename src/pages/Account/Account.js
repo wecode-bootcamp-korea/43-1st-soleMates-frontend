@@ -62,7 +62,6 @@ const Account = () => {
   };
 
   const logIn = event => {
-    console.log('test');
     event.preventDefault();
     fetch('http://10.58.52.182:3000/users/signin', {
       method: 'POST',
