@@ -3,10 +3,10 @@ import ItemChoice from '../../../Components/ItemChoice/ItemChoice';
 import './Item.scss';
 
 const ItemCount = ({
-  id,
-  image,
-  name,
-  price,
+  cartId,
+  productImage,
+  productName,
+  productPrice,
   handleChange,
   quantity,
   productList,
@@ -25,7 +25,7 @@ const ItemCount = ({
     count(e.target.value);
   }
 
-  const total = price * count; // 총 가격
+  const total = productPrice * count; // 총 가격
   const commaTotal = total.toLocaleString();
 
   useEffect(() => {
@@ -36,40 +36,40 @@ const ItemCount = ({
     const className = e.target.className;
     if (className.indexOf('ico_plus') !== -1) {
       setCount(count + 1);
-      setTotalPrice(prev => (prev += price));
+      setTotalPrice(prev => (prev += productPrice));
     } else if (className.indexOf('minus') !== -1 && count > 1) {
       setCount(count - 1);
-      setTotalPrice(prev => (prev -= price));
+      setTotalPrice(prev => (prev -= productPrice));
     }
   };
 
-  function handleRemoveItem(e) {
+  function handleRemoveItem() {
     setTotalPrice(prev => (prev -= total));
-    setProductList(productList.filter(item => item.id !== id));
+    setProductList(productList.filter(item => item.cartId !== cartId));
   }
 
-  const isChecked = checkList[id - 1];
+  const isChecked = checkList[cartId - 1];
 
   const handleCheckBox = () => {
     const newArr = [...checkList];
-    newArr[id - 1] = !newArr[id - 1];
+    newArr[cartId - 1] = !newArr[cartId - 1];
     setCheckList(newArr);
   };
 
   return (
-    <li key={id}>
+    <li key={cartId} value={cartId}>
       <ItemChoice
-        checkId={`checkBox${id}`}
+        checkId={`checkBox${cartId}`}
         isChecked={isChecked}
         handleCheckBox={handleCheckBox}
       />
       <span className="item_thumb">
-        <img src={image} className="img_g" alt="" />
+        <img src={productImage} className="img_g" alt="" />
       </span>
       <span className="item_info">
         <strong className="tit_name">
           <span className="screen_out">상품명 : </span>
-          {name}
+          {productName}
         </strong>
         <span className="txt_opt">
           &#91;옵션 : 에그렛 /<span className="screen_out">사이즈 : </span>

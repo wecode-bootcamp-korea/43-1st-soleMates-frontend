@@ -33,24 +33,34 @@ const GroupCart = props => {
           handleCheckBox={handleAllCheck}
         />
         <ul className="list_cart">
-          {productList.map(({ id, image, name, count, price, quantity }) => {
-            return (
-              <Item
-                key={id}
-                id={id}
-                image={image}
-                name={name}
-                price={price}
-                handleChange={() => {}}
-                quantity={quantity}
-                productList={productList}
-                setProductList={setProductList}
-                checkList={checkList}
-                setCheckList={setCheckList}
-                setTotalPrice={setTotalPrice}
-              />
-            );
-          })}
+          {productList.map(
+            ({
+              cartId,
+              productImage,
+              productName,
+              count,
+              productPrice,
+              quantity,
+            }) => {
+              return (
+                <Item
+                  key={cartId}
+                  cartId={cartId}
+                  value={cartId}
+                  productImage={productImage}
+                  productName={productName}
+                  productPrice={productPrice}
+                  handleChange={() => {}}
+                  quantity={quantity}
+                  productList={productList}
+                  setProductList={setProductList}
+                  checkList={checkList}
+                  setCheckList={setCheckList}
+                  setTotalPrice={setTotalPrice}
+                />
+              );
+            }
+          )}
         </ul>
         <button className="btn_alldelete">전체 삭제</button>
       </div>

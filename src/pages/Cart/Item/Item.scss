@@ -21,8 +21,24 @@
   }
 
   .item_thumb {
+    position: relative;
     width: 100px;
+    min-height: 126px;
     margin-left: 25px;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding-top: -webkit-calc(100% + 24px);
+      padding-top: -moz-calc(100% + 24px);
+      padding-top: calc(100% + 24px);
+      border: 1px solid #dedede;
+      box-sizing: border-box;
+      content: '';
+    }
   }
 
   .item_info {
