@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
 
@@ -18,14 +18,12 @@ const Detail = () => {
   const totalPrice = detailData.price * detailData.quantity;
 
   const fetchData = { ...productInfo, totalPrice: totalPrice };
-  // console.log(fetchData);
-  // console.log(check);
+
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const [review, setReview] = useState('');
   const [arrReview, setArrReview] = useState([]);
-  // console.log([review]);
 
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
@@ -75,13 +73,10 @@ const Detail = () => {
     setReview(e.target.value);
   };
 
-  // const
-
-  // console.log(createReview);
   const post = event => {
-    event.preventdefault();
-    setArrReview(tlqkf => [...tlqkf, review]);
-    setArrReview('');
+    event.preventDefault();
+    setArrReview(reviewList => [...reviewList, review]);
+    setReview('');
   };
 
   return (
@@ -225,23 +220,24 @@ const Detail = () => {
           })}
         </ul>
         <ul className="user_review">
-          {/* {REVIEW_LIST.map(list => {
+          {REVIEW_LIST.map(list => {
             return (
               <li className="user_review_list" key={list.id}>
-                <div>
-                  <div className="">{list.review}</div>
-                  <span className="user_name">{list.userName}</span>
+                <div className="review_info">
+                  <div>{list.review}</div>
+                  <span className={`ico_shop ico_star${list.grade}`}>별점</span>
+                  <div className="user_name">{list.userName}</div>
                 </div>
               </li>
             );
-          })} */}
+          })}
           {arrReview.map((review, index) => (
             <li className="user_review_list" key={index}>
               {review}
             </li>
           ))}
         </ul>
-        <form onSubmit={post} className="create_review">
+        <form className="create_review">
           <input
             className="add_review"
             type="text"
@@ -249,7 +245,9 @@ const Detail = () => {
             onChange={reviewValue}
             placeholder="리뷰달기"
           />
-          <button className="review_button">게시</button>
+          <button className="review_button" onClick={post}>
+            게시
+          </button>
         </form>
       </div>
     </>
@@ -292,10 +290,10 @@ const IMG_LIST = [
   },
 ];
 
-// const REVIEW_LIST = [
-//   { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
-//   { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
-//   { id: 3, userName: '최*식', review: '', grade: 5 },
-//   { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
-//   { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
-// ];
+const REVIEW_LIST = [
+  { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
+  { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
+  { id: 3, userName: '최*식', review: '', grade: 5 },
+  { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
+  { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
+];

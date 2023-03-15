@@ -201,7 +201,6 @@
   }
 
   .user_review {
-    width: 100%;
     margin-top: 30px;
 
     .user_review_list {
@@ -210,21 +209,51 @@
       background-color: #fafafa;
       border: 1px solid #333;
       margin: 5px 0;
+
+      .review_info {
+        margin: 10px;
+      }
+      [class*='ico_star'] {
+        width: 54px;
+        height: 10px;
+      }
+
+      .ico_star0 {
+        background-position: -120px -240px;
+      }
+
+      .ico_star1 {
+        background-position: -120px -220px;
+      }
+
+      .ico_star2 {
+        background-position: -60px -240px;
+      }
+
+      .ico_star3 {
+        background-position: -60px -220px;
+      }
+
+      .ico_star4 {
+        background-position: 0px -240px;
+      }
+
+      .ico_star5 {
+        background-position: 0 -220px;
+      }
+    }
+  }
+  .create_review {
+    display: flex;
+
+    .add_review {
+      padding-right: 10px;
     }
 
-    .create_review {
-      display: flex;
-
-      .add_review {
-        padding-right: 10px;
-        text-align: end;
-      }
-
-      .review_button {
-        width: 5%;
-        background-color: #333;
-        color: #fff;
-      }
+    .review_button {
+      width: 5%;
+      background-color: #333;
+      color: #fff;
     }
   }
 }
