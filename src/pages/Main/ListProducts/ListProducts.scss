@@ -1,0 +1,37 @@
+.list_products {
+  width: 1440px;
+  margin: 0 auto;
+  padding-top: 30px;
+  font-size: 0;
+
+  li {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+  }
+
+  .link_products {
+    position: relative;
+    display: block;
+  }
+
+  li:hover .link_products::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    content: '';
+  }
+
+  .txt_name {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 14px;
+  }
+}

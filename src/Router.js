@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './Components/Nav/Nav';
+import Banner from './Components/Header/Banner/Banner';
+import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Main from './pages/Main/Main';
 import Account from './pages/Account/Account';
@@ -11,7 +12,8 @@ import Cart from './pages/Cart/Cart';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      <Banner />
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Account />} />
