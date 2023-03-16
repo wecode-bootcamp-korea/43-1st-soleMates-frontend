@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Account.scss';
 
 const Account = () => {
@@ -86,33 +86,41 @@ const Account = () => {
   const submit = location.pathname === '/login' ? logIn : signUp;
 
   return (
-    <form className="account">
-      <strong className="title">
-        {location.pathname === '/login' ? '로그인' : '회원가입'}
-      </strong>
-      {currentPage.map(({ id, title, type, name, placeholder }) => {
-        return (
-          <div className="input_box" key={id}>
-            <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
-              {title}
-            </label>
-            <input
-              name={name}
-              className="input"
-              type={type}
-              autoComplete={name.includes('pw') ? 'off' : undefined}
-              onChange={handleInput}
-              value={inputValues[name]}
-              placeholder={placeholder}
-            />
-          </div>
-        );
-      })}
+    <div className="account">
+      <form className="form_account">
+        <strong className="title">
+          {location.pathname === '/login' ? '로그인' : '회원가입'}
+        </strong>
+        {currentPage.map(({ id, title, type, name, placeholder }) => {
+          return (
+            <div className="input_box" key={id}>
+              <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
+                {title}
+              </label>
+              <input
+                name={name}
+                className="input"
+                type={type}
+                autoComplete={name.includes('pw') ? 'off' : undefined}
+                onChange={handleInput}
+                value={inputValues[name]}
+                placeholder={placeholder}
+              />
+            </div>
+          );
+        })}
 
-      <button onClick={submit} type="submit" className="account_button">
-        {location.pathname === '/login' ? '로그인' : '회원가입'}
-      </button>
-    </form>
+        <button onClick={submit} type="submit" className="account_button">
+          {location.pathname === '/login' ? '로그인' : '회원가입'}
+        </button>
+      </form>
+
+      {location.pathname === '/login' && (
+        <Link className="sign_up" to="/signup">
+          회원가입
+        </Link>
+      )}
+    </div>
   );
 };
 
