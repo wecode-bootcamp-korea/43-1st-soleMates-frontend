@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import EmptyCart from './EmptyCart/EmptyCart';
 import GroupCart from './GroupCart/GroupCart';
 import './Cart.scss';
 
 const Cart = () => {
   const [productList, setProductList] = useState([]);
+  const params = useParams();
+  const userId = params.id;
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch('http://10.58.52.182:8000/carts', {
+    fetch(`http://10.58.52.182:8000/carts/${userId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -19,7 +23,7 @@ const Cart = () => {
       .then(data => {
         setProductList(data.cartData);
       });
-  }, []);
+  }, [userId]);
   return (
     <div className="cart">
       <h2 className="tit_cart">
