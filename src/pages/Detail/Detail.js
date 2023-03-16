@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
 import { useNavigate } from 'react-router-dom';
 
-const price = 260000;
-
 const Detail = () => {
+  const [data, setData] = useState([]);
+  const price = parseInt(data.price);
   const [detailData, setDetailData] = useState({
-    name: '',
     productId: '',
     quantity: 1,
     size: '',
     color: '',
-    price,
   });
 
-  const { price: currentPrice, ...productInfo } = detailData;
-  const totalPrice = detailData.price * detailData.quantity;
+  // const { price: currentPrice, ...productInfo } = detailData;
+  const totalPrice = price * detailData.quantity;
 
-  const fetchData = { ...productInfo, totalPrice: totalPrice };
-
+  const fetchData = {
+    ...detailData,
+    price: totalPrice,
+    name: data.name,
+    productId: data.id,
+  };
+  // console.log(fetchData);
   const [like, setLike] = useState('off');
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const [review, setReview] = useState('');
   const [arrReview, setArrReview] = useState([]);
-
+  const [rating, setRating] = useState(0);
+  const [reviewData, setReviewData] = useState({});
+  const [getReviewData, setGetReviewData] = useState([]);
+  const newReviewData = {
+    ...reviewData,
+    productId: '',
+    name: '',
+  };
+  // console.log(newReviewData);
+  // console.log(reviewData);
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
       setCartModal(true);
@@ -72,30 +84,88 @@ const Detail = () => {
 
   const reviewValue = e => {
     setReview(e.target.value);
+    setReviewData(review => ({ ...review, comment: e.target.value }));
   };
+  const navigate = useNavigate();
 
   const post = event => {
     event.preventDefault();
-    const token = localStorage.getItem('token');
-    if (token) {
-      setArrReview(reviewList => [...reviewList, review]);
+    const tokenDetail = localStorage.getItem('token', data.token);
+
+    if (tokenDetail) {
+      // setArrReview(reviewList => [...reviewList, review]);
       setReview('');
-    } else if (token === null) {
+      console.log(tokenDetail);
+      fetch('http://10.58.52.169:3000/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          Authorization: tokenDetail,
+        },
+        body: JSON.stringify({
+          productId: data.id,
+          comment: review,
+          rating,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => setReviewData(data.data));
+    } else if (tokenDetail === null) {
       alert('로그인후 이용해주세요');
-      navigator('/login');
+      navigate('/login');
     }
   };
+  // console.log(newReviewData);
+  useEffect(() => {
+    fetch('http://10.58.52.169:3000/reviews/product/1', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    })
+      .then(response => response.json())
+      .then(data => setGetReviewData(data.data));
+  }, [arrReview]);
+
+  // console.log(getReviewData);
+  const decreaseStar = event => {
+    event.preventDefault();
+    if (rating <= 0) return;
+    setRating(rating - 1);
+    setReviewData(review => ({ ...review, rating: rating - 1 }));
+  };
+  const increaseStar = event => {
+    event.preventDefault();
+    if (rating >= 5) return;
+    setRating(rating + 1);
+    setReviewData(review => ({ ...review, rating: rating + 1 }));
+  };
+  useEffect(() => {
+    fetch('http://10.58.52.169:3000/products/detail/1', { method: 'GET' })
+      .then(response => response.json())
+      .then(data => setData(data.data[0]));
+  }, []);
+  console.log(data);
+
+  // useEffect(() => {
+  //   const newData = data.size.map(data => ({ ...data, soldout: false }));
+  //   setData(newData);
+  // }, []);
 
   return (
     <>
       <div className="detail">
         <div className="product_img_list">
           <p id="product_img_1" />
-          {IMG_LIST.map(({ id, src }) => {
-            return (
-              <img key={id} className="product_img" src={src} alt="soleMates" />
-            );
-          })}
+          {data.images &&
+            data.images.map(({ id, url }) => {
+              return (
+                <img
+                  key={id}
+                  className="product_img"
+                  src={url}
+                  alt="soleMates"
+                />
+              );
+            })}
         </div>
         <div className="product_detail">
           <div className="product_detail_option">
@@ -109,23 +179,24 @@ const Detail = () => {
               </button>
               <strong className="how_many_like">{likeAmount}</strong>
             </div>
-            <strong className="product_name">1460스무스</strong>
+            <strong className="product_name">{data.name}</strong>
 
             <div className="product_size">
-              {SHOES_SIZE.map(({ size, id }) => {
-                const buttonCheckValue =
-                  check === String(size) || check === size ? 'check' : '';
-                return (
-                  <button
-                    onClick={onClickChooseSize}
-                    key={id}
-                    title={size}
-                    className={`product_size_button ${buttonCheckValue} `}
-                  >
-                    {size}
-                  </button>
-                );
-              })}
+              {data.size &&
+                data.size.map(({ size, id }) => {
+                  const buttonCheckValue =
+                    check === String(size) || check === size ? 'check' : '';
+                  return (
+                    <button
+                      onClick={onClickChooseSize}
+                      key={id}
+                      title={size}
+                      className={`product_size_button ${buttonCheckValue} `}
+                    >
+                      {size}
+                    </button>
+                  );
+                })}
             </div>
             <button>
               {IMG_LIST.map(({ color, id, src }) => {
@@ -171,7 +242,7 @@ const Detail = () => {
             </div>
             <div className="shopping_button">
               <div className="cart_button">
-                <button onClick={openModal} className="cart">
+                <button onClick={openModal} className="cart_btn">
                   장바구니
                 </button>
               </div>
@@ -227,22 +298,17 @@ const Detail = () => {
           })}
         </ul>
         <ul className="user_review">
-          {REVIEW_LIST.map(list => {
+          {getReviewData.map(({ id, rating, comment, name }) => {
             return (
-              <li className="user_review_list" key={list.id}>
+              <li className="user_review_list" key={id}>
                 <div className="review_info">
-                  <div>{list.review}</div>
-                  <span className={`ico_shop ico_star${list.grade}`}>별점</span>
-                  <div className="user_name">{list.userName}</div>
+                  <span className="user_name">{name}</span>
+                  <span className={`ico_shop ico_star${rating}`}>별점</span>
+                  <div>{comment}</div>
                 </div>
               </li>
             );
           })}
-          {arrReview.map((review, index) => (
-            <li className="user_review_list" key={index}>
-              {review}
-            </li>
-          ))}
         </ul>
         <form className="create_review">
           <input
@@ -252,6 +318,16 @@ const Detail = () => {
             onChange={reviewValue}
             placeholder="리뷰달기"
           />
+          <div className="flex_star">
+            <button className="decrease_star_btn" onClick={decreaseStar}>
+              −
+            </button>
+            <span className={`ico_shop ico_star${rating}`}>별점</span>
+            <button className="increase_star_btn" onClick={increaseStar}>
+              +
+            </button>
+          </div>
+
           <button className="review_button" onClick={post}>
             게시
           </button>
@@ -261,18 +337,6 @@ const Detail = () => {
   );
 };
 export default Detail;
-
-const SHOES_SIZE = [
-  { id: 1, size: 220 },
-  { id: 2, size: 230 },
-  { id: 3, size: 240 },
-  { id: 4, size: 250 },
-  { id: 5, size: 260 },
-  { id: 6, size: 270 },
-  { id: 7, size: 280 },
-  { id: 8, size: 290 },
-  { id: 9, size: 300 },
-];
 
 const IMG_LIST = [
   {
@@ -295,12 +359,4 @@ const IMG_LIST = [
     src: 'images/ProductDetail/product1.jpg',
     color: 'Navy',
   },
-];
-
-const REVIEW_LIST = [
-  { id: 1, userName: '홍*훈', review: '좀 별론데요?', grade: 3 },
-  { id: 2, userName: '이*태', review: '너무 마음에 드네요', grade: 5 },
-  { id: 3, userName: '최*식', review: '', grade: 5 },
-  { id: 4, userName: '김*태', review: '가죽 질감이 좋아요', grade: 4 },
-  { id: 5, userName: '김*미', review: '색이 마음에 들어요', grade: 4 },
 ];

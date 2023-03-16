@@ -1,0 +1,71 @@
+{
+  "id": 1,
+  "name": "모노",
+  "description": "NULL\r",
+  "price": "120.0000",
+  "quantity": 30,
+  "images": [
+    {
+      "id": 1,
+      "url": "https://as1.ftcdn.net/v2/jpg/04/14/29/72/1000_F_414297231_eXwIVL1HK9ICYzSvZZmBEkNx3kqTNGPs.jpg\r",
+      "name": "썸네일"
+    },
+    {
+      "id": 10,
+      "url": "http://example.com/image1.jpg",
+      "name": null
+    }
+  ],
+  "size": [
+    {
+      "id": 1,
+      "size": 220
+    },
+    {
+      "id": 2,
+      "size": 230
+    },
+    {
+      "id": 3,
+      "size": 240
+    },
+    {
+      "id": 4,
+      "size": 250
+    },
+    {
+      "id": 5,
+      "size": 260
+    },
+    {
+      "id": 6,
+      "size": 270
+    },
+    {
+      "id": 7,
+      "size": 280
+    },
+    {
+      "id": 8,
+      "size": 290
+    },
+    {
+      "id": 9,
+      "size": 300
+    }
+  ],
+  "color": [
+    {
+      "id": 1,
+      "color": "black"
+    },
+    {
+      "id": 2,
+      "color": "brown"
+    },
+    {
+      "id": 3,
+      "color": "gray"
+    }
+  ]
+}
