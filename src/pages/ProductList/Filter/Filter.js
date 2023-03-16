@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FilterSizeButton from '../FilterSizeButton/FilterSizeButton';
 
 const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const colorArr = searchParams.getAll('color');
+  useEffect(() => {
+    searchParams.delete('size');
+    searchParams.delete('color');
+    setSearchParams(searchParams);
+  }, []);
+
   const setColor = (value, e) => {
-    if (e.target.value) {
+    if (colorArr.indexOf(value) === -1) {
       searchParams.append('color', value);
       setSearchParams(searchParams);
     } else {
