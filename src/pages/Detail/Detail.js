@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const price = 260000;
 
 const Detail = () => {
+  // const params = useParams();
+  // const userId = params.id
+
+  // const [user, setUser] = useState();
+  // useEffect(()=>{
+  //   fetch()
+  // },[]);
+
   const [detailData, setDetailData] = useState({
     name: '',
     productId: '',

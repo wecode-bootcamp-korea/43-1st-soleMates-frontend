@@ -4,27 +4,33 @@ import './ProductList.scss';
 import ProductListImage from './ProductListImage/ProductListImage';
 
 const ProductList = () => {
-  const [data, setData] = useState('');
+  // const [data, setData] = useState([]);
+  const [getData, setGetData] = useState([]);
+  const price = parseInt(getData.price);
 
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch('http://10.58.52.169:3000/products?categoryname="슈즈"', {
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(response => response.json())
-      .then(data => setData(data));
+      .then(data => setGetData(data.data));
   }, []);
-
+  console.log(getData.price);
   return (
     <div className="product_list">
       {/* {CATEGORY.map(({ id, category }) => (
         <h1 className="title">{category}</h1>
       ))} */}
 
-      <h1 className="title">슈즈</h1>
+      <h1 className="title">{getData[0]?.categories}</h1>
       <div className="product_list_function">
         <div className="product_list_box">
           <div className="product_list_filter">필터 </div>
           <div className="product_count">
             <span>
-              총<strong className="product_total_count">8</strong>
+              총<strong className="product_total_count">9</strong>
               개의 상품
             </span>
           </div>
@@ -37,31 +43,43 @@ const ProductList = () => {
         </div>
       </div>
       <div className="product_main">
-        <Filter />
+        <Filter setGetData={setGetData} />
 
         <div className="list_container">
-          {data &&
-            data.map(
+          {getData &&
+            getData.map(
               ({
                 id,
-                color,
-                setColor,
-                image,
-                title,
+                name,
                 price,
-                discount,
-                discountRate,
+                categories,
+                image_url,
+
+                // id,
+                // color,
+                // setColor,
+                // image,
+                // title,
+                // price,,
+                // discount,
+                // discountRate,
               }) => {
                 return (
                   <ProductListImage
                     key={id}
-                    setColor={setColor}
-                    color={color}
-                    image={image}
-                    title={title}
+                    id={id}
+                    name={name}
                     price={price}
-                    discount={discount}
-                    discountRate={discountRate}
+                    categories={categories}
+                    image_url={image_url}
+                    // key={id}
+                    // setColor={setColor}
+                    // color={color}
+                    // image={image}
+                    // title={title}
+                    // price={price}
+                    // discount={discount}
+                    // discountRate={discountRate}
                   />
                 );
               }
