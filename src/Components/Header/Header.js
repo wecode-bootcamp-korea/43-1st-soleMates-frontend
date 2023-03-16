@@ -7,12 +7,10 @@ import './Header.scss';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
-
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.pageYOffset;
       const threshold = 100; // 스크롤 위치를 지정합니다.
-
       if (setIsSticky(scrollTop > threshold)) {
         setIsSticky(true);
       }

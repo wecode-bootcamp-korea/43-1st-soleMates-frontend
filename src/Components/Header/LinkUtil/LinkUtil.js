@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './LinkUtil.scss';
 
 const LinkUtil = props => {
   const { icoClass, icoName, typeCart } = props;
-  const [totalCart, setTotalCart] = useState(99);
+  const [cartList, setCartList] = useState([]);
+  const [totalCart, setTotalCart] = useState(0);
+
+  useEffect(() => {
+    cartList.forEach(item => {
+      const count = item.quantity;
+      setTotalCart(prev => prev + count);
+    });
+  }, [cartList]);
 
   const navigate = useNavigate();
-  const saveUserAccount = localStorage.getItem('token', '로그인 상태');
+  const saveUserAccount = localStorage.getItem('token');
+
+  const alertMsg = {
+    장바구니: { truePath: '/login', falsePath: '/cart' },
+    찜목록: { truePath: '/signup', falsePath: '#' },
+  };
 
   const handleAccount = () => {
     if (icoName === '로그인') {
@@ -22,24 +35,31 @@ const LinkUtil = props => {
           return;
         }
       }
-    } else if (icoName === '장바구니') {
-      // 장바구니 로직
+    } else {
       if (saveUserAccount === null) {
-        alert('회원만 사용이 가능합니다.');
-        navigate('/login');
+        alert('회원만 사용이 가능합니다!');
+        navigate(alertMsg[icoName].truePath);
       } else {
-        navigate('/cart');
-      }
-    } else if (icoName === '찜목록') {
-      // 찜 목록 로직
-      if (saveUserAccount === null) {
-        alert('회원만 사용이 가능합니다.');
-        navigate('/signup');
-      } else {
-        navigate('#none');
+        navigate(alertMsg[icoName].falsePath);
       }
     }
   };
+
+  useEffect(() => {
+    // fetch 요청 전문 예시
+    fetch('http://10.58.52.182:8000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8', //필수로 넣어야함
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc4OTQ4OTQyfQ.CsY8PxffY2f894nIuun8q-xepQm3UBOT_EX0r2SAr2o',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setCartList(data.cartData);
+      });
+  }, []);
 
   return (
     <button
