@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Account.scss';
 
 const Account = () => {
@@ -36,7 +36,7 @@ const Account = () => {
   const signUp = event => {
     if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
       event.preventDefault();
-      fetch('http://10.58.52.182:3000/users/signup', {
+      fetch('http://10.58.52.169:3000/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -62,7 +62,7 @@ const Account = () => {
 
   const logIn = event => {
     event.preventDefault();
-    fetch('http://10.58.52.182:3000/users/signin', {
+    fetch('http://10.58.52.169:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -86,33 +86,42 @@ const Account = () => {
   const submit = location.pathname === '/login' ? logIn : signUp;
 
   return (
-    <form className="account">
-      <strong className="title">
-        {location.pathname === '/login' ? '로그인' : '회원가입'}
-      </strong>
-      {currentPage.map(({ id, title, type, name, placeholder }) => {
-        return (
-          <div className="input_box" key={id}>
-            <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
-              {title}
-            </label>
-            <input
-              name={name}
-              className="input"
-              type={type}
-              autoComplete={name.includes('pw') ? 'off' : undefined}
-              onChange={handleInput}
-              value={inputValues[name]}
-              placeholder={placeholder}
-            />
-          </div>
-        );
-      })}
+    <>
+      <form className="account">
+        <strong className="title">
+          {location.pathname === '/login' ? '로그인' : '회원가입'}
+        </strong>
+        {currentPage.map(({ id, title, type, name, placeholder }) => {
+          return (
+            <div className="input_box" key={id}>
+              <label className={`input_${conditions[name] ? 'title' : 'warn'}`}>
+                {title}
+              </label>
+              <input
+                name={name}
+                className="input"
+                type={type}
+                autoComplete={name.includes('pw') ? 'off' : undefined}
+                onChange={handleInput}
+                value={inputValues[name]}
+                placeholder={placeholder}
+              />
+            </div>
+          );
+        })}
 
-      <button onClick={submit} type="submit" className="account_button">
-        {location.pathname === '/login' ? '로그인' : '회원가입'}
-      </button>
-    </form>
+        <button onClick={submit} type="submit" className="account_button">
+          {location.pathname === '/login' ? '로그인' : '회원가입'}
+        </button>
+      </form>
+      <strong>
+        {location.pathname === '/login' && (
+          <Link className="sign_up" to="/signup">
+            회원가입
+          </Link>
+        )}
+      </strong>
+    </>
   );
 };
 
@@ -144,6 +153,18 @@ const SIGNUP_DATA = [
 ];
 
 const LOGIN_DATA = [
-  { id: 1, title: '이메일', type: 'email', name: 'email' },
-  { id: 2, title: '비밀번호', type: 'password', name: 'pw' },
+  {
+    id: 1,
+    title: '이메일',
+    type: 'email',
+    name: 'email',
+    placeholder: '이메일',
+  },
+  {
+    id: 2,
+    title: '비밀번호',
+    type: 'password',
+    name: 'pw',
+    placeholder: '비밀번호',
+  },
 ];
