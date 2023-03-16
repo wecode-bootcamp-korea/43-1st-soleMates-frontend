@@ -11,7 +11,6 @@ const Header = () => {
     function handleScroll() {
       const scrollTop = window.pageYOffset;
       const threshold = 100; // 스크롤 위치를 지정합니다.
-
       if (setIsSticky(scrollTop > threshold)) {
         setIsSticky(true);
       }
