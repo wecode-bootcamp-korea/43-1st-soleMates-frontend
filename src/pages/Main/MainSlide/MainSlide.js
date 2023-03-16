@@ -62,7 +62,7 @@ const MainSlide = props => {
 export default MainSlide;
 
 const slides = [
-  { id: 1, img_url: '../images/Main/@bnr_1440x900.jpeg' },
+  { id: 1, img_url: '../images/Main/@bnr_1440x900.png' },
   { id: 2, img_url: '../images/Main/@bnr2_1440x900.png' },
-  { id: 3, img_url: '../images/Main/@bnr3_1440x900.png' },
+  { id: 3, img_url: '../images/Main/@bnr4_1440x900.jpg' },
 ];

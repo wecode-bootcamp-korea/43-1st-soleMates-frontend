@@ -15,7 +15,7 @@ const Main = () => {
       <BnrPublic
         title="RUN STAR LEGACY C"
         txt="굉장히 편안한 쿠셔닝과 가벼운 앵글 플랫폼의 미래 지향적인 스타일로 기존 루틴에 변화를 준 새로운 컬러의 스니커즈"
-        img="../images/Main/@bnr_720x900.gif"
+        img="../images/Main/@bnr_720x900.png"
         btn="구매하기"
         link="/detail/1"
       />
