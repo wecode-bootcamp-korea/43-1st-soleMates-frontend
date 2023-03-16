@@ -1,7 +1,25 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import FilterSizeButton from '../FilterSizeButton/FilterSizeButton';
 
 const Filter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setColor = (value, e) => {
+    if (e.target.value) {
+      searchParams.append('color', value);
+      setSearchParams(searchParams);
+    } else {
+      const search = searchParams.getAll('color');
+      searchParams.delete('color');
+      search
+        .filter(list => list !== value)
+        .forEach(value => {
+          searchParams.append('color', value);
+        });
+      setSearchParams(searchParams);
+    }
+  };
+
   return (
     <div className="filter">
       <div className="filter_box">
@@ -46,11 +64,12 @@ const Filter = () => {
             </label>
             <ul className="filter_color_button">
               {COLOR_BUTTON.map(({ id, color }) => (
-                <li className="filter_color_button_record">
+                <li className="filter_color_button_record" key={id}>
                   <button
                     className={`filter_color_button_record_${color}`}
                     type="button"
-                    key={id}
+                    onClick={e => setColor(color, e)}
+                    value={color}
                   />
                 </li>
               ))}
