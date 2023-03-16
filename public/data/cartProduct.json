@@ -1,0 +1,32 @@
+[
+  {
+    "userId": 4,
+    "userName": "testname",
+    "cartId": 6,
+    "productId": 9,
+    "productName": "누벅",
+    "quantity": 1,
+    "productPrice": "145000.0000",
+    "productImage": null
+  },
+  {
+    "userId": 4,
+    "userName": "testname",
+    "cartId": 5,
+    "productId": 9,
+    "productName": "누벅",
+    "quantity": 2,
+    "productPrice": "145000.0000",
+    "productImage": null
+  },
+  {
+    "userId": 4,
+    "userName": "testname",
+    "cartId": 4,
+    "productId": 9,
+    "productName": "헤헤헤",
+    "quantity": 2,
+    "productPrice": "145000.0000",
+    "productImage": "/images/Product/@thumb_266x334.png"
+  }
+]
