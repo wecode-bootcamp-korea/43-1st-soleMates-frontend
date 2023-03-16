@@ -14,7 +14,7 @@ const Detail = () => {
   });
   const params = useParams();
   const productId = params.id;
-  console.log(productId);
+  // console.log(productId);
   // const { price: currentPrice, ...productInfo } = detailData;
   const totalPrice = price * detailData.quantity;
 
@@ -147,7 +147,7 @@ const Detail = () => {
       .then(response => response.json())
       .then(data => setData(data.data[0]));
   }, [productId]);
-  console.log(fetchData);
+  console.log(cartModal);
 
   // useEffect(() => {
   //   const newData = data.size.map(data => ({ ...data, soldout: false }));

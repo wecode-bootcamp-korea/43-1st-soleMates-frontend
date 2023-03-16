@@ -6,7 +6,7 @@ const ModalToCart = props => {
   const cart = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://10.58.52.169:8000/carts', {
+      fetch('http://10.58.52.169:3000/carts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -20,7 +20,7 @@ const ModalToCart = props => {
       });
     }
   };
-  // console.log(productData);
+  console.log(productData);
   return (
     <>
       <div onClick={close} className="modal_to_cart" />

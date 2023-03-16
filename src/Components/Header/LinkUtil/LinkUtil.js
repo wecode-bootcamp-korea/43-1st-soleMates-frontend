@@ -59,7 +59,6 @@ const LinkUtil = props => {
         setCartList(data.cartData);
       });
   }, [setCartList]);
-  console.log(cartList);
 
   return (
     <button
