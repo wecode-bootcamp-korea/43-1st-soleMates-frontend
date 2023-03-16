@@ -6,7 +6,7 @@ const ModalToCart = props => {
   const cart = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://10.58.52.182:8000/carts', {
+      fetch('http://10.58.52.169:8000/carts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

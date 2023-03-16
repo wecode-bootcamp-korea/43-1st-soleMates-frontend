@@ -22,7 +22,7 @@ const Detail = () => {
     ...detailData,
     price: totalPrice,
     name: data.name,
-    productId: data.id,
+    productId: params.id,
   };
   // console.log(fetchData);
   const [like, setLike] = useState('off');
@@ -147,7 +147,7 @@ const Detail = () => {
       .then(response => response.json())
       .then(data => setData(data.data[0]));
   }, [productId]);
-  console.log(detailData);
+  console.log(fetchData);
 
   // useEffect(() => {
   //   const newData = data.size.map(data => ({ ...data, soldout: false }));
