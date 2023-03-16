@@ -19,7 +19,7 @@ const ProductListImage = ({
 
   // 장바구니에 추가
   const addCart = () => {
-    console.log(selectedSize);
+    // console.log(selectedSize);
     // 보낼 데이터 추가 -> size : selectedSize
     // fetch('http://http://10.58.52.169:3000/products', {
     //   method: 'POST',

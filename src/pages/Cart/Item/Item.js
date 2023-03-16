@@ -24,7 +24,7 @@ const ItemCount = ({
     count(e.target.value);
   }
 
-  const total = productPrice * count; // 총 가격
+  const total = parseInt(productPrice) * count; // 총 가격
   const commaTotal = total.toLocaleString();
 
   useEffect(() => {
@@ -35,10 +35,10 @@ const ItemCount = ({
     const className = e.target.className;
     if (className.indexOf('ico_plus') !== -1) {
       setCount(count + 1);
-      setTotalPrice(prev => (prev += productPrice));
+      setTotalPrice(prev => (prev += parseInt(productPrice)));
     } else if (className.indexOf('minus') !== -1 && count > 1) {
       setCount(count - 1);
-      setTotalPrice(prev => (prev -= productPrice));
+      setTotalPrice(prev => (prev -= parseInt(productPrice)));
     }
   };
 

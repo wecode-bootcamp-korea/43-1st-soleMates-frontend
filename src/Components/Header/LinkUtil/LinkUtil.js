@@ -7,14 +7,13 @@ const LinkUtil = props => {
   const [cartList, setCartList] = useState([]);
   const [totalCart, setTotalCart] = useState(0);
 
-  const params = useParams();
-
   useEffect(() => {
     cartList.forEach(item => {
       const count = item.quantity;
       setTotalCart(prev => prev + count);
     });
   }, [cartList]);
+  console.log(cartList);
 
   const navigate = useNavigate();
   const saveUserAccount = localStorage.getItem('token');
@@ -46,24 +45,21 @@ const LinkUtil = props => {
       }
     }
   };
-  // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc4OTQ4OTQyfQ.CsY8PxffY2f894nIuun8q-xepQm3UBOT_EX0r2SAr2o'
   useEffect(() => {
-    const saveUserAccount2 = localStorage.getItem('token_header');
-    console.log(saveUserAccount2);
-
     // fetch 요청 전문 예시
-    fetch('http://10.58.52.182:8000/carts', {
+    fetch('http://10.58.52.169:3000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8', //필수로 넣어야함
-        Authorization: saveUserAccount2,
+        Authorization: saveUserAccount,
       },
     })
       .then(response => response.json())
       .then(data => {
         setCartList(data.cartData);
       });
-  }, []);
+  }, [setCartList]);
+  console.log(cartList);
 
   return (
     <button
