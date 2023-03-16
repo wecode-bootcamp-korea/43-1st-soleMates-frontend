@@ -21,22 +21,22 @@ const ProductListImage = ({
   const addCart = () => {
     console.log(selectedSize);
     // 보낼 데이터 추가 -> size : selectedSize
-    fetch('http://', {
-      // method: 'POST',
-      // headers:{token,contentsType}
-      // body:{
-      //   id:id,
-      //   size:selectedSize
-      // }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data) {
-          // navigate('/cart');
-        } else {
-          alert('다시 시도해주세요!');
-        }
-      });
+    // fetch('http://http://10.58.52.169:3000/products', {
+    //   method: 'POST',
+    //   headers:{token,contentsType}
+    //   body :{
+    //     id:id,
+    //     size:selectedSize
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     if (data) {
+    //       navigate('/cart');
+    //     } else {
+    //       alert('다시 시도해주세요!');
+    //     }
+    //   });
   };
 
   return (

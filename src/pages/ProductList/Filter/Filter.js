@@ -63,12 +63,9 @@ const Filter = () => {
           <div className="filter_box_color">
             <label>
               <br />
-              <input
-                className="filter_color"
-                name="filter_color"
-                type="checkbox"
-              />
-              색 상
+              <div className="filter_color" name="filter_color" type="checkbox">
+                색 상
+              </div>
             </label>
             <ul className="filter_color_button">
               {COLOR_BUTTON.map(({ id, color }) => (

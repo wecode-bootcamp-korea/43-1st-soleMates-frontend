@@ -14,7 +14,11 @@ const ProductList = () => {
 
   return (
     <div className="product_list">
-      <h1 className="title">카테고리</h1>
+      {/* {CATEGORY.map(({ id, category }) => (
+        <h1 className="title">{category}</h1>
+      ))} */}
+
+      <h1 className="title">슈즈</h1>
       <div className="product_list_function">
         <div className="product_list_box">
           <div className="product_list_filter">필터 </div>
@@ -69,3 +73,9 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+const CATEGORY = [
+  { id: 1, category: '슈즈' },
+  { id: 2, category: '부츠' },
+  { id: 3, category: '샌들' },
+];
