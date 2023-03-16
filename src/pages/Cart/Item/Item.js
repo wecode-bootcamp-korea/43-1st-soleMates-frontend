@@ -12,7 +12,6 @@ const ItemCount = ({
   productList,
   setProductList,
   checkList,
-  setCheckList,
   setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
@@ -50,6 +49,7 @@ const ItemCount = ({
 
   const isChecked = checkList[productList.length - 1];
 
+  console.log(count);
   return (
     <li key={cartId}>
       <ItemChoice checkId={`checkBox${cartId}`} isChecked={isChecked} />
