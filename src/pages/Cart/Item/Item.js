@@ -48,8 +48,6 @@ const ItemCount = ({
   }
 
   const isChecked = checkList[productList.length - 1];
-
-  console.log(count);
   return (
     <li key={cartId}>
       <ItemChoice checkId={`checkBox${cartId}`} isChecked={isChecked} />

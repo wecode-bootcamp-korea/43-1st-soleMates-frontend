@@ -10,8 +10,11 @@ const Cart = () => {
   const userId = params.id;
   const [user, setUser] = useState({});
 
+  // const saveUserAccount2 = localStorage.getItem('token');
+  // console.log(saveUserAccount2);
+
   useEffect(() => {
-    fetch(`http://10.58.52.182:8000/carts/${userId}`, {
+    fetch(`http://10.58.52.182:8000/carts`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -23,7 +26,7 @@ const Cart = () => {
       .then(data => {
         setProductList(data.cartData);
       });
-  }, [userId]);
+  }, []);
   return (
     <div className="cart">
       <h2 className="tit_cart">
