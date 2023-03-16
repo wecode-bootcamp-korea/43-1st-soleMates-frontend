@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ModalToCart.scss';
 
 const ModalToCart = props => {
   const { imgData, close, productData } = props;
-
+  const cart = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      fetch('http://10.58.52.182:8000/carts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          productId: productData.productId,
+          quantity: productData.quantity,
+          price: productData.price,
+        }),
+      });
+    }
+  };
+  console.log(productData);
   return (
     <>
       <div onClick={close} className="modal_to_cart" />
@@ -37,14 +54,14 @@ const ModalToCart = props => {
             <div className="order_info_size"> 사이즈: {productData.size}</div>
             <div className="order_info_price">
               가격 :{' '}
-              {productData.totalPrice
+              {productData.price
                 .toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
             </div>
           </div>
         </div>
         <div>
-          <button onClick={close} className="shopping_basket_button">
+          <button onClick={cart} className="shopping_basket_button">
             장바구니 확인
           </button>
           <button onClick={close} className="shopping_button">

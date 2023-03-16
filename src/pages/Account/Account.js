@@ -43,7 +43,6 @@ const Account = () => {
         .then(response => response.json())
         .then(data => {
           if (data.message === 'SUCCESS_SIGNUP') {
-            localStorage.setItem('token', data.token);
             alert('회원가입 성공');
             navigate('/login');
           }
