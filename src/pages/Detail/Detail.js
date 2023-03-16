@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ModalToCart from './ModalToCart';
 import './Detail.scss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Detail = () => {
   const [data, setData] = useState([]);
@@ -12,7 +12,9 @@ const Detail = () => {
     size: '',
     color: '',
   });
-
+  const params = useParams();
+  const productId = params.id;
+  console.log(productId);
   // const { price: currentPrice, ...productInfo } = detailData;
   const totalPrice = price * detailData.quantity;
 
@@ -139,11 +141,13 @@ const Detail = () => {
     setReviewData(review => ({ ...review, rating: rating + 1 }));
   };
   useEffect(() => {
-    fetch('http://10.58.52.169:3000/products/detail/1', { method: 'GET' })
+    fetch(`http://10.58.52.169:3000/products/detail/${productId}`, {
+      method: 'GET',
+    })
       .then(response => response.json())
       .then(data => setData(data.data[0]));
-  }, []);
-  console.log(data);
+  }, [productId]);
+  console.log(detailData);
 
   // useEffect(() => {
   //   const newData = data.size.map(data => ({ ...data, soldout: false }));
