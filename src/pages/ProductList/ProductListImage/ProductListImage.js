@@ -13,10 +13,6 @@ const ProductListImage = ({ id, name, price, categories, image_url }) => {
   // 장바구니에 추가
 
   const addCart = () => {
-<<<<<<< HEAD
-    // console.log(selectedSize);
-=======
->>>>>>> 206009f0464a9e4eb64bb26362add5f47904cd45
     // 보낼 데이터 추가 -> size : selectedSize
     fetch('http://http://10.58.52.169:3000/carts', {
       method: 'POST',
