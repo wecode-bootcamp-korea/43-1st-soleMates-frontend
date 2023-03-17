@@ -1,7 +1,7 @@
 export const CATE_LIST = [
   {
     id: 1,
-    link: '#none',
+    link: 'products',
     txt: '슈즈',
     submenu: [
       {

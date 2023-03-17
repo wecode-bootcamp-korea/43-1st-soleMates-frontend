@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WrapInfo = props => {
-  const { title, price, discount, discountRate } = props;
+  const { id, name, price, categories, image_url } = props;
 
   return (
-    <div className="wrap_info">
-      <span className="list_title">{title}</span>
-      <span className="list_price"> {price.toLocaleString()}</span>
-      <span className="list_discount">{discount.toLocaleString()}원</span>
-      <span className="list_discount_rate">{discountRate}</span>
-    </div>
+    <Link to="/detail/3" className="wrap_info">
+      <span className="list_title">{name}</span>
+      <span className="list_image" />
+      <span className="list_price"> {parseInt(price).toLocaleString()}</span>
+      {/* <span className="list_discount">{discount.toLocaleString()}원</span>
+      <span className="list_discount_rate">{discountRate}</span> */}
+    </Link>
   );
 };
 
