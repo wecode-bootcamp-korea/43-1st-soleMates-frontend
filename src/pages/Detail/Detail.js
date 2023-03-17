@@ -38,7 +38,7 @@ const Detail = () => {
     productId: '',
     name: '',
   };
-  // console.log(newReviewData);
+  console.log(newReviewData);
   // console.log(reviewData);
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
@@ -97,7 +97,6 @@ const Detail = () => {
     if (tokenDetail) {
       // setArrReview(reviewList => [...reviewList, review]);
       setReview('');
-      console.log(tokenDetail);
       fetch('http://10.58.52.169:3000/reviews', {
         method: 'POST',
         headers: {
@@ -147,12 +146,8 @@ const Detail = () => {
       .then(response => response.json())
       .then(data => setData(data.data[0]));
   }, [productId]);
-  console.log(cartModal);
-
-  // useEffect(() => {
-  //   const newData = data.size.map(data => ({ ...data, soldout: false }));
-  //   setData(newData);
-  // }, []);
+  // console.log(data.images);
+  console.log(reviewData);
 
   return (
     <>
@@ -345,22 +340,22 @@ export default Detail;
 const IMG_LIST = [
   {
     id: 1,
-    src: 'images/ProductDetail/productlist.png',
+    src: '/images/ProductDetail/productlist.png',
     color: 'Black',
   },
   {
     id: 2,
-    src: 'images/ProductDetail/red.png',
+    src: '/images/ProductDetail/red.png',
     color: 'Red',
   },
   {
     id: 3,
-    src: 'images/ProductDetail/yellowboots.jpg',
+    src: '/images/ProductDetail/yellowboots.jpg',
     color: 'Yellow',
   },
   {
     id: 4,
-    src: 'images/ProductDetail/product1.jpg',
-    color: 'Navy',
+    src: '/images/ProductDetail/product1.jpg',
+    color: 'Dark Navy',
   },
 ];
