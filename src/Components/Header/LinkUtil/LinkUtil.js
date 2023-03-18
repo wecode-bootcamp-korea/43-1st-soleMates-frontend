@@ -12,8 +12,7 @@ const LinkUtil = props => {
       const count = item.quantity;
       setTotalCart(prev => prev + count);
     });
-  }, [cartList]);
-  console.log(cartList);
+  }, []);
 
   const navigate = useNavigate();
   const saveUserAccount = localStorage.getItem('token');

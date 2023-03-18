@@ -43,7 +43,9 @@ const Account = () => {
         .then(response => response.json())
         .then(data => {
           if (data.message === 'SUCCESS_SIGNUP') {
+            event.preventDefault();
             alert('회원가입 성공');
+            setInputValues({ name: '', email: '', pw: '', pwCorrect: '' });
             navigate('/login');
           }
         });
