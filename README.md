@@ -65,6 +65,6 @@ Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.s
 | Login | 테스트2 | 홍태훈 |
 | SinUp | 테스트2 | 홍태훈 |
 | Main | - 상단 탑 배너 케러셀<br />- 카테고리를 상수데이터 이용하여, 카테고리, 중분류, 소분류<br />- 헤더에 장바구니 담긴상품 수량 표시<br />- 로그아웃 기능구현<br />- 회원만 장바구니, 찜하기 가능하도록 구현<br />- 메인 슬라이드 케러셀 | 김수미 |
-| List | 테스트2 | 이기태 |
+| List | - Map 매서드를 이용해서 product list 화면 구현<br />- Product image에 좋아요 버튼 구현<br />- Product image 마우스 호버시 장바구니 버튼 구현<br />- 장바구니 버튼 클릭시장바구니 모달창 생성 구현<br />- 장바구니 모달창에서 제품 사이즈 선택<br />- 필터에서 사이즈, 색깔 선택시 Query String  이용해서 구현 | 이기태 |
 | Detail | 테스트2 | 홍태훈 |
 | Cart | - 수량증가<br />- 삭제버튼<br />- 총 가격<br />- 총 수량<br />- 장바구니에 담긴상품이 없을때 빈 페이지 | 김수미 |
