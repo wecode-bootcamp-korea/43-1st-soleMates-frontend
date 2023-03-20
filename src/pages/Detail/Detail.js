@@ -91,13 +91,13 @@ const Detail = () => {
   const navigate = useNavigate();
 
   const post = event => {
-    event.preventDefault();
+    // event.preventDefault();
     const tokenDetail = localStorage.getItem('token', data.token);
 
     if (tokenDetail) {
       // setArrReview(reviewList => [...reviewList, review]);
       setReview('');
-      fetch('http://10.58.52.169:3000/reviews', {
+      fetch('http://10.58.52.94:3000/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -117,14 +117,15 @@ const Detail = () => {
     }
   };
   // console.log(newReviewData);
+  // console.log(reviewData);
   useEffect(() => {
-    fetch('http://10.58.52.169:3000/reviews/product/1', {
+    fetch('http://10.58.52.94:3000/reviews/product/1', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
     })
       .then(response => response.json())
       .then(data => setGetReviewData(data.data));
-  }, [arrReview]);
+  }, [reviewData]);
 
   // console.log(getReviewData);
   const decreaseStar = event => {
@@ -140,14 +141,14 @@ const Detail = () => {
     setReviewData(review => ({ ...review, rating: rating + 1 }));
   };
   useEffect(() => {
-    fetch(`http://10.58.52.169:3000/products/detail/${productId}`, {
+    fetch(`http://10.58.52.94:3000/products/detail/${productId}`, {
       method: 'GET',
     })
       .then(response => response.json())
       .then(data => setData(data.data[0]));
   }, [productId]);
   // console.log(data.images);
-  console.log(reviewData);
+  console.log(arrReview);
 
   return (
     <>
@@ -253,6 +254,7 @@ const Detail = () => {
 
           {cartModal && (
             <ModalToCart
+              data={data}
               imgData={IMG_LIST}
               productData={fetchData}
               close={closeCartModal}
@@ -308,6 +310,15 @@ const Detail = () => {
               </li>
             );
           })}
+          {/* {arrReview.map((review, index) => (
+            <li className="user_review_list" key={index}>
+              <div className="review_info">
+                <span className="user_name">홍태훈</span>
+                <span className={`ico_shop ico_star${rating}`}>별점</span>
+              </div>
+              <div>{review}</div>
+            </li>
+          ))} */}
         </ul>
         <form className="create_review">
           <input
@@ -356,6 +367,6 @@ const IMG_LIST = [
   {
     id: 4,
     src: '/images/ProductDetail/product1.jpg',
-    color: 'Dark Navy',
+    color: 'Navy',
   },
 ];

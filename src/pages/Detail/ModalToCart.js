@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ModalToCart.scss';
 
 const ModalToCart = props => {
-  const { imgData, close, productData } = props;
+  const navigate = useNavigate;
+  const { data, imgData, close, productData } = props;
   const cart = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://10.58.52.169:3000/carts', {
+      fetch('http://10.58.52.94:3000/carts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -18,6 +20,9 @@ const ModalToCart = props => {
           price: productData.price,
         }),
       });
+    }
+    if (data.message === 'SUCCESSFULLY_CREATE_CART') {
+      navigate('/cart');
     }
   };
   console.log(productData);

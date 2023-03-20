@@ -51,6 +51,7 @@ const Account = () => {
         .then(data => {
           if (data.message === 'SUCCESS_SIGNUP') {
             alert('회원가입 성공');
+            setInputValues({ name: '', email: '', pw: '', pwCorrect: '' });
             navigate('/login');
           }
         });
@@ -61,7 +62,7 @@ const Account = () => {
 
   const logIn = event => {
     event.preventDefault();
-    fetch('http://10.58.52.169:3000/users/signin', {
+    fetch('http://10.58.52.94:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

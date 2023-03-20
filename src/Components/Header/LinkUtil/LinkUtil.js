@@ -21,7 +21,6 @@ const LinkUtil = props => {
     장바구니: { truePath: '/login', falsePath: '/cart' },
     찜목록: { truePath: '/signup', falsePath: '#' },
   };
-
   const handleAccount = () => {
     if (icoName === '로그인') {
       // 로그인 로직
