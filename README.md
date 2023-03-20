@@ -48,6 +48,16 @@ Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.s
 - 장바구니
 
 #### 💾 back-end
+| Page | Skill | name |
+|------|---|---|
+| ERD | 테스트2 | 최원식, 김승태 |
+| ERD기반 테이블 생성	 | 테스트2 | 최원식, 김승태 |
+| Login | 테스트2 | 김승태 |
+| SinUp | 테스트2 | 김승태 |
+| List | 테스트2 | 최원식 |
+| Detail | 테스트2 | 최원식 |
+| Cart | 테스트2 | 김승태 |
+
 
 #### 🖥️ Front-end
 | Page | Skill | name |
