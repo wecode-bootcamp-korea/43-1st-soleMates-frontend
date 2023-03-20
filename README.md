@@ -5,7 +5,10 @@
 
 #### ⭐️ 프로젝트 결과 영상
 
-<로고사진 넣기>
+![IMG_0422](https://user-images.githubusercontent.com/89458455/226306034-81f03632-bd96-4ab8-86a4-532c25fad44f.GIF)
+![IMG_0423](https://user-images.githubusercontent.com/89458455/226306078-13850f26-4a7d-4078-9e1e-009346769278.GIF)
+![IMG_0424](https://user-images.githubusercontent.com/89458455/226306141-6c3009b1-a9fb-4f5c-b7f4-0ce728861f12.GIF)
+
 
 #### 🗓 Project기간
 
