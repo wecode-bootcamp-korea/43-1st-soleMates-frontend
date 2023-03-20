@@ -51,12 +51,11 @@ Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.s
 | Page | Skill | name |
 |------|---|---|
 | ERD | 테스트2 | 최원식, 김승태 |
-| ERD기반 테이블 생성	 | 테스트2 | 최원식, 김승태 |
-| Login | 테스트2 | 김승태 |
+| ERD기반<br />테이블 생성	 | - mysql 및 dbmate를 활용한 테이블 생성	 | 최원식, 김승태 |
+| Login<br />SinUp | - 정규표현식을 활용한 email, password 유효성 검사<br />- Bcrypt를 사용한 비밀번호 암호화<br />- 암호화된 비밀번호 복호화하여 확인 후 jwt 토큰 발급<br />- 페이지에 인가 API에 적용 | 김승태 |
 | SinUp | 테스트2 | 김승태 |
-| List | 테스트2 | 최원식 |
-| Detail | 테스트2 | 최원식 |
-| Cart | 테스트2 | 김승태 |
+| List<br />Detail | - 상품 리스트 Read<br />- 상품 리스트 페이지 Category, Size, Color 필터 기능<br />- 상품 상세 페이지 상품 Read<br />- 상품 상세 페이지 리뷰 Create<br />- 상품 상세 페이지 리뷰 Read | 최원식 |
+| Cart | - 장바구니 Creat<br />- 장바구니 Read<br />- 장바구니 Update<br />- 장바구니 Delete<br /> | 김승태 |
 
 
 #### 🖥️ Front-end
