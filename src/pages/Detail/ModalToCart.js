@@ -4,7 +4,7 @@ import './ModalToCart.scss';
 
 const ModalToCart = props => {
   const navigate = useNavigate;
-  const { data, imgData, close, productData } = props;
+  const { imgData, close, productData } = props;
   const cart = () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -20,12 +20,11 @@ const ModalToCart = props => {
           price: productData.price,
         }),
       });
-    }
-    if (data.message === 'SUCCESSFULLY_CREATE_CART') {
+
       navigate('/cart');
     }
   };
-  // console.log(productData);
+
   return (
     <>
       <div onClick={close} className="modal_to_cart" />
