@@ -14,7 +14,7 @@ const ProductListImage = ({ id, name, price, categories, image_url }) => {
 
   const addCart = () => {
     // 보낼 데이터 추가 -> size : selectedSize
-    fetch('http://http://10.58.52.169:3000/carts', {
+    fetch('http://http://10.58.52.94:3000/carts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

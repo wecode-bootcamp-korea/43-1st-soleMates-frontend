@@ -29,7 +29,7 @@ const Account = () => {
   const signUp = event => {
     if (name.length >= 2 && pwCheck && pwCorrect === pw && checkEmail) {
       event.preventDefault();
-      fetch('http://10.58.52.169:3000/users/signup', {
+      fetch('http://10.58.52.94:3000/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -55,7 +55,7 @@ const Account = () => {
   };
   const logIn = event => {
     event.preventDefault();
-    fetch('http://10.58.52.169:3000/users/signin', {
+    fetch('http://10.58.52.94:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

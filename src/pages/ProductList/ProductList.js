@@ -9,7 +9,7 @@ const ProductList = () => {
   const price = parseInt(getData.price);
 
   useEffect(() => {
-    fetch('http://10.58.52.169:3000/products?categoryname="슈즈"', {
+    fetch('http://10.58.52.94:3000/products?categoryname="슈즈"', {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
@@ -17,7 +17,7 @@ const ProductList = () => {
       .then(response => response.json())
       .then(data => setGetData(data.data));
   }, []);
-  console.log(getData.price);
+  // console.log(getData.price);
   return (
     <div className="product_list">
       {/* {CATEGORY.map(({ id, category }) => (

@@ -10,7 +10,7 @@ const Cart = () => {
   const saveUserAccount2 = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('http://10.58.52.169:3000/carts', {
+    fetch('http://10.58.52.94:3000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
