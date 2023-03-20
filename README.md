@@ -11,7 +11,7 @@
 ![상세페이지](https://user-images.githubusercontent.com/122140479/226307166-28190a97-dbc2-4f5d-9fe8-0d754de10cea.gif)
 ![상세페이지(2)](https://user-images.githubusercontent.com/122140479/226307272-f6022b92-3e12-4b22-b4f3-03f28fa83c66.gif)
 ![댓글기능](https://user-images.githubusercontent.com/122140479/226307292-5b3ed4b5-9afc-4bc7-9522-ba1a6fe48af2.gif)
-
+![상품리스트](https://user-images.githubusercontent.com/124991622/226310059-ea4aa0bf-2680-48e3-83a9-ae37b88da9c0.GIF)
 
 
 #### 🗓 Project기간
