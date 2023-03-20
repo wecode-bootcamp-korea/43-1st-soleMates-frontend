@@ -45,7 +45,7 @@ const ItemCount = ({
 
   function handleRemoveItem() {
     fetch(
-      `http://10.58.52.94:3000/carts?token=${saveUserAccount3}cartId=${cartId}`,
+      `http://10.58.52.94:3000/carts?token=${saveUserAccount3}&cartId=${cartId}`,
       {
         method: 'DELETE',
       }
