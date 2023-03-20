@@ -15,6 +15,7 @@ const ItemCount = ({
   setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
+  const saveUserAccount3 = localStorage.getItem('token');
 
   if (count < 1) {
     setCount(1);
@@ -43,8 +44,17 @@ const ItemCount = ({
   };
 
   function handleRemoveItem() {
+    fetch(
+      `http://10.58.52.94:3000/carts?token=${saveUserAccount3}&cartId=${cartId}`,
+      {
+        method: 'DELETE',
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        setProductList(productList.filter(item => item.cartId !== cartId));
+      });
     setTotalPrice(prev => (prev -= total));
-    setProductList(productList.filter(item => item.cartId !== cartId));
   }
 
   const isChecked = checkList[productList.length - 1];
