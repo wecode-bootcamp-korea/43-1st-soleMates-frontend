@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ModalToCart.scss';
 
 const ModalToCart = props => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const { imgData, close, productData } = props;
+  const { productId, quantity, price } = productData;
+
   const cart = () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -15,13 +17,18 @@ const ModalToCart = props => {
           Authorization: token,
         },
         body: JSON.stringify({
-          productId: productData.productId,
-          quantity: productData.quantity,
-          price: productData.price,
+          productId: productId,
+          quantity: quantity,
+          price: price,
         }),
-      });
-
-      navigate('/cart');
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message === 'SUCCESSFULLY_CREATE_CART') {
+            alert('상품이 담겼습니다.');
+            navigate('/cart');
+          }
+        });
     }
   };
 
