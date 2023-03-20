@@ -6,11 +6,47 @@ const LinkUtil = props => {
   const { icoClass, icoName, typeCart } = props;
   const [cartList, setCartList] = useState([]);
   const [totalCart, setTotalCart] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
+    cartList.forEach(item => {
+      const count = item.quantity;
+      setTotalCart(prev => prev + count);
+    });
+  }, []);
+
+  const navigate = useNavigate();
+  const saveUserAccount = localStorage.getItem('token');
+
+  const alertMsg = {
+    장바구니: { truePath: '/login', falsePath: '/cart' },
+    찜목록: { truePath: '/signup', falsePath: '#' },
+  };
+
+  const handleAccount = () => {
+    if (icoName === '로그인') {
+      // 로그인 로직
+      if (saveUserAccount === null) {
+        navigate('/login');
+      } else {
+        if (window.confirm('정말 로그아웃 하시겠습니까?')) {
+          localStorage.removeItem('token');
+          alert('로그아웃 되었습니다.');
+        } else {
+          return;
+        }
+      }
+    } else {
+      if (saveUserAccount === null) {
+        alert('회원만 사용이 가능합니다!');
+        navigate(alertMsg[icoName].truePath);
+      } else {
+        navigate(alertMsg[icoName].falsePath);
+      }
+    }
+  };
+  useEffect(() => {
     // fetch 요청 전문 예시
-    fetch('http://10.58.52.94:3000/carts', {
+    fetch('http://10.58.52.169:3000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8', //필수로 넣어야함
@@ -21,62 +57,7 @@ const LinkUtil = props => {
       .then(data => {
         setCartList(data.cartData);
       });
-  }, []);
-
-  useEffect(() => {
-    let count = 0;
-    cartList.forEach(item => {
-      count += item.quantity;
-    });
-    setTotalCart(count);
-  }, [cartList]);
-
-  const navigate = useNavigate();
-
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
-  const saveUserAccount = localStorage.getItem('token');
-
-  // const handleLogout = () => {
-  //   if (window.confirm('정말 로그아웃 하시겠습니까?')) {
-  //     localStorage.removeItem('token');
-  //     setIsLoggedIn(false);
-  //     alert('로그아웃 되었습니다.');
-  //   } else {
-  //     return;
-  //   }
-  // };
-
-  const alertMsg = {
-    장바구니: { truePath: '/login', falsePath: '/cart', isLoggedIn: true },
-    찜목록: { truePath: '/login', falsePath: '#', isLoggedIn: true },
-  };
-
-  const handleAccount = () => {
-    if (icoName === '로그인') {
-      if (!isLoggedIn) {
-        navigate('/login');
-        return;
-      } else if (isLoggedIn !== null) {
-        if (window.confirm('정말 로그아웃 하시겠습니까?')) {
-          setIsLoggedIn(localStorage.removeItem('token'));
-          alert('로그아웃 되었습니다.');
-          return;
-        } else {
-          return;
-        }
-      }
-    } else if (icoName) {
-      if (saveUserAccount === null) {
-        alert('회원만 사용이 가능합니다!');
-        navigate(alertMsg[icoName].truePath);
-      } else {
-        navigate(alertMsg[icoName].falsePath);
-      }
-    }
-  };
+  }, [setCartList]);
 
   return (
     <button
