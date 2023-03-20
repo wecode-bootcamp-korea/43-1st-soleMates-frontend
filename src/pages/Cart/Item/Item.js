@@ -15,6 +15,7 @@ const ItemCount = ({
   setTotalPrice,
 }) => {
   const [count, setCount] = useState(quantity);
+  const saveUserAccount3 = localStorage.getItem('token');
 
   if (count < 1) {
     setCount(1);
@@ -42,7 +43,6 @@ const ItemCount = ({
     }
   };
 
-  const saveUserAccount3 = localStorage.getItem('token');
   function handleRemoveItem() {
     fetch(
       `http://10.58.52.94:3000/carts?token=${saveUserAccount3}cartId=${cartId}`,
