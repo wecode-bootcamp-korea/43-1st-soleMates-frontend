@@ -25,7 +25,7 @@ const ModalToCart = props => {
       navigate('/cart');
     }
   };
-  console.log(productData);
+  // console.log(productData);
   return (
     <>
       <div onClick={close} className="modal_to_cart" />

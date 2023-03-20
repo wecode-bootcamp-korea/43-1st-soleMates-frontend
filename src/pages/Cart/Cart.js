@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import EmptyCart from './EmptyCart/EmptyCart';
 import GroupCart from './GroupCart/GroupCart';
 import './Cart.scss';
@@ -6,13 +7,14 @@ import './Cart.scss';
 const Cart = () => {
   const [productList, setProductList] = useState([]);
 
+  const saveUserAccount2 = localStorage.getItem('token');
+
   useEffect(() => {
-    fetch('http://10.58.52.182:8000/carts', {
+    fetch('http://10.58.52.94:3000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc4OTQ4OTQyfQ.CsY8PxffY2f894nIuun8q-xepQm3UBOT_EX0r2SAr2o',
+        Authorization: saveUserAccount2,
       },
     })
       .then(response => response.json())
@@ -20,6 +22,8 @@ const Cart = () => {
         setProductList(data.cartData);
       });
   }, []);
+  console.log(productList.length);
+
   return (
     <div className="cart">
       <h2 className="tit_cart">

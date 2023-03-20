@@ -4,39 +4,38 @@ import SizeButton from '../SizeButton/SizeButton';
 import { BTN_COLOR } from './BTN_COLOR';
 import './ProductListImage.scss';
 
-const ProductListImage = ({
-  id,
-  image,
-  title,
-  price,
-  discount,
-  discountRate,
-}) => {
+const ProductListImage = ({ id, name, price, categories, image_url }) => {
   const [color, setColor] = useState('');
   const [modal, setModal] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [selectedSize, setSelectedSize] = useState(0);
-
+  const [productList, setProductList] = useState([]);
   // 장바구니에 추가
+
   const addCart = () => {
-    console.log(selectedSize);
     // 보낼 데이터 추가 -> size : selectedSize
-    // fetch('http://http://10.58.52.169:3000/products', {
-    //   method: 'POST',
-    //   headers:{token,contentsType}
-    //   body :{
-    //     id:id,
-    //     size:selectedSize
-    //   }
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     if (data) {
-    //       navigate('/cart');
-    //     } else {
-    //       alert('다시 시도해주세요!');
-    //     }
-    //   });
+    fetch('http://http://10.58.52.94:3000/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc4OTQ4OTQyfQ.CsY8PxffY2f894nIuun8q-xepQm3UBOT_EX0r2SAr2o',
+      },
+      body: {
+        productId: id,
+        // quantity: quantity,
+        // price: price,
+        size: selectedSize,
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          setProductList('/carts');
+        } else {
+          alert('다시 시도해주세요!');
+        }
+      });
   };
 
   return (
@@ -61,7 +60,7 @@ const ProductListImage = ({
             </button>
           </div>
 
-          <img className="list_image" src={image} alt="product" />
+          <img className="list_image" src={image_url[0]} alt="product" />
           {isHover ? (
             <button
               className="product_list_cart"
@@ -99,21 +98,21 @@ const ProductListImage = ({
                     <div className="modal_box_product_image">
                       <img
                         className="modal_box_product_image_shot"
-                        src={image}
+                        src={image_url[0]}
                       />
                     </div>
                     <div className="modal_box_product_contents">
                       <h1 className="modal_box_product_contents_title">
-                        {title}
+                        {name}
                       </h1>
                       <p className="modal_box_product_contents_color">
-                        컬러 : 블랙(수정예정)
+                        컬러 : 블랙
                       </p>
                       <div className="modal_box_product_price">
                         가격
                         <p className="modal_box_product_price_wrapper">
                           <span className="modal_box_product_price_wrapper_in">
-                            {price.toLocaleString()}
+                            {parseInt(price).toLocaleString()}
                           </span>
                         </p>
                       </div>
@@ -176,10 +175,13 @@ const ProductListImage = ({
         )}
 
         <WrapInfo
-          title={title}
+          title={name}
           price={price}
-          discount={discount}
-          discountRate={discountRate}
+          name={name}
+          image_url={image_url}
+
+          // discount={discount}
+          // discountRate={discountRate}
         />
       </div>
     </div>

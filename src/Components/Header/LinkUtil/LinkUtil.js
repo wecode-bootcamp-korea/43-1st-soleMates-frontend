@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './LinkUtil.scss';
 
 const LinkUtil = props => {
@@ -8,10 +8,26 @@ const LinkUtil = props => {
   const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
+    // fetch 요청 전문 예시
+    fetch('http://10.58.52.94:3000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8', //필수로 넣어야함
+        Authorization: saveUserAccount,
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setCartList(data.cartData);
+      });
+  }, []);
+
+  useEffect(() => {
+    let count = 0;
     cartList.forEach(item => {
-      const count = item.quantity;
-      setTotalCart(prev => prev + count);
+      count += item.quantity;
     });
+    setTotalCart(count);
   }, [cartList]);
 
   const navigate = useNavigate();
@@ -43,22 +59,6 @@ const LinkUtil = props => {
       }
     }
   };
-
-  useEffect(() => {
-    // fetch 요청 전문 예시
-    fetch('http://10.58.52.182:8000/carts', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8', //필수로 넣어야함
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc4OTQ4OTQyfQ.CsY8PxffY2f894nIuun8q-xepQm3UBOT_EX0r2SAr2o',
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        setCartList(data.cartData);
-      });
-  }, []);
 
   return (
     <button

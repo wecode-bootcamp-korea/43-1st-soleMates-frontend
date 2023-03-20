@@ -14,7 +14,7 @@ const Detail = () => {
   });
   const params = useParams();
   const productId = params.id;
-
+  // console.log(productId);
   // const { price: currentPrice, ...productInfo } = detailData;
   const totalPrice = price * detailData.quantity;
 
@@ -29,16 +29,14 @@ const Detail = () => {
   const [check, setCheck] = useState('');
   const [cartModal, setCartModal] = useState(false);
   const [review, setReview] = useState('');
-  const [arrReview, setArrReview] = useState([]);
   const [rating, setRating] = useState(0);
   const [reviewData, setReviewData] = useState({});
   const [getReviewData, setGetReviewData] = useState([]);
-  const newReviewData = {
-    ...reviewData,
-    productId: '',
-    name: '',
-  };
-  console.log(newReviewData);
+  // const newReviewData = {
+  //   ...reviewData,
+  //   productId: '',
+  //   name: '',
+  // };
   // console.log(reviewData);
   const openModal = () => {
     if (check.includes(0) && !(detailData.color === '')) {
@@ -148,7 +146,6 @@ const Detail = () => {
       .then(data => setData(data.data[0]));
   }, [productId]);
   // console.log(data.images);
-  console.log(arrReview);
 
   return (
     <>
