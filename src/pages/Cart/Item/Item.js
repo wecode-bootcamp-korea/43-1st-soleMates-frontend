@@ -54,6 +54,7 @@ const ItemCount = ({
       .then(data => {
         setProductList(productList.filter(item => item.cartId !== cartId));
       });
+    setTotalPrice(prev => (prev -= total));
   }
 
   const isChecked = checkList[productList.length - 1];
