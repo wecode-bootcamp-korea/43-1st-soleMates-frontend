@@ -2,6 +2,9 @@
 ![wecode](https://user-images.githubusercontent.com/122140479/226254435-436a9a04-988c-4bee-967f-6761fb817f14.png)
 
 ---
+<br />
+<br />
+<br />
 
 #### ⭐️ 프로젝트 결과 영상
 
@@ -12,33 +15,46 @@
 ![상세페이지(2)](https://user-images.githubusercontent.com/122140479/226307272-f6022b92-3e12-4b22-b4f3-03f28fa83c66.gif)
 ![댓글기능](https://user-images.githubusercontent.com/122140479/226307292-5b3ed4b5-9afc-4bc7-9522-ba1a6fe48af2.gif)
 ![상품리스트](https://user-images.githubusercontent.com/124991622/226310059-ea4aa0bf-2680-48e3-83a9-ae37b88da9c0.GIF)
-
+<br />
+<br />
+<br />
 
 #### 🗓 Project기간
 
 2023/3/6 ~ 2023/3/17
+<br />
+<br />
+<br />
 
 #### 👩‍👧👨‍👨‍👦 팀 구성원 소개
 
 ##### Front-End
 
 김수미,이기태,홍태훈
-
+<br />
 ##### Back-End
 
 김승태,최원식
+<br />
+<br />
+<br />
 
 #### 📒 Git-hub repositories
 
 - <a href="https://github.com/wecode-bootcamp-korea/43-1st-soleMates-frontend">Front-end ropository</a>
 - <a href="https://github.com/wecode-bootcamp-korea/43-1st-soleMates-backend">Back-end repository</a>
+<br />
+<br />
+<br />
 
 #### 💻 기술 스택
 
 Frond-End <img alt="HTML5" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=flat-square&logo=HTML5&logoColor=white"/> <img alt="css3" src ="https://img.shields.io/badge/css3-1572B6.svg?&style=flat-square&logo=css3&logoColor=white"/> <img alt="JavaScript" src ="https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=flat-square&logo=JavaScript&logoColor=white"/> <img alt="React" src ="https://img.shields.io/badge/react-61DAFB.svg?&style=flat-square&logo=react&logoColor=white"/> <img alt="Sass" src ="https://img.shields.io/badge/sass-CC6699.svg?&style=flat-square&logo=sass&logoColor=white"/><br/>
 Back-End <img alt="Node.js" src ="https://img.shields.io/badge/Node.js-339933.svg?&style=flat-square&logo=Node.js&logoColor=white"/> <img alt="MySQL" src ="https://img.shields.io/badge/MySQL-4479A1.svg?&style=flat-square&logo=MySQL&logoColor=white"/> <img alt="JavaScript" src ="https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=flat-square&logo=JavaScript&logoColor=white"/> <img alt="Express.js" src ="https://img.shields.io/badge/Express.js-000000.svg?&style=flat-square&logo=Express.js&logoColor=white"/> <img alt="Nodemon" src ="https://img.shields.io/badge/Nodemon-76D04B.svg?&style=flat-square&logo=Nodemon&logoColor=white"/> <br/>
 Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.svg?&style=flat-square&logo=MySQL&logoColor=white"/> <img alt="Trello" src ="https://img.shields.io/badge/Trello-0052CC.svg?&style=flat-square&logo=Trello&logoColor=white"/>
-
+<br />
+<br />
+<br />
 #### 🔨 구현 사항 정리
 
 - 로그인 회원가입
@@ -47,16 +63,23 @@ Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.s
 - 상품 상세페이지
 - 장바구니
 
+
+<br />
+<br />
+<br />
+
 #### 💾 back-end
 | Page | Skill | name |
 |------|---|---|
-| ERD | ![68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313038363936373437363132383036373638352f313038363938383031373330383238373034362f756e7469746c65645f3732302e706e67](https://user-images.githubusercontent.com/89458455/226315088-66c1d020-eba1-4551-8670-886e471de7c4.png)
- | 최원식, 김승태 |
+| ERD | ![68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313038363936373437363132383036373638352f313038363938383031373330383238373034362f756e7469746c65645f3732302e706e67](https://user-images.githubusercontent.com/89458455/226315088-66c1d020-eba1-4551-8670-886e471de7c4.png) | 최원식, 김승태 |
 | ERD기반<br />테이블 생성	 | - mysql 및 dbmate를 활용한 테이블 생성	 | 최원식, 김승태 |
 | Login<br />SinUp | - 정규표현식을 활용한 email, password 유효성 검사<br />- Bcrypt를 사용한 비밀번호 암호화<br />- 암호화된 비밀번호 복호화하여 확인 후 jwt 토큰 발급<br />- 페이지에 인가 API에 적용 | 김승태 |
 | List<br />Detail | - 상품 리스트 Read<br />- 상품 리스트 페이지 Category, Size, Color 필터 기능<br />- 상품 상세 페이지 상품 Read<br />- 상품 상세 페이지 리뷰 Create<br />- 상품 상세 페이지 리뷰 Read | 최원식 |
 | Cart | - 장바구니 Creat<br />- 장바구니 Read<br />- 장바구니 Update<br />- 장바구니 Delete<br /> | 김승태 |
 
+<br />
+<br />
+<br />
 
 #### 🖥️ Front-end
 | Page | Skill | name |
