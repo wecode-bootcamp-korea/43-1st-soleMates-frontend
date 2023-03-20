@@ -8,6 +8,10 @@
 ![IMG_0422](https://user-images.githubusercontent.com/89458455/226306034-81f03632-bd96-4ab8-86a4-532c25fad44f.GIF)
 ![IMG_0423](https://user-images.githubusercontent.com/89458455/226306078-13850f26-4a7d-4078-9e1e-009346769278.GIF)
 ![IMG_0424](https://user-images.githubusercontent.com/89458455/226306141-6c3009b1-a9fb-4f5c-b7f4-0ce728861f12.GIF)
+![상세페이지](https://user-images.githubusercontent.com/122140479/226307166-28190a97-dbc2-4f5d-9fe8-0d754de10cea.gif)
+![상세페이지(2)](https://user-images.githubusercontent.com/122140479/226307272-f6022b92-3e12-4b22-b4f3-03f28fa83c66.gif)
+![댓글기능](https://user-images.githubusercontent.com/122140479/226307292-5b3ed4b5-9afc-4bc7-9522-ba1a6fe48af2.gif)
+
 
 
 #### 🗓 Project기간
