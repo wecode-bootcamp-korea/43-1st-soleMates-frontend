@@ -56,8 +56,6 @@ const ItemCount = ({
       });
   }
 
-  console.log(productList);
-
   const isChecked = checkList[productList.length - 1];
   return (
     <li key={cartId}>
