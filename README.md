@@ -50,3 +50,11 @@ Communication <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.s
 #### 💾 back-end
 
 #### 🖥️ Front-end
+| Page | Skill | name |
+|------|---|---|
+| Login | 테스트2 | 홍태훈 |
+| SinUp | 테스트2 | 홍태훈 |
+| Main | 테스트2 | 김수미 |
+| List | 테스트2 | 이기태 |
+| Detail | 테스트2 | 홍태훈 |
+| Cart | 테스트2 | 김수미 |
