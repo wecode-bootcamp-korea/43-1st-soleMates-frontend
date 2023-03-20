@@ -42,10 +42,21 @@ const ItemCount = ({
     }
   };
 
+  const saveUserAccount3 = localStorage.getItem('token');
   function handleRemoveItem() {
-    setTotalPrice(prev => (prev -= total));
-    setProductList(productList.filter(item => item.cartId !== cartId));
+    fetch(
+      `http://10.58.52.94:3000/carts?token=${saveUserAccount3}cartId=${cartId}`,
+      {
+        method: 'DELETE',
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        setProductList(productList.filter(item => item.cartId !== cartId));
+      });
   }
+
+  console.log(productList);
 
   const isChecked = checkList[productList.length - 1];
   return (

@@ -22,7 +22,6 @@ const Cart = () => {
         setProductList(data.cartData);
       });
   }, []);
-  console.log(productList.length);
 
   return (
     <div className="cart">
