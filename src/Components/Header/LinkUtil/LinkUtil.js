@@ -19,7 +19,7 @@ const LinkUtil = props => {
 
   const alertMsg = {
     장바구니: { truePath: '/login', falsePath: '/cart' },
-    찜목록: { truePath: '/signup', falsePath: '#' },
+    찜목록: { truePath: '/login', falsePath: '#' },
   };
   const handleAccount = () => {
     if (icoName === '로그인') {
